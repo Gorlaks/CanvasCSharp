@@ -1,0 +1,11 @@
+@import "./assets/styles/const.scss";
+@import "./assets/styles/mixin.scss";
+@import "./modules/main.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
