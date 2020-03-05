@@ -1,0 +1,15 @@
+.auth {
+	@include boxSize(100%, 100vh);
+	@include flexCenter();
+	background-color: #acacac;
+
+	&__switcher {
+		@include boxSize(400px, 80px);
+		background-color: #f39c12;
+	}
+
+	&__form {
+		@include boxSize(400px, 400px);
+		border: 1px solid #000;
+	}
+}

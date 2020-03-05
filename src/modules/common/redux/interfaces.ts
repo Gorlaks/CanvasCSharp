@@ -1,5 +1,5 @@
 export interface ICommonReducer {
-	test: boolean;
+	language: string;
 }
 
 export interface IReduxStore {

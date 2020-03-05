@@ -1,5 +1,4 @@
 import { createStore, combineReducers } from "redux";
-import { IReduxStore } from "./interfaces";
 
 let store: any = null;
 

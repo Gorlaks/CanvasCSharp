@@ -1,1 +1,1 @@
-export const REDUX_STORE_TEST = "REDUX_STORE_TEST";
+export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";

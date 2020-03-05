@@ -4,9 +4,9 @@ import * as types from "../../../../utils/reduxConstants";
 const CreateCommonReducer = (initialState: ICommonReducer) => {
 	const commonReducer = (state: ICommonReducer = initialState, action: any) => {
 		switch(action.type) {
-			case types.REDUX_STORE_TEST: return {
+			case types.CHANGE_LANGUAGE: return {
 				...state,
-				test: action.isPassed
+				language: action.language
 			};
 			default: return state;
 		}

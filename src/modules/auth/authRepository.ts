@@ -1,7 +1,7 @@
-import { ILoginRepository } from "./interfaces";
+import { IAuthRepository } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 
-class LoginRepository implements ILoginRepository {
+class AuthRepository implements IAuthRepository {
 	private apiClient: IApiClient;
 
 	constructor(apiClient: IApiClient) {
@@ -18,4 +18,4 @@ class LoginRepository implements ILoginRepository {
 	}
 }
 
-export default LoginRepository;
+export default AuthRepository;
