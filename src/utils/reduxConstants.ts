@@ -1,0 +1,1 @@
+export const REDUX_STORE_TEST = "REDUX_STORE_TEST";
