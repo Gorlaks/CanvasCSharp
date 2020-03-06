@@ -2,7 +2,7 @@
 
 namespace Canvas.Modules.Store
 {
-    public class InitStore
+    public class InitStore : IInitStore
     {
         private string ConnectionString = "mongodb+srv://admin:1234@cluster0-wqhlb.azure.mongodb.net/test?retryWrites=true&w=majority";
         private MongoClient Client;
