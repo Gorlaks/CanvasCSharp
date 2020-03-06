@@ -1,8 +1,14 @@
 import { IApiClient, IParams } from "./interfaces";
 
 class ApiClient implements IApiClient {
-	async sendRequest(params: IParams) {
-		const answer = await fetch("f", {
+	private url: string;
+
+	constructor(url: string) {
+		this.url = url;
+	}
+
+	async sendRequest(params: IParams, path: string) {
+		const answer = await fetch(`${this.url}${path}`, {
 			method: "GET",
 		})
 

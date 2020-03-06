@@ -4,5 +4,5 @@ export interface IParams {
 }
 
 export interface IApiClient {
-	sendRequest(params: IParams): Promise<any>;
+	sendRequest(params: IParams, path: string): Promise<any>;
 }
