@@ -3,6 +3,7 @@
 using Canvas.Modules.Store;
 using Canvas.Modules.Routing;
 using Canvas.Modules.Users;
+using Canvas.Modules.Canvas;
 
 using MongoDB.Driver;
 
@@ -12,24 +13,29 @@ namespace Canvas.Initialize
 {
     public static class Modules
     {
-        static public InitStore initStore;
-        static public IMongoDatabase store;
+        public static InitStore initStore;
+        public static IMongoDatabase store;
 
-        static public StoreRepository storeRepository;
-        static public UserRepository userRepository;
+        public static IStoreRepository storeRepository;
+        public static IUserRepository userRepository;
+        public static ICanvasRepository canvasRepository;
 
-        static public UserService userService;
+        public static IUserService userService;
+        public static ICanvasService canvasService;
 
-        static public Routing routing;
+        public static IRouting routing;
 
         public static void InitModules(IApplicationBuilder app)
         {
             initStore = new InitStore("Canvas");
             store = initStore.GetStore();
+
             storeRepository = new StoreRepository(store);
             userRepository = new UserRepository(store);
+            canvasRepository = new CanvasRepository(store);
 
             userService = new UserService(userRepository);
+            canvasService = new CanvasService(canvasRepository);
 
             routing = new Routing(app);
         }

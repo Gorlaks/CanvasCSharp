@@ -2,13 +2,20 @@
 
 using Canvas.Models;
 
+using MongoDB.Driver;
+
 namespace Canvas.Modules.Store
 {
-    interface IStoreRepository
+    public interface IStoreRepository
     {
     }
 
-    interface IStoreService
+    public interface IStoreService
     {
+    }
+
+    public interface IInitStore
+    {
+        IMongoDatabase GetStore();
     }
 }

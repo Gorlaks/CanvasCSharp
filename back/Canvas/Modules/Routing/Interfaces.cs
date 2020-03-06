@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Canvas.Modules.Routing
 {
-    interface IRouting
+    public interface IRouting
     {
         void CreateRoutes();
     }
