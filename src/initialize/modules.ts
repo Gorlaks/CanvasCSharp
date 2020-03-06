@@ -1,4 +1,5 @@
 import { container } from "tsyringe";
+import { url } from "../utils/constants";
 
 import LocalStorageApi from "../modules/common/storage/localStorageApi";
 import ApiClient from "../modules/common/apiClient/apiClient";
@@ -11,7 +12,7 @@ import LanguageService from "../modules/common/language/languageService";
 
 const initModules = (): void => {
 	const localStorageApi = new LocalStorageApi();
-	const apiClient = new ApiClient();
+	const apiClient = new ApiClient(url);
 
 	const authRepository = new AuthRepository(apiClient);
 	const languageRepository = new LanguageRepository();

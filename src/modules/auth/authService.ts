@@ -12,9 +12,13 @@ class AuthService implements IAuthService {
 
 	async login(login: string, password: string) {
 		const result = await this.authRepository.authentication(login, password);
-		if(result) {
+
+		if(result.error) {
+			throw result.error;
+		} else {
 			this.localStorageApi.setLocalData("userAuthData", result);
-		} else throw new Error("Incorrect data");
+		}
+		
 	}
 }
 

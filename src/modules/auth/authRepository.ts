@@ -9,10 +9,11 @@ class AuthRepository implements IAuthRepository {
 	}
 
 	async authentication(login: string, password: string) {
+		const path = `/login?&login=${login}&password=${password}`;
 		const result = await this.apiClient.sendRequest({
 			login,
 			password
-		})
+		}, path)
 
 		return result;
 	}

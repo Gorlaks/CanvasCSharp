@@ -3,5 +3,5 @@ export interface IAuthRepository {
 }
 
 export interface IAuthService {
-	login(login: string, password: string): void;
+	login(login: string, password: string): Promise<any>;
 }

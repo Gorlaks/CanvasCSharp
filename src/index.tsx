@@ -4,6 +4,7 @@ import "reflect-metadata";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import './index.scss';
+import 'antd/dist/antd.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import initStore from "./initialize/store";

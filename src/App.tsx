@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
+import { message } from "antd";
 
-import { routePaths } from "./utils/constants";
+import { RoutePath } from "./utils/constants";
 
 import Header from "./modules/header/header";
 import Auth from "./modules/auth/component/auth";
+
+message.config({
+  maxCount: 1
+})
 
 function App() {
 
@@ -16,7 +21,7 @@ function App() {
     <>
       <Header />
       <Switch>
-        <Route path={routePaths.authPath} component={Auth} />
+        <Route path={RoutePath.AUTH_PATH} component={Auth} />
       </Switch>
     </>
   );
