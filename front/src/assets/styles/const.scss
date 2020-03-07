@@ -1,8 +1,24 @@
-// auth page styles
-$inputBackgroundColor					:#ffffff;
-$inputBorderColor 						:#D9D9D9;
-$inputTextPlaceholderColor  	:rgba(0, 0, 0, 0.25);
+// common styles
 
-$buttonBackgroundColor 				:#1890FF;
-$buttonBackgroundColorHover 	:rgb(0, 132, 255);
-$buttonTextColor 							:#ffffff;
+$mainFontThin											: "Roboto-Thin";
+$mainFontLight										: "Roboto-Light";
+$mainFontRegular									: "Roboto-Regular";
+$mainFontMedium										: "Roboto-Medium";
+$mainFontBold											: "Roboto-Bold";
+$mainFontBlack										: "Roboto-Black";
+$spareFonts												: "Times New Roman", Times, serif;
+
+// auth page styles
+$inputBackgroundColor							:#ffffff;
+$inputBorderColor 								:#D9D9D9;
+$inputTextPlaceholderColor  			:rgba(0, 0, 0, 0.25);
+
+$buttonBackgroundColor 						:#1890FF;
+$buttonBackgroundColorHover 			:rgba(0, 132, 255, 1);
+$buttonTextColor 									:#ffffff;
+
+//user page styles
+
+$createButtonBackgroundColor  		:#1890FF;
+$createButtonBackgroundColorHover :rgba(0, 132, 255, 1);
+$createButtonTextColor  					:#ffffff;
