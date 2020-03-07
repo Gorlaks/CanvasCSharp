@@ -1,4 +1,4 @@
 export interface ILocalStorageApi {
-	getLocalData(key: string, defaultValue: string): JSON;
+	getLocalData(key: string, defaultValue: any): any;
 	setLocalData(key: string, value: any): void;
 }

@@ -27,6 +27,7 @@ namespace Canvas.Modules.Routing
                 {
                     User user = Initialize.Modules.userService.Login(login, password);
                     await context.Response.WriteAsync($"{{" +
+                        $"\"id\": \"{user._id}\"," +
                         $"\"login\": \"{user.login}\"," +
                         $"\"password\": \"{user.password}\"," +
                         $"\"email\": \"{user.email}\"" +
@@ -53,13 +54,13 @@ namespace Canvas.Modules.Routing
                 try
                 {
                     List<Models.Canvas> canvases = Initialize.Modules.canvasService.UserCanvases(userId);
-                    await context.Response.WriteAsync($"{{" +
+                    await context.Response.WriteAsync($"[{{" +
                         $"\"id\": \"{canvases[0]._id}\"," +
                         $"\"ownerId\": \"{canvases[0].ownerId}\"," +
                         $"\"title\": \"{canvases[0].title}\"," +
                         $"\"type\": \"{canvases[0].type}\"," +
                         $"\"date\": \"{canvases[0].date}\"" +
-                    $"}}");
+                    $"}}]");
                 }
                 catch
                 {

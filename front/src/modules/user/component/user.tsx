@@ -2,26 +2,33 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { LS } from "../../../utils/helpers";
-import { IReduxStore } from "../../common/redux/interfaces"
+import { IReduxStore, IUserAuthData, ICanvasList } from "../../common/redux/interfaces"
 
 import Panel from "./fragments/panel";
 import Table from "./fragments/table";
 
 const User = (props: {
-	language?: string
+	language: string,
+	userAuthData: IUserAuthData,
+	canvasList: Array<ICanvasList>
 }) => {
 	return (
 		<div className="user">
 			<p className="user__title">{LS("Canvas list")}</p>
 			<Panel />
-			<Table />
+			<Table
+				userAuthData={props.userAuthData}
+				canvasList={props.canvasList}
+			/>
 		</div>
 	)
 }
 
 const mapStateToProps = (state: IReduxStore) => {
 	return {
-		language: state.commonReducer.language
+		language: state.commonReducer.language,
+		userAuthData: state.userReducer.userAuthData,
+		canvasList: state.userReducer.canvasList
 	}
 }
 

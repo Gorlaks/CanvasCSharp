@@ -1,6 +1,8 @@
 import { IAuthRepository } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 
+import { UrlPath } from "../../utils/constants";
+
 class AuthRepository implements IAuthRepository {
 	private apiClient: IApiClient;
 
@@ -9,7 +11,7 @@ class AuthRepository implements IAuthRepository {
 	}
 
 	async authentication(login: string, password: string) {
-		const path = `/login?&login=${login}&password=${password}`;
+		const path = `${UrlPath.LOGIN}?&login=${login}&password=${password}`;
 		const result = await this.apiClient.sendRequest({
 			login,
 			password

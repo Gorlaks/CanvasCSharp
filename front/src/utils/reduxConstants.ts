@@ -1,1 +1,4 @@
 export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
+
+export const SET_USER_AUTH_DATA = "SET_USER_AUTH_DATA";
+export const SET_CANVAS_LIST = "SET_CANVAS_LIST";
