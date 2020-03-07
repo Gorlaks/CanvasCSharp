@@ -17,6 +17,7 @@ namespace Canvas.Modules.Routing
             App.Map("/home", routingActs.HomeRoute);
             App.Map("/login", routingActs.LoginRoute);
             App.Map("/registration", routingActs.RegistrationRoute);
+            App.Map("/userCanvases", routingActs.UserCanvasesRoute);
         }
     }
 }
