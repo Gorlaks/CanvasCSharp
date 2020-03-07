@@ -1,7 +1,7 @@
 import { ILocalStorageApi } from "./interfaces";
 
 class LocalStorageApi implements ILocalStorageApi {
-	getLocalData(key: string, defaultValue: string) {
+	getLocalData(key: string, defaultValue: any) {
 		const value: string = localStorage.getItem(key) || defaultValue;
 		try {
 			return JSON.parse(value);

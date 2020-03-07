@@ -8,5 +8,6 @@ export enum RoutePath {
 
 
 export enum UrlPath {
-	LOGIN = "/login"
+	LOGIN = "/login",
+	USER = "/userCanvases"
 }
