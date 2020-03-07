@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using MongoDB.Driver;
 
@@ -14,14 +15,18 @@ namespace Canvas.Modules.Canvas
             Store = store;
             Collection = store.GetCollection<Models.Canvas>("Canvas");
         }
-        public void GetCanvas()
+        public List<Models.Canvas> GetUserCanvases(string userId)
         {
-            throw new NotImplementedException();
+            List<Models.Canvas> result = Collection.Find(item => item.ownerId == userId).ToListAsync().Result;
+            return result;
         }
 
-        public void GetCanvases()
+        public List<Models.Canvas> GetAllCanvases()
         {
-            throw new NotImplementedException();
+            FilterDefinitionBuilder<Models.Canvas> builder = new FilterDefinitionBuilder<Models.Canvas>();
+            FilterDefinition<Models.Canvas> filter = builder.Empty;
+            List<Models.Canvas> result = Collection.Find(filter).ToListAsync().Result;
+            return result;
         }
     }
 }

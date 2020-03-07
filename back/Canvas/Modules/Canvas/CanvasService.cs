@@ -1,7 +1,7 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Canvas.Models;
+using MongoDB.Bson;
 
 namespace Canvas.Modules.Canvas
 {
@@ -12,6 +12,13 @@ namespace Canvas.Modules.Canvas
         public CanvasService(ICanvasRepository canvasRepository)
         {
             CanvasRepository = canvasRepository;
+        }
+
+        public List<Models.Canvas> UserCanvases(string userId)
+        {
+            List<Models.Canvas> canvases = CanvasRepository.GetUserCanvases(userId);
+            if (canvases.Count > 0) return canvases;
+            else throw new System.Exception("User don't have any canvases");
         }
     }
 }
