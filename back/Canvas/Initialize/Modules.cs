@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
 using Canvas.Modules.Store;
-using Canvas.Modules.Routing;
-using Canvas.Modules.Users;
+using Canvas.Modules.User;
 using Canvas.Modules.Canvas;
+using Canvas.Modules.Auth;
 
 using MongoDB.Driver;
 
@@ -22,8 +22,8 @@ namespace Canvas.Initialize
 
         public static IUserService userService;
         public static ICanvasService canvasService;
+        public static IAuthService authService;
 
-        public static IRouting routing;
 
         public static void InitModules(IApplicationBuilder app)
         {
@@ -36,8 +36,8 @@ namespace Canvas.Initialize
 
             userService = new UserService(userRepository);
             canvasService = new CanvasService(canvasRepository);
+            authService = new AuthService(userRepository);
 
-            routing = new Routing(app);
         }
     }
 }
