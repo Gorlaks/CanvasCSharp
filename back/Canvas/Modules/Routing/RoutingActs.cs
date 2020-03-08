@@ -51,16 +51,25 @@ namespace Canvas.Modules.Routing
             app.Run(async context => 
             {
                 string userId = context.Request.Query["userId"];
+                string answer = "[";
                 try
                 {
-                    List<Models.Canvas> canvases = Initialize.Modules.canvasService.UserCanvases(userId);
-                    await context.Response.WriteAsync($"[{{" +
-                        $"\"id\": \"{canvases[0]._id}\"," +
-                        $"\"ownerId\": \"{canvases[0].ownerId}\"," +
-                        $"\"title\": \"{canvases[0].title}\"," +
-                        $"\"type\": \"{canvases[0].type}\"," +
-                        $"\"date\": \"{canvases[0].date}\"" +
-                    $"}}]");
+                    List<Models.Canvas> canvasList = Initialize.Modules.canvasService.UserCanvases(userId);
+                    int index = 0;
+                    int lastIndex = canvasList.Count - 1;
+                    foreach(var item in canvasList)
+                    {
+                        answer += "{" +
+                            $"\"id\": \"{item._id}\", " +
+                            $"\"ownerId\": \"{item.ownerId}\", " +
+                            $"\"title\": \"{item.title}\", " +
+                            $"\"type\": \"{item.type}\", " +
+                            $"\"date\": \"{item.date}\"" +
+                        $"}}{(lastIndex != index ? ',' : ' ')}";
+                        index++;
+                    }
+                    answer += "]";
+                    await context.Response.WriteAsync(answer);
                 }
                 catch
                 {

@@ -47,4 +47,20 @@
 			background-color: $createButtonBackgroundColorHover;
 		}
 	}
+
+	&__table {
+		.ant-table-content {
+			.ant-table-tbody {
+				font-family: $mainFontRegular, $spareFonts;
+			}
+		}
+		thead {
+			tr {
+				.ant-table-cell {
+					font-family: $mainFontMedium, $spareFonts;
+					font-size: 14px;
+				}
+			}
+		}
+	}
 }
