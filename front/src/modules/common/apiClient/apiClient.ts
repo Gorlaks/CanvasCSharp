@@ -10,7 +10,7 @@ class ApiClient implements IApiClient {
 	async sendRequest(params: IParams, path: string) {
 		const answer = await fetch(`${this.url}${path}`, {
 			method: "GET",
-		})
+		});
 
 		return answer.json();
 	}

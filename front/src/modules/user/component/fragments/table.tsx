@@ -37,7 +37,7 @@ const Table = (props: {
 		}
 	];
 
-	let data: any = [];
+	let data: Array<Record<string, any>> = [];
 
 	props.canvasList.map((item, index) => {
 		data.push({
@@ -49,9 +49,9 @@ const Table = (props: {
 	})
 
 	return (
-		<>
+		<div className="user__table">
 			<AntTable columns={columns} dataSource={data} />
-		</>
+		</div>
 	)
 }
 
