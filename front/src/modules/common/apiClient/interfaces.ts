@@ -1,6 +1,7 @@
 export interface IParams {
 	login?: string;
 	password?: string;
+	userId?: string;
 }
 
 export interface IApiClient {

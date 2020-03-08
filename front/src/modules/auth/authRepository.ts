@@ -11,7 +11,7 @@ class AuthRepository implements IAuthRepository {
 	}
 
 	async authentication(login: string, password: string) {
-		const path = `${UrlPath.LOGIN}?&login=${login}&password=${password}`;
+		const path = `${UrlPath.LOGIN}`;
 		const result = await this.apiClient.sendRequest({
 			login,
 			password

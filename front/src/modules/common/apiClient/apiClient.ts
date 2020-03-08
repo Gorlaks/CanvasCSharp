@@ -9,7 +9,11 @@ class ApiClient implements IApiClient {
 
 	async sendRequest(params: IParams, path: string) {
 		const answer = await fetch(`${this.url}${path}`, {
-			method: "GET",
+			method: "POST",
+			body: JSON.stringify(params),
+			headers: {
+				"Content-Type": "application/json"
+			}
 		});
 
 		return answer.json();
