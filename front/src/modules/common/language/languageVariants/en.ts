@@ -4,6 +4,7 @@ const en = {
 	"Canvas": "Canvas",
 	"Create": "Create",
 	"Update": "Update",
+	"Edit": "Edit",
 
 	// auth page translate
 	"Login": "Login",
@@ -16,6 +17,7 @@ const en = {
 	"Last_update": "Last update",
 	"Template_type": "Template type",
 	"Actions": "Actions",
+	"Id is not found": "Id is not found",
 
 	// canvas page translate
 	"Consumer segments": "Consumer segments",

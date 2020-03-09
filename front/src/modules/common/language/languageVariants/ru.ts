@@ -4,6 +4,7 @@ const ru = {
 	"Canvas": "Канвас",
 	"Create": "Создать",
 	"Update": "Обновить",
+	"Edit": "Редактировать",
 
 	// auth page translate
 	"Login": "Логин",
@@ -16,6 +17,7 @@ const ru = {
 	"Last_update": "Последнее обновление",
 	"Template_type": "Тип шаблона",
 	"Actions": "Действия",
+	"Id is not found": "Не найдет идентификатор",
 
 	// canvas page translate
 	"Consumer segments": "Сегменты потребителей",
