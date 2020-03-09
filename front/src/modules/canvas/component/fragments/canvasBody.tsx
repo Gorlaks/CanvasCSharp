@@ -18,7 +18,7 @@ const CanvasBody = (props: {
 			{Object.keys(data).map((item, index) => {
 				const { position, title, content } = (data as any)[item];
 				const canvasItemStyles = {
-					gridArea: `${position[0]}/${position[2]}/${position[1]}/${position[3]}`
+					gridArea: `${position[0]}/${position[1]}/${position[2]}/${position[3]}`
 				}
 				return (
 					<div key={index} style={canvasItemStyles}>

@@ -28,5 +28,14 @@ namespace Canvas.Modules.Canvas
             List<Models.Canvas> result = Collection.Find(filter).ToListAsync().Result;
             return result;
         }
+
+        public Models.Canvas GetCanvasById(string userId, string canvasId)
+        {
+            Models.Canvas canvas = Collection.Find(item => 
+                item._id == canvasId && item.ownerId == userId)
+                    .ToListAsync().Result[0];
+
+            return canvas;
+        }
     }
 }
