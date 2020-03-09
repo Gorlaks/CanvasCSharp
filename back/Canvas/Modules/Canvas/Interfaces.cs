@@ -7,6 +7,7 @@ namespace Canvas.Modules.Canvas
     {
         List<Models.Canvas> GetUserCanvases(string userId);
         List<Models.Canvas> GetAllCanvases();
+        Models.Canvas GetCanvasById(string userId, string canvasId);
     }
     public interface ICanvasService
     {
