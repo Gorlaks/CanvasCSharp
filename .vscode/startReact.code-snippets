@@ -1,0 +1,17 @@
+{
+	"start of react file": {
+		"scope": "javascript, typescript, typescriptreact, javascriptreact",
+		"prefix": "startReact",
+		"body": [
+			"import React from \"react\";\n",
+			"const ${1:Component} = () => {",
+				"\treturn (",
+					"\t\t<>\n\t\t",
+					"\t\t</>",
+				"\t)",
+			"}\n",
+			"export default ${1:Component};"
+		],
+		"description": "make import, class and export of react file"
+	}
+}

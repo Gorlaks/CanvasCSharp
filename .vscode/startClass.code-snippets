@@ -1,0 +1,14 @@
+{
+	"start of class file": {
+		"scope": "javascript, typescript, typescriptreact, javascriptreact",
+		"prefix": "startClass",
+		"body": [
+			"import {  } from \"./interfaces\";\n",
+			"class ${1:Component} {",
+				"",
+			"}\n",
+			"export default ${1:Component};"
+		],
+		"description": "make import, class and export of class file"
+	}
+}
