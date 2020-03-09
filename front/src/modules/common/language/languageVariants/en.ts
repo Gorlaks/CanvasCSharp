@@ -18,7 +18,16 @@ const en = {
 	"Actions": "Actions",
 
 	// canvas page translate
-	"Enter_canvas_name": "Enter canvas name"
+	"Enter_canvas_name": "Enter canvas name",
+	"What are our customers willing to pay for? What are they paying for now? How do they pay? What is the share of each of the flows in the total income?": "What are our customers willing to pay for? What are they paying for now? How do they pay? What is the share of each of the flows in the total income?",
+	"What key resources do we need to create core values?": "What key resources do we need to create core values?",
+	"Who are we working for? Who is the most important customer for us?": "Who are we working for? Who is the most important customer for us?",
+	"What customer problems do we solve? What is valuable in our offer?": "What customer problems do we solve? What is valuable in our offer?",
+	"What channels do our customers want to receive our values through?": "What channels do our customers want to receive our values through?",
+	"What is our relationship with each of the segments? How are they integrated?": "What is our relationship with each of the segments? How are they integrated?",
+	"What key actions do we need to work? For distribution channels?": "What key actions do we need to work? For distribution channels?",
+	"Who are our key partners? Who are our key suppliers?": "Who are our key partners? Who are our key suppliers?",
+	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "What are the most important costs associated with a business model? Which key resources are the most expensive?"
 }
 
 export default en;

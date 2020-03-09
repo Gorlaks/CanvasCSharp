@@ -1,9 +1,8 @@
 import React from "react";
-import { newStrokeInTextArea, resizeContainer } from "../../../../utils/helpers"
-import { ICanvasData } from "../../../common/redux/interfaces";
+import { newStrokeInTextArea, resizeContainer, LS } from "../../../../utils/helpers"
 
 const CanvasBody = (props: {
-	canvasData: ICanvasData
+	canvasData: Record<string, any>
 }) => {
 
 	const { columns, rows, data } = props.canvasData;
@@ -15,17 +14,18 @@ const CanvasBody = (props: {
 
 	return (
 		<div className="canvas__body" style={canvasContentStyles}>
-			{Object.keys(data).map((item, index) => {
-				const { position, title, content } = (data as any)[item];
+			{props.canvasData.id && Object.keys(data).map((item, index) => {
+				const { position, title, content, description } = (data as any)[item];
 				const canvasItemStyles = {
 					gridArea: `${position[0]}/${position[1]}/${position[2]}/${position[3]}`
 				}
 				return (
 					<div key={index} style={canvasItemStyles}>
 						<p className="canvas__body__title">
-							{title}
+							{++index}. {title}
 						</p>
 						<textarea
+							placeholder={LS(description)}
 							defaultValue={content}
 							onKeyPress={newStrokeInTextArea}
 							onChange={resizeContainer}

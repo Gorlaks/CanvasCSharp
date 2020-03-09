@@ -3,11 +3,11 @@ import { LS } from "../../../../utils/helpers";
 import { PlusButton } from "../../../../assets/ui/ui";
 
 const CanvasHeader = (props: {
-	title: string,
-	type: string,
+	canvasData: Record<string, any>,
 	canvasActionType: string
 }) => {
-	const { title, type, canvasActionType } = props;
+	const { type } = props.canvasData;
+	const { canvasActionType } = props;
 	return (
 		<div className="canvas__header">
 			<div className="canvas__header__up">

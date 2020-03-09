@@ -30,9 +30,10 @@ export interface ICanvasList {
 }
 
 export interface ICanvasData {
+	id: string
 	title: string;
 	type: string;
 	columns: number;
 	rows: number;
-	data: Record<string, any>;
+	data: Array<Record<string, any>>;
 }

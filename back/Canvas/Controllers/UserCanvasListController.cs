@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Canvas.Controllers
@@ -10,10 +13,10 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(UserData data)
         {
-            string userId = data.userId;
-            string answer = "[";
             try
             {
+                string userId = data.userId;
+                string answer = "[";
                 List<Models.Canvas> canvasList = Initialize.Modules.canvasService.UserCanvases(userId);
                 int index = 0;
                 int lastIndex = canvasList.Count - 1;
@@ -31,9 +34,9 @@ namespace Canvas.Controllers
                 answer += "]";
                 return answer;
             }
-            catch
+            catch (Exception e)
             {
-                return "{\"error\": \"There is no canvases\"}";
+                return $"{{\"error\": \"{e}\"}}";
             }
         }
     }
