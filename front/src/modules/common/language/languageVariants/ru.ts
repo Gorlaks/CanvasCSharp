@@ -18,6 +18,15 @@ const ru = {
 	"Actions": "Действия",
 
 	// canvas page translate
+	"Consumer segments": "Сегменты потребителей",
+	"Key values": "Ключевые ценности",
+	"Channels": "Каналы",
+	"customer relationship": "Взаимоотношения с клиентами",
+	"Profit streams": "Потоки доходов",
+	"Key resources": "Ключевые ресурсы",
+	"Key acts": "Ключевые действия",
+	"Key partners": "Ключевые партнеры",
+	"Cost structure": "Структура расходов",
 	"Enter_canvas_name": "Введите название канваса",
 	"What are our customers willing to pay for? What are they paying for now? How do they pay? What is the share of each of the flows in the total income?": "За что наши клиенты готовы платить? За что они платят сейчас? Как они платят? Какова доля каждого из потоков в общей сумме дохода?",
 	"What key resources do we need to create core values?": "Какие ключевые ресурсы нам нужны для создания ключевых ценностей?",
