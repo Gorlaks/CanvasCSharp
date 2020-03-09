@@ -1,6 +1,9 @@
 const en = {
 	// common translate
 	"Wait": "...Подождите",
+	"Canvas": "Canvas",
+	"Create": "Create",
+	"Update": "Update",
 
 	// auth page translate
 	"Login": "Login",
@@ -8,12 +11,14 @@ const en = {
 	"Login_button": "Login",
 
 	// user page translate
-	"Canvas list": "Canvas list",
-	"Create": "Create",
+	"Canvas_list": "Canvas list",
 	"Title": "Title",
-	"Last update": "Last update",
-	"Template type": "Template type",
-	"Actions": "Actions"
+	"Last_update": "Last update",
+	"Template_type": "Template type",
+	"Actions": "Actions",
+
+	// canvas page translate
+	"Enter_canvas_name": "Enter canvas name"
 }
 
 export default en;

@@ -1,0 +1,58 @@
+.canvas {
+  padding: 0 10% 0 10%;
+  &__header {
+    @include boxSize(100%, 100px);
+    &__up {
+      @include boxSize(100%, 50px);
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .title {
+        font-family: $mainFontBold, $spareFonts;
+        font-size: 32px;
+      }
+      .type {
+        font-size: 20px;
+        font-family: $mainFontRegular, $spareFonts;
+        color: $canvasTypeTextColor;
+        margin: 0 0 0 10px;
+        padding: 6px 0 0 0;
+      }
+      button {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    &__low {
+      margin: 10px 0 0 0;
+      input {
+        @include defaultInputStyle();
+      }
+    }
+  }
+
+  &__body {
+    @include boxSize(100%, 100vh);
+    display: grid;
+
+    div {
+      padding: 20px 10px 20px 10px;
+      .canvas__body__title {
+        @include boxSize(100%, auto);
+        font-size: 22px;
+        font-family: $mainFontBold, $spareFonts;
+        text-align: center;
+      }
+
+      .canvas__body__content {
+        @include boxSize(100%, auto);
+        font-size: 15px;
+        font-family: $mainFontRegular, $spareFonts;
+        margin: 15px 0 0 0;
+        resize: none;
+      }
+    }
+  }
+}

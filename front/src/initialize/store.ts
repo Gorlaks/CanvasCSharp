@@ -1,10 +1,13 @@
 import { container } from "tsyringe";
 
+import { canvasActionType } from "../utils/constants";
+
 import { CreateStore } from "../modules/common/redux/store";
 import { ILocalStorageApi } from "../modules/common/storage/interfaces";
-import { ICommonReducer, IUserReducer } from "../modules/common/redux/interfaces";
+import { ICommonReducer, IUserReducer, ICanvasReducer } from "../modules/common/redux/interfaces";
 import CreateCommonReducer from "../modules/common/redux/reducers/createCommonReducer";
 import CreateUserReducer from "../modules/common/redux/reducers/createUserReducer";
+import CreateCanvasReducer from "../modules/common/redux/reducers/createCanvasReducer";
 
 
 const initStore = () => {
@@ -25,9 +28,14 @@ const initStore = () => {
 		},
 	}
 
+	const canvasReducerInitialState: ICanvasReducer = {
+		canvasActionType: canvasActionType.CREATE
+	}
+
 	const store = CreateStore({
 		commonReducer: CreateCommonReducer(commonReducerInitialState),
-		userReducer: CreateUserReducer(userReducerInitialState)
+		userReducer: CreateUserReducer(userReducerInitialState),
+		canvasReducer: CreateCanvasReducer(canvasReducerInitialState)
 	})
 	return store;
 }

@@ -7,15 +7,20 @@ export interface IUserReducer {
 	canvasList: Array<ICanvasList>;
 }
 
+export interface ICanvasReducer {
+	canvasActionType: string;
+}
+
 export interface IReduxStore {
 	commonReducer: ICommonReducer;
 	userReducer: IUserReducer;
+	canvasReducer: ICanvasReducer;
 }
 
 export interface IUserAuthData {
-	id: string,
-	login: string,
-	email: string
+	id: string;
+	login: string;
+	email: string;
 }
 
 export interface ICanvasList {
@@ -24,4 +29,12 @@ export interface ICanvasList {
 	title: string;
 	date: string;
 	type: string;
+}
+
+export interface ICanvasData {
+	title: string;
+	type: string;
+	columns: number;
+	rows: number;
+	data: Record<string, any>;
 }

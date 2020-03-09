@@ -24,11 +24,11 @@ const Table = (props: {
     	dataIndex: "title"
 		},
 		{
-			title: LS("Last update"),
+			title: LS("Last_update"),
     	dataIndex: "lastUpdate"
 		},
 		{
-			title: LS("Template type"),
+			title: LS("Template_type"),
     	dataIndex: "templateType"
 		},
 		{

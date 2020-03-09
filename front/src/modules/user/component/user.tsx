@@ -14,7 +14,7 @@ const User = (props: {
 }) => {
 	return (
 		<div className="user">
-			<p className="user__title">{LS("Canvas list")}</p>
+			<p className="user__title">{LS("Canvas_list")}</p>
 			<Panel />
 			<Table
 				userAuthData={props.userAuthData}

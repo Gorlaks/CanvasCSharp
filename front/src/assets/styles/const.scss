@@ -1,5 +1,4 @@
 // common styles
-
 $mainFontThin											: "Roboto-Thin";
 $mainFontLight										: "Roboto-Light";
 $mainFontRegular									: "Roboto-Regular";
@@ -7,6 +6,7 @@ $mainFontMedium										: "Roboto-Medium";
 $mainFontBold											: "Roboto-Bold";
 $mainFontBlack										: "Roboto-Black";
 $spareFonts												: "Times New Roman", Times, serif;
+$borderColor											:#c4c4c4;
 
 // auth page styles
 $inputBackgroundColor							:#ffffff;
@@ -22,3 +22,7 @@ $buttonTextColor 									:#ffffff;
 $createButtonBackgroundColor  		:#1890FF;
 $createButtonBackgroundColorHover :rgba(0, 132, 255, 1);
 $createButtonTextColor  					:#ffffff;
+
+// canvas page styles
+
+$canvasTypeTextColor							:#979797;
