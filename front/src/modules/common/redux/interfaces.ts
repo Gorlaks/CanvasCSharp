@@ -7,9 +7,7 @@ export interface IUserReducer {
 	canvasList: Array<ICanvasList>;
 }
 
-export interface ICanvasReducer {
-	canvasActionType: string;
-}
+export interface ICanvasReducer {}
 
 export interface IReduxStore {
 	commonReducer: ICommonReducer;

@@ -1,7 +1,5 @@
 import { container } from "tsyringe";
 
-import { canvasActionType } from "../utils/constants";
-
 import { CreateStore } from "../modules/common/redux/store";
 import { ILocalStorageApi } from "../modules/common/storage/interfaces";
 import { ICommonReducer, IUserReducer, ICanvasReducer } from "../modules/common/redux/interfaces";
@@ -28,9 +26,7 @@ const initStore = () => {
 		},
 	}
 
-	const canvasReducerInitialState: ICanvasReducer = {
-		canvasActionType: canvasActionType.CREATE
-	}
+	const canvasReducerInitialState: ICanvasReducer = {}
 
 	const store = CreateStore({
 		commonReducer: CreateCommonReducer(commonReducerInitialState),

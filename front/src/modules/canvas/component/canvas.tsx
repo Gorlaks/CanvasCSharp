@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { container } from "tsyringe";
 
 import { IReduxStore } from "../../common/redux/interfaces";
+import { ILocalStorageApi } from "../../common/storage/interfaces";
+import { RoutePath, CanvasActionType } from "../../../utils/constants";
 
 import CanvasHeader from "./fragments/canvasHeader";
 import CanvasBody from "./fragments/canvasBody";
 
 const Canvas = (props: {
-	language: string,
-	canvasActionType: string
+	language: string
 }) => {
-	
+	const history = useHistory();
+	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
+	const canvasActionType: string = localStorageApi.getLocalData("canvasActionType", null);
+
+	useEffect(() => {
+		if(
+			canvasActionType !== CanvasActionType.CREATE &&
+			canvasActionType !== CanvasActionType.UPDATE
+		) history.push(RoutePath.USER_PATH);
+	}, [])
+
 	const obj = {
 		title: "Canvas Title",
 		type: "Lean",
@@ -42,17 +55,15 @@ const Canvas = (props: {
 
 	return (
 		<div className="canvas">
-			<CanvasHeader title={obj.title} type={obj.type} canvasActionType={props.canvasActionType} />
+			<CanvasHeader title={obj.title} type={obj.type} canvasActionType={canvasActionType} />
 			<CanvasBody canvasData={obj} />
 		</div>
 	)
 }
 
 const mapStateToProps = (state: IReduxStore) => {
-	console.log(state)
 	return {
-		language: state.commonReducer.language,
-		canvasActionType: state.canvasReducer.canvasActionType
+		language: state.commonReducer.language
 	}
 }
 

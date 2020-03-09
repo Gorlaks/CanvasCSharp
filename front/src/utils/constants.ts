@@ -12,7 +12,7 @@ export enum UrlPath {
 	USER = "/userCanvases"
 }
 
-export enum canvasActionType {
+export enum CanvasActionType {
 	CREATE = "Create",
 	UPDATE = "Update"
 }
