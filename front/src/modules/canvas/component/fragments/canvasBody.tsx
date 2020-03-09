@@ -22,7 +22,7 @@ const CanvasBody = (props: {
 				return (
 					<div key={index} style={canvasItemStyles}>
 						<p className="canvas__body__title">
-							{++index}. {title}
+							{++index}. {LS(title)}
 						</p>
 						<textarea
 							placeholder={LS(description)}

@@ -4,6 +4,7 @@ const en = {
 	"Canvas": "Canvas",
 	"Create": "Create",
 	"Update": "Update",
+	"Edit": "Edit",
 
 	// auth page translate
 	"Login": "Login",
@@ -16,8 +17,18 @@ const en = {
 	"Last_update": "Last update",
 	"Template_type": "Template type",
 	"Actions": "Actions",
+	"Id is not found": "Id is not found",
 
 	// canvas page translate
+	"Consumer segments": "Consumer segments",
+	"Key values": "Key values",
+	"Channels": "Channels",
+	"customer relationship": "customer relationship",
+	"Profit streams": "Profit streams",
+	"Key resources": "Key resources",
+	"Key acts": "Key acts",
+	"Key partners": "Key partners",
+	"Cost structure": "Cost structure",
 	"Enter_canvas_name": "Enter canvas name",
 	"What are our customers willing to pay for? What are they paying for now? How do they pay? What is the share of each of the flows in the total income?": "What are our customers willing to pay for? What are they paying for now? How do they pay? What is the share of each of the flows in the total income?",
 	"What key resources do we need to create core values?": "What key resources do we need to create core values?",
