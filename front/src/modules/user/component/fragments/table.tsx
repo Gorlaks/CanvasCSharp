@@ -39,7 +39,7 @@ const Table = (props: {
 
 	let data: Array<Record<string, any>> = [];
 
-	props.canvasList.map((item, index) => {
+	props.canvasList.length && props.canvasList.map((item, index) => {
 		data.push({
 			key: index++,
 			title: item.title,

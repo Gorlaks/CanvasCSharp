@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { container } from "tsyringe";
 
-import { IReduxStore } from "../../common/redux/interfaces";
+import { IReduxStore, IUserAuthData } from "../../common/redux/interfaces";
 import { ILocalStorageApi } from "../../common/storage/interfaces";
 import { RoutePath, CanvasActionType } from "../../../utils/constants";
+import { ICanvasRepository } from "../interfaces";
 
 import CanvasHeader from "./fragments/canvasHeader";
 import CanvasBody from "./fragments/canvasBody";
@@ -15,48 +16,27 @@ const Canvas = (props: {
 }) => {
 	const history = useHistory();
 	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
+	const canvasRepository: ICanvasRepository = container.resolve("canvasRepository");
 	const canvasActionType: string = localStorageApi.getLocalData("canvasActionType", null);
+	const canvasId: string = localStorageApi.getLocalData("canvasId", null);
+	const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
+
+	const [canvasState, setCanvasState] = useState({});
 
 	useEffect(() => {
 		if(
 			canvasActionType !== CanvasActionType.CREATE &&
-			canvasActionType !== CanvasActionType.UPDATE
+			canvasActionType !== CanvasActionType.UPDATE ||
+			!canvasId
 		) history.push(RoutePath.USER_PATH);
+		canvasRepository.getCanvasById(userAuthData.id, canvasId)
+		.then(item => setCanvasState(item));
 	}, [])
-
-	const obj = {
-		title: "Canvas Title",
-		type: "Lean",
-		columns: 3,
-		rows: 1,
-		data: {
-			one: {
-				position: [1, 1, 1, 1],
-				title: "one",
-				content: "Hulu Mulu Blu"
-			},
-			two: {
-				position: [1, 1, 2, 3],
-				title: "two",
-				content: "Double Hulu Mulu Blu"
-			},
-			three: {
-				position: [1, 1, 3, 4],
-				title: "three",
-				content: "Double Hulu Mulu Blu"
-			},
-			four: {
-				position: [2, 2, 1, 4],
-				title: "four",
-				content: "Double Hulu Mulu Blu"
-			}
-		}
-	}
 
 	return (
 		<div className="canvas">
-			<CanvasHeader title={obj.title} type={obj.type} canvasActionType={canvasActionType} />
-			<CanvasBody canvasData={obj} />
+			<CanvasHeader canvasData={canvasState} canvasActionType={canvasActionType} />
+			<CanvasBody canvasData={canvasState} />
 		</div>
 	)
 }

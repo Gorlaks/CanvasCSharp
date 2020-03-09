@@ -25,5 +25,6 @@ namespace Canvas.Models
         public int[] position { get; set; }
         public string title { get; set; }
         public string content { get; set; }
+        public string description { get; set; }
     }
 }

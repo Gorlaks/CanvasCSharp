@@ -27,7 +27,8 @@ namespace Canvas.Controllers
                     blocksInfo += "{" +
                         $"\"position\": [{item.position[0]}, {item.position[1]}, {item.position[2]}, {item.position[3]}], " +
                         $"\"title\": \"{item.title}\", " +
-                        $"\"content\": \"{item.content}\" " +
+                        $"\"content\": \"{item.content}\", " +
+                        $"\"description\": \"{item.description}\" " +
                     $"}}{(countItems != index ? ',' : ' ')}";
                     index++;
                 }
