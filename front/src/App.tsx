@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     const userAuthData = localStorageApi.getLocalData("userAuthData", {});
-    const isAuthorized = Boolean(userAuthData.login);
+    const isAuthorized = Boolean(userAuthData.id);
     if(!isAuthorized) history.push("/auth");
   }, [])
 
