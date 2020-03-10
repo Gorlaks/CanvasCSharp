@@ -29,10 +29,23 @@
 				}
 			}
 		}
+
+		&__actions {
+			@include boxSize(100%, 22px);
+			display: flex;
+		}
+
 		&__action-btn {
 			background-color: transparent;
 			color: $buttonBackgroundColor;
 			cursor: pointer;
+		}
+
+		&__actions-separator {
+			@include boxSize(0.5px, 100%);
+			background-color: $separator;
+			margin: 0 10px;
+			opacity: 0.5;
 		}
 	}
 }
