@@ -19,7 +19,7 @@ const Login = (props: {
 	const [password, setPassword] = useState("");
 
 	const sendLogin = () => {
-		const loading = message.loading(LS("Wait"));
+		const loading = message.loading(LS("Loading"));
 		authService.login(login, password)
 		.then(() => history.push("/user"))
 		.catch((err: string) => message.error(err))

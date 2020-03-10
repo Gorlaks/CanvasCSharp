@@ -1,10 +1,11 @@
 const ru = {
 	// common translate
-	"Wait": "...Подождите",
+	"Loading": "...Загрузка",
 	"Canvas": "Канвас",
 	"Create": "Создать",
 	"Update": "Обновить",
 	"Edit": "Редактировать",
+	"Something_went_wrong": "Что-то пошло не так",
 
 	// auth page translate
 	"Login": "Логин",
@@ -18,6 +19,7 @@ const ru = {
 	"Template_type": "Тип шаблона",
 	"Actions": "Действия",
 	"Id is not found": "Не найдет идентификатор",
+	"Delete": "Удалить",
 
 	// canvas page translate
 	"Consumer segments": "Сегменты потребителей",

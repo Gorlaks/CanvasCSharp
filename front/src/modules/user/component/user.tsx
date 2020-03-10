@@ -26,6 +26,7 @@ const User = (props: {
 			<CreateCanvasModal
 				isOpened={createCanvasModalIsOpened}
 				setModalState={setCreateCanvasModalState}
+				userAuthData={props.userAuthData}
 			/>
 		</div>
 	)

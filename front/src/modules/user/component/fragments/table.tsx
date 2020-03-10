@@ -6,6 +6,7 @@ import { container } from "tsyringe";
 import { LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
 import { IUserService } from "../../interfaces";
+import { ICanvasService } from "../../../canvas/interfaces";
 import { IUserAuthData, ICanvasList } from "../../../common/redux/interfaces";
 import { ILocalStorageApi } from "../../../common/storage/interfaces";
 
@@ -16,6 +17,7 @@ const Table = (props: {
 }) => {
 	const history = useHistory();
 	const userService: IUserService = container.resolve("userService");
+	const canvasService: ICanvasService = container.resolve("canvasService");
 	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
 
 	useEffect(() => {
@@ -42,12 +44,24 @@ const Table = (props: {
 			render: (text: any, record: any) => {
 				return (
 					<>
-						<button className="user__table__edit-btn" onClick={() => {
+						<button className="user__table__action-btn" onClick={() => {
 							localStorageApi.setLocalData("canvasId", record.id);
 							const canvasId = localStorageApi.getLocalData("canvasId", null);
 							if(!canvasId) message.error(LS("Id is not found"));
 							else history.push(RoutePath.CANVAS_PATH)
 						}}>{LS("Edit")}</button>
+
+						<button className="user__table__action-btn" onClick={() => {
+							const loading = message.loading(LS("Loading"));
+							canvasService.deleteCanvas(props.userAuthData.id, record.id)
+							.then((item: {id: string}) => {
+								
+							})
+							.catch(() => message.error(LS("Something_went_wrong")))
+							.finally(() => loading());
+						}}>
+							{LS("Delete")}
+						</button>
 					</>
 				)
 			}
