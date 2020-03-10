@@ -26,7 +26,7 @@ const initModules = (): void => {
 	const authService = new AuthService(authRepository, localStorageApi);
 	const languageService = new LanguageService();
 	const userService = new UserService(userRepositroy);
-	const canvasService = new CanvasService();
+	const canvasService = new CanvasService(apiClient);
 
 	
 	container.register("languageRepository", { useValue: languageRepository });

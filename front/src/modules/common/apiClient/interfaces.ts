@@ -3,6 +3,8 @@ export interface IParams {
 	password?: string;
 	userId?: string;
 	canvasId?: string;
+	type?: string;
+	title?: string;
 }
 
 export interface IApiClient {

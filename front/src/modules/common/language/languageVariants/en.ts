@@ -1,10 +1,11 @@
 const en = {
 	// common translate
-	"Wait": "...Подождите",
+	"Loading": "...Loading",
 	"Canvas": "Canvas",
 	"Create": "Create",
 	"Update": "Update",
 	"Edit": "Edit",
+	"Something_went_wrong": "Something went wrong",
 
 	// auth page translate
 	"Login": "Login",
@@ -18,6 +19,7 @@ const en = {
 	"Template_type": "Template type",
 	"Actions": "Actions",
 	"Id is not found": "Id is not found",
+	"Delete": "Delete",
 
 	// canvas page translate
 	"Consumer segments": "Consumer segments",
