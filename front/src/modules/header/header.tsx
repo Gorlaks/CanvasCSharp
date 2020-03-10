@@ -1,14 +1,26 @@
 import React from "react";
 import { container } from "tsyringe";
+import { UserOutlined } from "@ant-design/icons";
 
 import { ILanguageService } from "../common/language/interfaces";
+import { ILocalStorageApi } from "../common/storage/interfaces";
 
 const Header = () => {
 	const languageService: ILanguageService = container.resolve("languageService");
+	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
+	const login = localStorageApi.getLocalData("userAuthData", {}).login;
 	return (
 		<div className="header">
-			<button onClick={() => languageService.changeLanguage("ru")}>ru</button>
-			<button onClick={() => languageService.changeLanguage("en")}>en</button>
+			<div className="header__languages">
+				<button onClick={() => languageService.changeLanguage("ru")}>ru</button>
+				<button onClick={() => languageService.changeLanguage("en")}>en</button>
+			</div>
+			<div className="header__user">
+				{login && <div className="header__user-wrapper">
+					<div><UserOutlined /></div>
+					<p>{login}</p>
+				</div>}
+			</div>
 		</div>
 	);
 };
