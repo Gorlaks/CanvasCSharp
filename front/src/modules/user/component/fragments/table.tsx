@@ -43,7 +43,7 @@ const Table = (props: {
 			dataIndex: "actions",
 			render: (text: any, record: any) => {
 				return (
-					<>
+					<div className="user__table__actions">
 						<button className="user__table__action-btn" onClick={() => {
 							localStorageApi.setLocalData("canvasId", record.id);
 							const canvasId = localStorageApi.getLocalData("canvasId", null);
@@ -51,18 +51,20 @@ const Table = (props: {
 							else history.push(RoutePath.CANVAS_PATH)
 						}}>{LS("Edit")}</button>
 
+						<div className="user__table__actions-separator"></div>
+
 						<button className="user__table__action-btn" onClick={() => {
 							const loading = message.loading(LS("Loading"));
 							canvasService.deleteCanvas(props.userAuthData.id, record.id)
 							.then((item: {id: string}) => {
-								
+								canvasService.setCanvasListAfterRemoving(item.id);
 							})
 							.catch(() => message.error(LS("Something_went_wrong")))
 							.finally(() => loading());
 						}}>
 							{LS("Delete")}
 						</button>
-					</>
+					</div>
 				)
 			}
 		}

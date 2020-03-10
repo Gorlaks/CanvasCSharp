@@ -6,7 +6,7 @@ const CanvasHeader = (props: {
 	canvasData: Record<string, any>,
 	canvasActionType: string
 }) => {
-	const { type } = props.canvasData;
+	const { title, type } = props.canvasData;
 	const { canvasActionType } = props;
 	return (
 		<div className="canvas__header">
@@ -16,7 +16,7 @@ const CanvasHeader = (props: {
 				<PlusButton text={LS(canvasActionType)} handleClick={() => {}} />
 			</div>
 			<div className="canvas__header__low">
-				<input type="text" placeholder={LS("Enter_canvas_name")}/>
+				<input type="text" placeholder={LS("Enter_canvas_name")} defaultValue={title}/>
 			</div>
 		</div>
 	)

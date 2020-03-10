@@ -1,5 +1,5 @@
 import { GetStore } from "../common/redux/store";
-import { ICanvasList } from "../common/redux/interfaces";
+import { ICanvasData } from "../common/redux/interfaces";
 import { ICanvasService } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 import * as types from "../../utils/reduxConstants";
@@ -26,9 +26,9 @@ class CanvasService implements ICanvasService {
     }, "/createCanvas");
   }
 
-  async setCanvasListAfterRemove(canvasId: string) {
+  async setCanvasListAfterRemoving(canvasId: string) {
     const canvasList = GetStore().getState().userReducer.canvasList
-    .filter((item: ICanvasList) => item.id !== canvasId);
+    .filter((item: ICanvasData) => item.id !== canvasId);
     await GetStore().dispatch({
       type: types.SET_CANVAS_LIST,
 			canvasList
