@@ -11,6 +11,10 @@ const ru = {
 	"Login": "Логин",
 	"Password": "Пароль",
 	"Login_button": "Войти",
+	"Email": "Почта",
+	"Registration_button": "Зарегистрироваться",
+	"Login_tab": "Авторизация",
+	"Registration_tab": "Регистрация",
 
 	// user page translate
 	"Canvas_list": "Список канвасов",
