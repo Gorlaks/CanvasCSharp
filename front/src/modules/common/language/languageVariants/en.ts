@@ -11,6 +11,10 @@ const en = {
 	"Login": "Login",
 	"Password": "Password",
 	"Login_button": "Login",
+	"Email": "Email",
+	"Registration_button": "Registration",
+	"Login_tab": "Login",
+	"Registration_tab": "Registration",
 
 	// user page translate
 	"Canvas_list": "Canvas list",
