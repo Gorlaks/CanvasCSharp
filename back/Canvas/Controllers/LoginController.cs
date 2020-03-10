@@ -19,7 +19,6 @@ namespace Canvas.Controllers
                 return $"{{" +
                      $"\"id\": \"{user._id}\"," +
                      $"\"login\": \"{user.login}\"," +
-                     $"\"password\": \"{user.password}\"," +
                      $"\"email\": \"{user.email}\"" +
                  $"}}";
             }
