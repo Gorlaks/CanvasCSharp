@@ -2,18 +2,12 @@
 	@include boxSize(100%, 100vh);
 	@include flexCenter();
 
-	&__switcher {
-		@include boxSize(100%, 80px);
+	* {
+		display: block;
 	}
 
 	&__form {
 		@include boxSize(368px, 400px);
-	}
-}
-
-.login {
-	* {
-		display: block;
 	}
 
 	&__filed {
@@ -24,7 +18,7 @@
 		box-sizing: border-box;
 		border-radius: 4px;
 		margin: 24px 0;
-		.login__icon {
+		.auth__icon {
 			@include boxSize(40px, 40px);
 			@include flexCenter();
 			.anticon {
@@ -51,3 +45,5 @@
 		background-color: $buttonBackgroundColorHover;
 	}
 }
+
+	
