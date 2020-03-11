@@ -28,11 +28,11 @@ namespace Canvas.Modules.Canvas
             else throw new System.Exception("User don't have any canvases");
         }
 
-        public string CreateCanvas(string userId, string canvasTitle, string type)
+        public string CreateCanvas(string ownerId, string canvasTitle, string type)
         {
             Models.Canvas canvas = new Models.Canvas
             {
-                ownerId = userId,
+                ownerId = ownerId,
                 title = canvasTitle,
                 type = type,
                 date = DateTime.Now,
@@ -56,7 +56,7 @@ namespace Canvas.Modules.Canvas
             }
         }
 
-        public string DleteCanvas(string userId, string canvasId)
+        public string DleteCanvas(string ownerId, string canvasId)
         {
             try
             {

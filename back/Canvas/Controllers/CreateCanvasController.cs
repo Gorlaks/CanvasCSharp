@@ -15,14 +15,14 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(CreateCanvasData data)
         {
-            string answer = Initialize.Modules.canvasService.CreateCanvas(data.userId, data.title, data.type);
+            string answer = Initialize.Modules.canvasService.CreateCanvas(data.ownerId, data.title, data.type);
             return answer;
         }
     }
 
     public class CreateCanvasData
     {
-        public string userId { get; set; }
+        public string ownerId { get; set; }
         public string title { get; set; }
         public string type { get; set; }
     }
