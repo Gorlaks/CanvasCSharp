@@ -36,7 +36,7 @@ namespace Canvas.Initialize
 
             userService = new UserService(userRepository);
             canvasService = new CanvasService(canvasRepository, store);
-            authService = new AuthService(userRepository);
+            authService = new AuthService(userRepository, store);
 
         }
     }
