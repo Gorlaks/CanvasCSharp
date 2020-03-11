@@ -8,8 +8,7 @@ import { ILocalStorageApi } from "../../common/storage/interfaces";
 import { RoutePath, CanvasActionType } from "../../../utils/constants";
 import { ICanvasRepository } from "../interfaces";
 
-import CanvasHeader from "./fragments/canvasHeader";
-import CanvasBody from "./fragments/canvasBody";
+import CanvasContent from "./fragments/canvasContent";
 
 const Canvas = (props: {
 	language: string
@@ -32,11 +31,10 @@ const Canvas = (props: {
 		canvasRepository.getCanvasById(userAuthData.id, canvasId)
 		.then(item => setCanvasDataState(item));
 	}, [])
-
+	
 	return (
 		<div className="canvas">
-			<CanvasHeader canvasData={canvasDataState} canvasActionType={canvasActionType} />
-			<CanvasBody canvasData={canvasDataState} />
+			<CanvasContent canvasData={canvasDataState} canvasActionType={canvasActionType} />
 		</div>
 	)
 }

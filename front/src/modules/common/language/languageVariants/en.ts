@@ -44,7 +44,8 @@ const en = {
 	"What is our relationship with each of the segments? How are they integrated?": "What is our relationship with each of the segments? How are they integrated?",
 	"What key actions do we need to work? For distribution channels?": "What key actions do we need to work? For distribution channels?",
 	"Who are our key partners? Who are our key suppliers?": "Who are our key partners? Who are our key suppliers?",
-	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "What are the most important costs associated with a business model? Which key resources are the most expensive?"
+	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "What are the most important costs associated with a business model? Which key resources are the most expensive?",
+	"Canvas_success_update": "Canvas updated successfully"
 }
 
 export default en;

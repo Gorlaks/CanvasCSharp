@@ -35,5 +35,12 @@ export interface ICanvasData {
 	type: string;
 	columns: number;
 	rows: number;
-	data: Array<Record<string, any>>;
+	data: ICanvasBlocksData;
+}
+
+export interface ICanvasBlocksData {
+	position: number[];
+	title: string;
+	content: string;
+	description: string;
 }

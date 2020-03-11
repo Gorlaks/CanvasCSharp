@@ -87,7 +87,7 @@ namespace Canvas.Modules.Canvas
                 };
 
                 var builder = Builders<Models.Canvas>.Filter;
-                var filter = builder.Eq("_id", new ObjectId(data.id)) & builder.Eq("ownerId", data.ownerId);
+                var filter = builder.Eq("_id", new ObjectId(data.canvasId)) & builder.Eq("ownerId", data.ownerId);
 
                 var result = Collection.UpdateOne(
                     filter,
