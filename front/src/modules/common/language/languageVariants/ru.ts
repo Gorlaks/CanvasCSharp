@@ -44,7 +44,8 @@ const ru = {
 	"What is our relationship with each of the segments? How are they integrated?": "Какие у нас отношения с каждым из сегментов? Как они интегрированы?",
 	"What key actions do we need to work? For distribution channels?": "Какие ключевые действия нам необходимы для работы? Для каналов сбыта?",
 	"Who are our key partners? Who are our key suppliers?": "Кто наши ключевые партнеры? Кто наши ключевые поставщики?",
-	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "Каковы наиболее важные затраты, связанные с бизнес-моделью? Какие ключевые ресурсы являются самыми дорогими?"
+	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "Каковы наиболее важные затраты, связанные с бизнес-моделью? Какие ключевые ресурсы являются самыми дорогими?",
+	"Canvas_success_update": "Канвас успешно обновлен"
 }
 
 export default ru;

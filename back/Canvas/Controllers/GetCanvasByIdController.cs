@@ -37,6 +37,7 @@ namespace Canvas.Controllers
 
                 string canvasData = "{" +
                     $"\"id\": \"{canvas._id}\", " +
+                    $"\"ownerId\": \"{canvas.ownerId}\", " +
                     $"\"title\": \"{canvas.title}\", " +
                     $"\"type\": \"{canvas.type}\", " +
                     $"\"date\": \"{canvas.date}\", " +

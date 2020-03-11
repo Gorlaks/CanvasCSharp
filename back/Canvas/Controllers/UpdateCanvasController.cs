@@ -20,7 +20,7 @@ namespace Canvas.Controllers
 
     public class SaveCanvasData
     {
-        public string id { get; set; }
+        public string canvasId { get; set; }
         public string ownerId { get; set; }
         public string title { get; set; }
         public List<Models.CanvasItemInData> data { get; set; }

@@ -34,6 +34,15 @@ class CanvasService implements ICanvasService {
 			canvasList
     })
   }
+
+  async updateCanvas(canvasData: Record<string, any>) {
+    return await this.apiClient.sendRequest({
+      canvasId: canvasData.id,
+      ownerId: canvasData.ownerId,
+      title: canvasData.title,
+      data: canvasData.data
+    }, "/updateCanvas");
+  }
 }
 
 export default CanvasService;
