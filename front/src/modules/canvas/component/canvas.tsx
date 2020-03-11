@@ -21,7 +21,7 @@ const Canvas = (props: {
 	const canvasId: string = localStorageApi.getLocalData("canvasId", null);
 	const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
 
-	const [canvasState, setCanvasState] = useState({});
+	const [canvasDataState, setCanvasDataState] = useState({});
 
 	useEffect(() => {
 		if(
@@ -30,13 +30,13 @@ const Canvas = (props: {
 			!canvasId
 		) history.push(RoutePath.USER_PATH);
 		canvasRepository.getCanvasById(userAuthData.id, canvasId)
-		.then(item => setCanvasState(item));
+		.then(item => setCanvasDataState(item));
 	}, [])
 
 	return (
 		<div className="canvas">
-			<CanvasHeader canvasData={canvasState} canvasActionType={canvasActionType} />
-			<CanvasBody canvasData={canvasState} />
+			<CanvasHeader canvasData={canvasDataState} canvasActionType={canvasActionType} />
+			<CanvasBody canvasData={canvasDataState} />
 		</div>
 	)
 }
