@@ -35,14 +35,14 @@ class AuthService implements IAuthService {
 
 	async registration(data: IRegistrationData) {
 		const result = await this.apiClient.sendRequest(data, "/registration");
-		if(!result.error) {
-			this.localStorageApi.setLocalData("userAuthData", result);
+		if(result.error) throw result.error;
+
+		this.localStorageApi.setLocalData("userAuthData", result);
 			GetStore().dispatch({
 				type: types.SET_USER_AUTH_DATA,
 				userAuthData: result
 			});
-		};
-		return result;
+			return result;
 	}
 }
 
