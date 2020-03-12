@@ -21,7 +21,7 @@ namespace Canvas.Modules.Auth
             {
                 string login = data.login;
                 string email = data.email;
-                if(login != null && email != null)
+                if(login.Length != 0 && email.Length != 0)
                 {
                     Collection.InsertOne(data);
 
@@ -32,7 +32,7 @@ namespace Canvas.Modules.Auth
                     "}";
                 } else
                 {
-                    return $"{{\"error\": \"Incorrect data\"}}";
+                    return $"{{\"error\": \"Incorrect_data\"}}";
                 }
             }
             catch(Exception e)

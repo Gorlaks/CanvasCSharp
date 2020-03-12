@@ -17,11 +17,13 @@ const Login = (props: {
 	const [password, setPassword] = useState("");
 
 	const sendLogin = () => {
-		const loading = message.loading(LS("Loading"));
-		authService.login(login, password)
-		.then(() => history.push("/user"))
-		.catch((err: string) => message.error(err))
-		.finally(() => loading());
+		if(login && password) {
+			const loading = message.loading(LS("Loading"));
+			authService.login(login, password)
+			.then(() => history.push("/user"))
+			.catch(() => message.error(LS("Something_went_wrong")))
+			.finally(() => loading());
+		} else message.error(LS("Empty_field_error"));
 	}
 
 	return (

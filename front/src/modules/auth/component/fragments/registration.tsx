@@ -22,7 +22,7 @@ const Registration = (props: {
 		const loading = message.loading(LS("Loading"));
 		authService.registration({ email, login, password })
 		.then(() => history.push("/user"))
-		.catch(() => message.error(LS("Something_went_wrong")))
+		.catch((e: string) => message.error(LS(e)))
 		.finally(() => loading());
   }
   

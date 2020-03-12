@@ -7,6 +7,8 @@ const ru = {
 	"Save": "Сохранить",
 	"Edit": "Редактировать",
 	"Something_went_wrong": "Что-то пошло не так",
+	"Incorrect_data": "Неверные данные",
+	"Empty_field_error": "Заполните все поля",
 
 	// auth page translate
 	"Login": "Логин",
