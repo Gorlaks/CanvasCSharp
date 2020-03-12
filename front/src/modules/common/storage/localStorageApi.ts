@@ -13,6 +13,10 @@ class LocalStorageApi implements ILocalStorageApi {
 	setLocalData(key: string, value: any) {
 		localStorage.setItem(key, JSON.stringify(value));
 	};
+
+	clearLocalData() {
+		localStorage.clear();
+	}
 }
 
 export default LocalStorageApi;
