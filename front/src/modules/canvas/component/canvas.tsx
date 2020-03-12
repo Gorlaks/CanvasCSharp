@@ -5,7 +5,7 @@ import { container } from "tsyringe";
 
 import { IReduxStore, IUserAuthData } from "../../common/redux/interfaces";
 import { ILocalStorageApi } from "../../common/storage/interfaces";
-import { RoutePath, CanvasActionType } from "../../../utils/constants";
+import { RoutePath } from "../../../utils/constants";
 import { ICanvasRepository } from "../interfaces";
 
 import CanvasContent from "./fragments/canvasContent";
@@ -16,25 +16,20 @@ const Canvas = (props: {
 	const history = useHistory();
 	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
 	const canvasRepository: ICanvasRepository = container.resolve("canvasRepository");
-	const canvasActionType: string = localStorageApi.getLocalData("canvasActionType", null);
-	const canvasId: string = localStorageApi.getLocalData("canvasId", null);
+	const canvasId: string = localStorageApi.getLocalData("canvasId", "");
 	const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
 
 	const [canvasDataState, setCanvasDataState] = useState({});
 
 	useEffect(() => {
-		if(
-			canvasActionType !== CanvasActionType.CREATE &&
-			canvasActionType !== CanvasActionType.UPDATE ||
-			!canvasId
-		) history.push(RoutePath.USER_PATH);
+		if(!canvasId) history.push(RoutePath.USER_PATH);
 		canvasRepository.getCanvasById(userAuthData.id, canvasId)
 		.then(item => setCanvasDataState(item));
 	}, [])
 	
 	return (
 		<div className="canvas">
-			<CanvasContent canvasData={canvasDataState} canvasActionType={canvasActionType} />
+			<CanvasContent canvasData={canvasDataState} />
 		</div>
 	)
 }

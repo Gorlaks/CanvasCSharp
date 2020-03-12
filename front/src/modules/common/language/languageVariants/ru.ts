@@ -4,6 +4,7 @@ const ru = {
 	"Canvas": "Канвас",
 	"Create": "Создать",
 	"Update": "Обновить",
+	"Save": "Сохранить",
 	"Edit": "Редактировать",
 	"Something_went_wrong": "Что-то пошло не так",
 

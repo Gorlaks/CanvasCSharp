@@ -8,11 +8,10 @@ import { ICanvasBlocksData } from "../../../common/redux/interfaces";
 import { ICanvasService } from "../../interfaces";
 
 const CanvasContent = (props: {
-	canvasData: Record<string, any>,
-	canvasActionType: string
+	canvasData: Record<string, any>
 }) => {
 	const canvasService: ICanvasService = container.resolve("canvasService");
-	const { canvasActionType, canvasData } = props;
+	const { canvasData } = props;
 	const { columns, rows, data, title, type } = canvasData;
 
 	const canvasContentStyles = {
@@ -32,9 +31,9 @@ const CanvasContent = (props: {
 		<div>
 			<div className="canvas__header">
 			<div className="canvas__header__up">
-				<span className="title">{LS(canvasActionType)} {LS("Canvas")}</span>
+				<span className="title">{LS("Save")} {LS("Canvas")}</span>
 				<span className="type">{type}</span>
-				<PlusButton text={LS(canvasActionType)} handleClick={handleUpdate} />
+				<PlusButton text={LS("Save")} handleClick={handleUpdate} />
 			</div>
 			<div className="canvas__header__low">
 				<input type="text" placeholder={LS("Enter_canvas_name")} defaultValue={title} onChange={(e: any) => canvasData.title = e.target.value}/>

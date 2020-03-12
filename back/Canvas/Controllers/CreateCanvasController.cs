@@ -15,7 +15,7 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(CreateCanvasData data)
         {
-            string answer = Initialize.Modules.canvasService.CreateCanvas(data.ownerId, data.title, data.type);
+            string answer = Initialize.Modules.canvasService.CreateCanvas(data);
             return answer;
         }
     }

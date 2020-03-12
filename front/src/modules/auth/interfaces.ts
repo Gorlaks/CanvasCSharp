@@ -4,4 +4,11 @@ export interface IAuthRepository {
 
 export interface IAuthService {
 	login(login: string, password: string): Promise<any>;
+	registration(data: IRegistrationData): Promise<any>;
+}
+
+export interface IRegistrationData {
+	email: string;
+	login: string;
+	password: string;
 }

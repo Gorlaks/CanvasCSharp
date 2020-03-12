@@ -19,22 +19,22 @@ const Registration = (props: {
 	const [password, setPassword] = useState("");
 
 	const sendRegistration = () => {
-		// const loading = message.loading(LS("Loading"));
-		// authService.login(login, password)
-		// .then(() => history.push("/user"))
-		// .catch((err: string) => message.error(err))
-		// .finally(() => loading());
+		const loading = message.loading(LS("Loading"));
+		authService.registration({ email, login, password })
+		.then(() => history.push("/user"))
+		.catch(() => message.error(LS("Something_went_wrong")))
+		.finally(() => loading());
   }
   
   return (
     <div>
 			<div className="auth__filed">
-				<div className="auth__icon"><UserOutlined /></div>
-				<input type="text" placeholder={LS("Login")} onChange={(e: any) => setLogin(e.target.value)} />
-			</div>
-			<div className="auth__filed">
 				<div className="auth__icon"><MailOutlined /></div>
 				<input type="email" placeholder={LS("Email")} onChange={(e: any) => setEmail(e.target.value)} />
+			</div>
+			<div className="auth__filed">
+				<div className="auth__icon"><UserOutlined /></div>
+				<input type="text" placeholder={LS("Login")} onChange={(e: any) => setLogin(e.target.value)} />
 			</div>
       <div className="auth__filed">
 				<div className="auth__icon"><LockOutlined /></div>

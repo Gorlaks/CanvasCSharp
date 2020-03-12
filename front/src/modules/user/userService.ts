@@ -9,8 +9,8 @@ class UserService implements IUserService {
 		this.userRepository = userRepository;
 	}
 
-	async setCanvasList(userId: string) {
-		const canvasList = await this.userRepository.getCanvasList(userId);
+	async setCanvasList(ownerId: string) {
+		const canvasList = await this.userRepository.getCanvasList(ownerId);
 		GetStore().dispatch({
 			type: types.SET_CANVAS_LIST,
 			canvasList

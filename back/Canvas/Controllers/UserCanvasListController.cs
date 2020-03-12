@@ -13,36 +13,13 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(UserData data)
         {
-            try
-            {
-                string userId = data.userId;
-                string answer = "[";
-                List<Models.Canvas> canvasList = Initialize.Modules.canvasService.UserCanvases(userId);
-                int index = 0;
-                int lastIndex = canvasList.Count - 1;
-                foreach (var item in canvasList)
-                {
-                    answer += "{" +
-                        $"\"id\": \"{item._id}\", " +
-                        $"\"ownerId\": \"{item.ownerId}\", " +
-                        $"\"title\": \"{item.title}\", " +
-                        $"\"type\": \"{item.type}\", " +
-                        $"\"date\": \"{item.date}\"" +
-                    $"}}{(lastIndex != index ? ',' : ' ')}";
-                    index++;
-                }
-                answer += "]";
-                return answer;
-            }
-            catch (Exception e)
-            {
-                return $"{{\"error\": \"{e}\"}}";
-            }
+            string answer = Initialize.Modules.canvasRepository.GetUserCanvasList(data);
+            return answer;
         }
     }
 
     public class UserData
     {
-        public string userId { get; set; }
+        public string ownerId { get; set; }
     }
 }

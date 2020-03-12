@@ -18,10 +18,10 @@ message.config({
 function App() {
   const history = useHistory();
   const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
+  const userAuthData = localStorageApi.getLocalData("userAuthData", {});
+  const isAuthorized = Boolean(userAuthData.id);
 
   useEffect(() => {
-    const userAuthData = localStorageApi.getLocalData("userAuthData", {});
-    const isAuthorized = Boolean(userAuthData.id);
     if(!isAuthorized) history.push("/auth");
   }, [])
 

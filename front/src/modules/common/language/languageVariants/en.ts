@@ -4,6 +4,7 @@ const en = {
 	"Canvas": "Canvas",
 	"Create": "Create",
 	"Update": "Update",
+	"Save": "Save",
 	"Edit": "Edit",
 	"Something_went_wrong": "Something went wrong",
 
