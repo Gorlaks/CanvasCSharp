@@ -15,9 +15,9 @@ namespace Canvas.Modules.Canvas
             Store = store;
             Collection = store.GetCollection<Models.Canvas>("Canvas");
         }
-        public List<Models.Canvas> GetUserCanvases(string userId)
+        public List<Models.Canvas> GetUserCanvases(string ownerId)
         {
-            List<Models.Canvas> result = Collection.Find(item => item.ownerId == userId).ToListAsync().Result;
+            List<Models.Canvas> result = Collection.Find(item => item.ownerId == ownerId).ToListAsync().Result;
             return result;
         }
 
@@ -29,10 +29,10 @@ namespace Canvas.Modules.Canvas
             return result;
         }
 
-        public Models.Canvas GetCanvasById(string userId, string canvasId)
+        public Models.Canvas GetCanvasById(string ownerId, string canvasId)
         {
             Models.Canvas canvas = Collection.Find(item => 
-                item._id == canvasId && item.ownerId == userId)
+                item._id == canvasId && item.ownerId == ownerId)
                     .ToListAsync().Result[0];
 
             return canvas;

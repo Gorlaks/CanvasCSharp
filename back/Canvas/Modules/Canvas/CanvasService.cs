@@ -21,11 +21,11 @@ namespace Canvas.Modules.Canvas
             Collection = store.GetCollection<Models.Canvas>("Canvas");
         }
 
-        public List<Models.Canvas> UserCanvases(string userId)
+        public List<Models.Canvas> UserCanvases(string ownerId)
         {
-            List<Models.Canvas> canvases = CanvasRepository.GetUserCanvases(userId);
+            List<Models.Canvas> canvases = CanvasRepository.GetUserCanvases(ownerId);
             if (canvases.Count > 0) return canvases;
-            else throw new System.Exception("User don't have any canvases");
+            else throw new System.Exception("");
         }
 
         public string CreateCanvas(string ownerId, string canvasTitle, string type)

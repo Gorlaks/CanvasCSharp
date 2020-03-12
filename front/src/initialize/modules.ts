@@ -23,7 +23,7 @@ const initModules = (): void => {
 	const userRepositroy = new UserRepositroy();
 	const canvasRepository = new CanvasRepository();
 
-	const authService = new AuthService(authRepository, localStorageApi);
+	const authService = new AuthService(authRepository, localStorageApi, apiClient);
 	const languageService = new LanguageService();
 	const userService = new UserService(userRepositroy);
 	const canvasService = new CanvasService(apiClient);

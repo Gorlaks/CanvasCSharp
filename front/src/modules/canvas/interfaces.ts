@@ -1,12 +1,12 @@
 import { ICanvasData } from "../common/redux/interfaces";
 
 export interface ICanvasRepository {
-	getCanvasById(userId: string, id: string): Promise<ICanvasData>;
+	getCanvasById(ownerId: string, id: string): Promise<ICanvasData>;
 }
 
 export interface ICanvasService {
-		deleteCanvas(userId: string, canvasId: string): Promise<any>;
-		createCanvas(userId: string, title: string, type: string): Promise<any>;
+		deleteCanvas(ownerId: string, canvasId: string): Promise<any>;
+		createCanvas(ownerId: string, title: string, type: string): Promise<any>;
 		setCanvasListAfterRemoving(canvasId: string): void;
 		updateCanvas(canvasData: Record<string, any>): Promise<any>;
 }

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Canvas.Controllers
 {
     [ApiController]
@@ -17,7 +15,7 @@ namespace Canvas.Controllers
         {
             try
             {
-                Models.Canvas canvas = Initialize.Modules.canvasRepository.GetCanvasById(data.userId, data.canvasId);
+                Models.Canvas canvas = Initialize.Modules.canvasRepository.GetCanvasById(data.ownerId, data.canvasId);
                 string blocksInfo = "[";
                 int index = 0;
                 int countItems = canvas.data.Count - 1;
@@ -59,7 +57,7 @@ namespace Canvas.Controllers
 
     public class CanvasInfo
     {
-        public string userId { get; set; }
+        public string ownerId { get; set; }
         public string canvasId { get; set; }
     }
 }

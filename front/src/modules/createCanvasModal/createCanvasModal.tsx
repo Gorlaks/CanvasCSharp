@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Modal } from "antd";
+import { Modal, message } from "antd";
 import { container } from "tsyringe";
 import { LS } from "../../utils/helpers";
 import { RoutePath } from "../../utils/constants";
@@ -25,15 +25,18 @@ const CreateCanvasModal = (props: {
       <Modal
         visible={isOpened}
         onOk={() => {
-          const userId = props.userAuthData.id;
+          const ownerId = props.userAuthData.id;
           setLoadingState(true);
-          canvasService.createCanvas(userId, title, canvasType)
+          canvasService.createCanvas(ownerId, title, canvasType)
           .then((item: {id: string}) => {
             localStorageApi.setLocalData("canvasId", item.id);
+            setLoadingState(false);
             history.push(RoutePath.CANVAS_PATH);
           })
-          .catch(() => LS("Something_went_wrong"))
-          .finally(() => setLoadingState(false));
+          .catch(() => {
+            message.error(LS("Something_went_wrong"));
+            setLoadingState(false);
+          })
         }}
         confirmLoading={loadingState}
         onCancel={() => setModalState(false)}

@@ -15,7 +15,7 @@ class ApiClient implements IApiClient {
 				"Content-Type": "application/json"
 			}
 		});
-
+		
 		return answer.json();
 	}
 }

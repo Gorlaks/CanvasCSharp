@@ -11,16 +11,16 @@ class CanvasService implements ICanvasService {
     this.apiClient = apiClient;
   }
 
-  async deleteCanvas(userId: string, canvasId: string) {
+  async deleteCanvas(ownerId: string, canvasId: string) {
     return await this.apiClient.sendRequest({
-      userId,
+      ownerId,
       canvasId
     }, "/deleteCanvas");
   }
 
-  async createCanvas(userId: string, title: string, type: string) {
+  async createCanvas(ownerId: string, title: string, type: string) {
     return await this.apiClient.sendRequest({
-      userId,
+      ownerId,
       title,
       type
     }, "/createCanvas");

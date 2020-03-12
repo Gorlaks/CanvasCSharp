@@ -42,7 +42,7 @@
 		}
 
 		&__actions-separator {
-			@include boxSize(0.5px, 100%);
+			@include boxSize(1px, 100%);
 			background-color: $separator;
 			margin: 0 10px;
 			opacity: 0.5;

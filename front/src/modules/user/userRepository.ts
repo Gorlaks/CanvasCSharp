@@ -5,10 +5,10 @@ import { IApiClient } from "../common/apiClient/interfaces";
 
 
 class UserRepositroy implements IUserRepository {
-	async getCanvasList(userId: string) {
+	async getCanvasList(ownerId: string) {
 		const apiClient: IApiClient = container.resolve("apiClient");
 		const answer = await apiClient.sendRequest({
-			userId
+			ownerId
 		}, "/userCanvasList");
 		
 		return answer;

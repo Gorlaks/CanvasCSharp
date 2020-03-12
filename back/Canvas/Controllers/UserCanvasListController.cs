@@ -15,9 +15,9 @@ namespace Canvas.Controllers
         {
             try
             {
-                string userId = data.userId;
+                string ownerId = data.ownerId;
                 string answer = "[";
-                List<Models.Canvas> canvasList = Initialize.Modules.canvasService.UserCanvases(userId);
+                List<Models.Canvas> canvasList = Initialize.Modules.canvasService.UserCanvases(ownerId);
                 int index = 0;
                 int lastIndex = canvasList.Count - 1;
                 foreach (var item in canvasList)
@@ -34,15 +34,15 @@ namespace Canvas.Controllers
                 answer += "]";
                 return answer;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                return $"{{\"error\": \"{e}\"}}";
+                return $"{{\"error\": \"User don't have any canvases\"}}";
             }
         }
     }
 
     public class UserData
     {
-        public string userId { get; set; }
+        public string ownerId { get; set; }
     }
 }
