@@ -15,32 +15,25 @@ namespace Canvas.Modules.Auth
             Collection = store.GetCollection<RegistrationData>("User");
         }
 
-        public Models.User Login(string login, string password)
-        {
-            Models.User user = UserRepository.GetUser(login);
-            if (user.password == password)
-                return user;
-            else throw new System.Exception();
-        }
-
         public string Registration(RegistrationData data)
         {
             try
             {
-                RegistrationData registrationData = new RegistrationData
+                string login = data.login;
+                string email = data.email;
+                if(login != null && email != null)
                 {
-                    email = data.email,
-                    login = data.login,
-                    password = data.password
-                };
+                    Collection.InsertOne(data);
 
-                Collection.InsertOne(registrationData);
-
-                return "{" +
-                    $"\"id\": \"{registrationData._id}\", " +
-                    $"\"login\": \"{registrationData.login}\", " +
-                    $"\"email\": \"{registrationData.email}\"" +
-                "}";
+                    return "{" +
+                        $"\"id\": \"{data._id}\", " +
+                        $"\"login\": \"{login}\", " +
+                        $"\"email\": \"{email}\"" +
+                    "}";
+                } else
+                {
+                    return $"{{\"error\": \"Incorrect data\"}}";
+                }
             }
             catch(Exception e)
             {

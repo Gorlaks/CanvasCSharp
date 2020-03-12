@@ -11,51 +11,14 @@ namespace Canvas.Controllers
     public class GetCanvasByIdController : Controller
     {
         [HttpPost]
-        public string Post(CanvasInfo data)
+        public string Post(CanvasByIdData data)
         {
-            try
-            {
-                Models.Canvas canvas = Initialize.Modules.canvasRepository.GetCanvasById(data.ownerId, data.canvasId);
-                string blocksInfo = "[";
-                int index = 0;
-                int countItems = canvas.data.Count - 1;
-
-                foreach (Models.CanvasItemInData item in canvas.data)
-                {
-                    blocksInfo += "{" +
-                        $"\"position\": [{item.position[0]}, {item.position[1]}, {item.position[2]}, {item.position[3]}], " +
-                        $"\"title\": \"{item.title}\", " +
-                        $"\"content\": \"{item.content}\", " +
-                        $"\"description\": \"{item.description}\" " +
-                    $"}}{(countItems != index ? ',' : ' ')}";
-                    index++;
-                }
-
-                blocksInfo += "]";
-
-                string canvasData = "{" +
-                    $"\"id\": \"{canvas._id}\", " +
-                    $"\"ownerId\": \"{canvas.ownerId}\", " +
-                    $"\"title\": \"{canvas.title}\", " +
-                    $"\"type\": \"{canvas.type}\", " +
-                    $"\"date\": \"{canvas.date}\", " +
-                    $"\"rows\": \"{canvas.rows}\", " +
-                    $"\"columns\": \"{canvas.columns}\", " +
-                    $"\"data\": {blocksInfo}" +
-                "}";
-
-                
-                return canvasData;
-
-            }
-            catch(Exception e)
-            {
-                return $"{e}";
-            }
+            string answer = Initialize.Modules.canvasRepository.GetCanvasById(data);
+            return answer;
         }
     }
 
-    public class CanvasInfo
+    public class CanvasByIdData
     {
         public string ownerId { get; set; }
         public string canvasId { get; set; }

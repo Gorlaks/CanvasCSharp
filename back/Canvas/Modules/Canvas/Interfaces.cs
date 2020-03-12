@@ -6,15 +6,14 @@ namespace Canvas.Modules.Canvas
 {
     public interface ICanvasRepository
     {
-        List<Models.Canvas> GetUserCanvases(string ownerId);
-        List<Models.Canvas> GetAllCanvases();
-        Models.Canvas GetCanvasById(string ownerId, string canvasId);
+        string GetUserCanvasList(UserData data);
+        string GetAllCanvases();
+        string GetCanvasById(CanvasByIdData data);
     }
     public interface ICanvasService
     {
-        List<Models.Canvas> UserCanvases(string ownerId);
-        string CreateCanvas(string ownerId, string title, string type);
-        string DleteCanvas(string ownerId, string canvasId);
+        string CreateCanvas(CreateCanvasData data);
+        string DeleteCanvas(DeleteCanvasData data);
         string UpdateCanvas(SaveCanvasData data);
     }
 }

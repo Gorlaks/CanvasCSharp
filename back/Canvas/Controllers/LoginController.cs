@@ -15,12 +15,18 @@ namespace Canvas.Controllers
             string password = data.password;
             try
             {
-                User user = Initialize.Modules.authService.Login(login, password);
-                return $"{{" +
-                     $"\"id\": \"{user._id}\"," +
-                     $"\"login\": \"{user.login}\"," +
-                     $"\"email\": \"{user.email}\"" +
-                 $"}}";
+                User user = Initialize.Modules.userRepository.GetUser(login);
+                if(user.password == password)
+                {
+                    return $"{{" +
+                         $"\"id\": \"{user._id}\"," +
+                         $"\"login\": \"{user.login}\"," +
+                         $"\"email\": \"{user.email}\"" +
+                     $"}}";
+                } else
+                {
+                    return "{\"error\": \"Incorrect password\"}";
+                }
             }
             catch
             {

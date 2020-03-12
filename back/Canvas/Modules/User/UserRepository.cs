@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using MongoDB.Driver;
-using Canvas.Models;
+using Canvas.Controllers;
 
 namespace Canvas.Modules.User
 {

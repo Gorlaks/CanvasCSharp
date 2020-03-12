@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using Canvas.Models;
+using Canvas.Controllers;
 
 namespace Canvas.Modules.User
 {

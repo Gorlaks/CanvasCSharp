@@ -11,14 +11,14 @@ namespace Canvas.Controllers
     public class DeleteCanvasController : Controller
     {
         [HttpPost]
-        public string Post(DelteCanvasData data)
+        public string Post(DeleteCanvasData data)
         {
-            string answer = Initialize.Modules.canvasService.DleteCanvas(data.ownerId, data.canvasId);
+            string answer = Initialize.Modules.canvasService.DeleteCanvas(data);
             return answer;
         }
     }
 
-    public class DelteCanvasData
+    public class DeleteCanvasData
     {
         public string ownerId { get; set; }
         public string canvasId { get; set; }

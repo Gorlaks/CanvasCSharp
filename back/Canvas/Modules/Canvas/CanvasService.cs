@@ -21,26 +21,23 @@ namespace Canvas.Modules.Canvas
             Collection = store.GetCollection<Models.Canvas>("Canvas");
         }
 
-        public List<Models.Canvas> UserCanvases(string ownerId)
+        public string CreateCanvas(CreateCanvasData data)
         {
-            List<Models.Canvas> canvases = CanvasRepository.GetUserCanvases(ownerId);
-            if (canvases.Count > 0) return canvases;
-            else throw new System.Exception("");
-        }
+            string ownerId = data.ownerId,
+                   title = data.title,
+                   type = data.type;
 
-        public string CreateCanvas(string ownerId, string canvasTitle, string type)
-        {
             Models.Canvas canvas = new Models.Canvas
             {
                 ownerId = ownerId,
-                title = canvasTitle,
+                title = title,
                 type = type,
                 date = DateTime.Now,
             };
 
             if (type == "Lean")
             {
-                List<CanvasItemInData> canvasData = canvasData = CanvasCreater.GenerateLeanCanvas();
+                List<CanvasItemInData> canvasData = CanvasCreater.GenerateLeanCanvas();
                 canvas.rows = 3;
                 canvas.columns = 5;
                 canvas.data = canvasData;
@@ -50,36 +47,43 @@ namespace Canvas.Modules.Canvas
             {
                 Collection.InsertOne(canvas);
                 return $"{{\"id\": \"{canvas._id}\"}}";
-            } catch (Exception e)
+            } catch
             {
-                return $"{e}";
+                return $"{{\"id\": \"Something went wrong\"}}";
             }
         }
 
-        public string DleteCanvas(string ownerId, string canvasId)
+        public string DeleteCanvas(DeleteCanvasData data)
         {
+            string ownerId = data.ownerId,
+                   canvasId = data.canvasId;
             try
             {
-                var id = new ObjectId(canvasId);
-                var filter = Builders<Models.Canvas>.Filter.Eq("_id", id);
+                var builder = Builders<Models.Canvas>.Filter;
+                var filter = builder.Eq("_id", new ObjectId(canvasId)) & builder.Eq("ownerId", ownerId);
+
                 Collection.DeleteOne(filter);
-                return $"{{\"id\": \"{id}\"}}";
-            } catch(Exception e)
+
+                return $"{{\"id\": \"{canvasId}\"}}";
+            } catch
             {
-                return $"{e}";
+                return $"{{\"error\": \"Something went wrong\"}}";
             }
         }
 
         public string UpdateCanvas(SaveCanvasData data)
         {
+            string ownerId = data.ownerId,
+                   canvasId = data.canvasId;
             try
             {
                 BsonArray blocksData = new BsonArray();
 
                 foreach (var item in data.data)
                 {
+                    int[] position = item.position;
                     blocksData.Add(new BsonDocument {
-                    { "position", new BsonArray(new[] { item.position[0], item.position[1], item.position[2], item.position[3] }) },
+                    { "position", new BsonArray(new[] { position[0], position[1], position[2], position[3] }) },
                     { "title", item.title },
                     { "content", item.content },
                     { "description", item.description },
@@ -87,7 +91,7 @@ namespace Canvas.Modules.Canvas
                 };
 
                 var builder = Builders<Models.Canvas>.Filter;
-                var filter = builder.Eq("_id", new ObjectId(data.canvasId)) & builder.Eq("ownerId", data.ownerId);
+                var filter = builder.Eq("_id", new ObjectId(canvasId)) & builder.Eq("ownerId", ownerId);
 
                 var result = Collection.UpdateOne(
                     filter,
@@ -97,11 +101,11 @@ namespace Canvas.Modules.Canvas
                         { "data", blocksData }
                     })
                 );
-                return $"{{\"id\": \"{result.UpsertedId}\"}}";
+                return $"{{\"id\": \"{canvasId}\"}}";
             }
-            catch (Exception e)
+            catch
             {
-                return $"{{\"error\": \"{e}\"}}";
+                return $"{{\"error\": \"Something went wrong\"}}";
             }
         }
     }
