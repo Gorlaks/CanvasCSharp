@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { message } from "antd";
 import { container } from "tsyringe";
 
@@ -31,9 +31,9 @@ function App() {
     <>
       <Header />
       <Switch>
-        <Route path={RoutePath.AUTH_PATH} component={Auth} />
-        <Route path={RoutePath.USER_PATH} component={User} />
-        <Route path={RoutePath.CANVAS_PATH} component={Canvas} />
+        <Route exact path={RoutePath.AUTH_PATH} component={Auth} />
+        <Route exact path={RoutePath.USER_PATH} component={User} />
+        <Route exact path={RoutePath.CANVAS_PATH} component={Canvas} />
       </Switch>
     </>
   );
