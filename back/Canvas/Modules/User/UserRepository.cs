@@ -27,9 +27,9 @@ namespace Canvas.Modules.User
 
         public Models.User GetUser(string login)
         {
-            List<Models.User> result = Collection.Find(item => item.login == login).ToListAsync().Result;
+            Models.User result = Collection.Find(item => item.login == login).First();
 
-            return result[0];
+            return result;
         }
     }
 }

@@ -1,10 +1,8 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using Canvas.Models;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using Canvas.Modules.CanvasTemplate;
 
 using Canvas.Controllers;
 
@@ -12,13 +10,13 @@ namespace Canvas.Modules.Canvas
 {
     public class CanvasService : ICanvasService
     {
-        private ICanvasRepository CanvasRepository;
-        private IMongoCollection<Models.Canvas> Collection;
+        private ICanvasTemplateRepository CanvasTemplateRepository { get; set; }
+        private IMongoCollection<Models.Canvas> Collection { get; set; }
 
-        public CanvasService(ICanvasRepository canvasRepository, IMongoDatabase store)
+        public CanvasService(ICanvasTemplateRepository canvasTemplateRepository, IMongoDatabase store)
         {
-            CanvasRepository = canvasRepository;
             Collection = store.GetCollection<Models.Canvas>("Canvas");
+            CanvasTemplateRepository = canvasTemplateRepository;
         }
 
         public string CreateCanvas(CreateCanvasData data)
@@ -27,21 +25,10 @@ namespace Canvas.Modules.Canvas
                    title = data.title,
                    type = data.type;
 
-            Models.Canvas canvas = new Models.Canvas
-            {
-                ownerId = ownerId,
-                title = title,
-                type = type,
-                date = DateTime.Now,
-            };
+            Models.Canvas canvas = CanvasTemplateRepository.getCanvasTemplateByType(type);
 
-            if (type == "Lean")
-            {
-                List<CanvasItemInData> canvasData = CanvasCreater.GenerateLeanCanvas();
-                canvas.rows = 3;
-                canvas.columns = 5;
-                canvas.data = canvasData;
-            }
+            canvas.ownerId = ownerId;
+            canvas.title = title;
 
             try
             {
@@ -49,7 +36,7 @@ namespace Canvas.Modules.Canvas
                 return $"{{\"id\": \"{canvas._id}\"}}";
             } catch
             {
-                return $"{{\"id\": \"Something went wrong\"}}";
+                return $"{{\"error\": \"Something went wrong\"}}";
             }
         }
 

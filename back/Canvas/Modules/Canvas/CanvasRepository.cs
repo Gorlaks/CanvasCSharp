@@ -39,7 +39,7 @@ namespace Canvas.Modules.Canvas
                 answer += "]";
                 return answer;
             }
-            catch (Exception e)
+            catch
             {
                 return $"{{\"error\": \"User don't have any canvases\"}}";
             }
@@ -61,8 +61,7 @@ namespace Canvas.Modules.Canvas
             try
             {
                 Models.Canvas canvas = Collection.Find(item =>
-                item._id == canvasId && item.ownerId == ownerId)
-                    .ToListAsync().Result[0];
+                item._id == canvasId && item.ownerId == ownerId).First();
 
                 if(canvas != null)
                 {
