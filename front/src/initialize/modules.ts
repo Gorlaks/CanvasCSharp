@@ -13,6 +13,7 @@ import AuthService from "../modules/auth/authService";
 import LanguageService from "../modules/common/language/languageService";
 import UserService from "../modules/user/userService";
 import CanvasService from "../modules/canvas/canvasService";
+import HeaderService from "../modules/header/headerService";
 
 const initModules = (): void => {
 	const localStorageApi = new LocalStorageApi();
@@ -24,10 +25,10 @@ const initModules = (): void => {
 	const canvasRepository = new CanvasRepository();
 
 	const authService = new AuthService(authRepository, localStorageApi, apiClient);
-	const languageService = new LanguageService();
+	const languageService = new LanguageService(localStorageApi);
 	const userService = new UserService(userRepositroy);
 	const canvasService = new CanvasService(apiClient);
-
+	const headerService = new HeaderService(localStorageApi);
 	
 	container.register("languageRepository", { useValue: languageRepository });
 	container.register("canvasRepository", { useValue: canvasRepository });
@@ -36,6 +37,7 @@ const initModules = (): void => {
 	container.register("authRepository", { useValue: authRepository });
 	container.register("userRepositroy", { useValue: userRepositroy });
 	container.register("canvasService", { useValue: canvasService });
+	container.register("headerService", { useValue: headerService });
 	container.register("userService", { useValue: userService });
 	container.register("authService", { useValue: authService });
 	container.register("apiClient", { useValue: apiClient });

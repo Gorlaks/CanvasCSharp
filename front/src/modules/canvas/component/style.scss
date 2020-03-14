@@ -8,6 +8,18 @@
       align-items: center;
       position: relative;
 
+      .back-arrow {
+        display: block;
+        @include boxSize(50px, 100%);
+        @include flexCenter();
+        font-size: 26px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 0 10px 0 0;
+      }
+      .back-arrow:hover {
+        background-color: $arrowBackBackgroundColorHover;
+      }
       .title {
         font-family: $mainFontBold, $spareFonts;
         font-size: 32px;
@@ -19,7 +31,7 @@
         margin: 0 0 0 10px;
         padding: 6px 0 0 0;
       }
-      button {
+      button:not(.back-arrow) {
         position: absolute;
         right: 0;
       }
