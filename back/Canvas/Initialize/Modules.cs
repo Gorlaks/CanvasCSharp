@@ -4,6 +4,7 @@ using Canvas.Modules.Store;
 using Canvas.Modules.User;
 using Canvas.Modules.Canvas;
 using Canvas.Modules.Auth;
+using Canvas.Modules.CanvasTemplate;
 
 using MongoDB.Driver;
 
@@ -19,6 +20,7 @@ namespace Canvas.Initialize
         public static IStoreRepository storeRepository;
         public static IUserRepository userRepository;
         public static ICanvasRepository canvasRepository;
+        public static ICanvasTemplateRepository canvasTemplateRepository;
 
         public static IUserService userService;
         public static ICanvasService canvasService;
@@ -33,9 +35,10 @@ namespace Canvas.Initialize
             storeRepository = new StoreRepository(store);
             userRepository = new UserRepository(store);
             canvasRepository = new CanvasRepository(store);
+            canvasTemplateRepository = new CanvasTemplateRepository(store);
 
             userService = new UserService(userRepository);
-            canvasService = new CanvasService(canvasRepository, store);
+            canvasService = new CanvasService(canvasTemplateRepository, store);
             authService = new AuthService(userRepository, store);
 
         }
