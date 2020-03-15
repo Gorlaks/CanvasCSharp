@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Modal } from "antd";
 
-import Review from "./fragments/review";
+import { LS } from "../../../utils/helpers";
+
+import Preview from "./fragments/preview";
 import LeftInUpColumn from "./fragments/leftInUpColumn";
 import EmptyReview from "./fragments/emptyReview";
 import RightInUpColumn from "./fragments/rightInUpColumn";
 import CreateCanvasTemplateModalBody from "./fragments/createCanvasTemplateModalBody";
 
 const CreateCanvasTemplateModal = () => {
-  const defaultTemplate = {
+  const [templateState, setTemplateState] = useState({
     ownerId: null,
     title: null,
     type: null,
     date: null,
-    rows: 4,
-    columns: 4,
+    rows: null,
+    columns: null,
     data: [
       {
         position: [],
@@ -23,26 +25,32 @@ const CreateCanvasTemplateModal = () => {
         description: ""
       },
     ]
-  }
-  const [templateState, setTemplateState] = useState(defaultTemplate);
+  });
+  
   return (
     <div className="create-canvas-template-modal">
       <Modal
-        title="Canvas template creater"
+        title={<p className="create-canvas-template-modal__title">{LS("Create_canvas_template")}</p>}
         visible={true}
         onOk={() => { }}
         onCancel={() => { }}
         width={800}
       >
         <div className="create-canvas-template-modal__up">
-          <LeftInUpColumn />
+          <LeftInUpColumn
+            templateState={templateState}
+            setTemplateState={setTemplateState}
+          />
           {(() => {
             switch(templateState.data[0].position.length) {
               case 0: return <EmptyReview />; break;
-              default: return <Review templateData={templateState} />
+              default: return <Preview templateData={templateState} />
             }
           })()}
-          <RightInUpColumn />
+          <RightInUpColumn
+            templateState={templateState}
+            setTemplateState={setTemplateState}
+          />
         </div>
         <div className="create-canvas-template-modal__low">
           <CreateCanvasTemplateModalBody

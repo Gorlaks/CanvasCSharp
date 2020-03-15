@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { PlusOutlined } from "@ant-design/icons";
 import { LS } from "../../../../utils/helpers";
 import { ICreateCanvasTemplate } from "../../../common/redux/interfaces";
 
@@ -14,7 +15,8 @@ const CreateCanvasTemplateModalBody = (props: {
         return (
           <div key={index}>
             <input type="text" placeholder={LS("Position")} onChange={(e: any) => {
-              templateState.data[index].position = e.target.value.split(",");
+              templateState.data[index].position = e.target.value.split(",")
+              .map((item: string) => parseInt(item, 10));
               setTemplateState({ ...templateState });
             }} />
             <input type="text" placeholder={LS("Canvas_block_title")} onChange={(e: any) => {
@@ -41,7 +43,7 @@ const CreateCanvasTemplateModalBody = (props: {
             ...countDataItemState,
             ++countDataItemState[countDataItemState.length - 1]
           ])
-        }}>{LS("Add")}</button>
+        }}><PlusOutlined /></button>
       </div>
     </>
   )

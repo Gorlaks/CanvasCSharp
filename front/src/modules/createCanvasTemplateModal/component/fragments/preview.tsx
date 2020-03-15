@@ -3,7 +3,7 @@ import React from "react";
 import { LS } from "../../../../utils/helpers";
 import { ICreateCanvasTemplate } from "../../../common/redux/interfaces";
 
-const Review = (props: {
+const Preview = (props: {
   templateData: ICreateCanvasTemplate
 }) => {
   const { templateData } = props;
@@ -35,4 +35,4 @@ const Review = (props: {
   )
 }
 
-export default Review;
+export default Preview;

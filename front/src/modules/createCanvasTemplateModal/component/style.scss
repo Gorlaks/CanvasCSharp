@@ -1,4 +1,9 @@
 .create-canvas-template-modal {
+  &__title {
+    font-family: $mainFontMedium, $spareFonts;
+    font-size: 20px;
+  }
+
   &__up {
     @include boxSize(100%, 200px);
     @include flexCenter();
@@ -6,13 +11,34 @@
 
     .left-in-up-column {
       @include boxSize(275px, 100%);
-      background-color: #acacac;
+
+      &__fields {
+        div {
+          display: flex;
+          align-items: center;
+          margin: 2px 0;
+
+          * {
+            margin: 0 10px 0 0;
+          }
+          p {
+            @include boxSize(120px, auto);
+            font-family: $mainFontMedium, $spareFonts;
+            font-size: 15px;
+          }
+          input {
+            @include defaultInputStyle();
+            @include boxSize(40px, 30px);
+            border: 2px solid $mainColor;
+          }
+        }
+      }
     }
 
     .empty-review {
       @include boxSize(250px, 100%);
       @include flexCenter();
-      border: 2px solid rgb(201, 201, 201);
+      border: 2px solid $mainColor;
       
       p {
         font-family: $mainFontMedium, $spareFonts;
@@ -23,7 +49,15 @@
 
     .right-in-up-column {
       @include boxSize(275px, 100%);
-      background-color: #acacac;
+      position: relative;
+
+      input {
+        @include defaultInputStyle();
+        @include boxSize(200px, 30px);
+        position: absolute;
+        right: 0;
+        border: 2px solid $mainColor;
+      }
     }
   }
 
@@ -36,16 +70,13 @@
     div:not(.add-btn) {
       @include boxSize(250px, auto);
       @include flexCenter();
-      background-color: rgb(201, 201, 201);
+      background-color: $mainColor;
       margin: 10px 10px 10px 10px;
       padding: 5px 10px;
       flex-wrap: wrap;
 
       input, textarea {
-        border: 1px solid $borderColor;
-        border-radius: 4px;
-        padding: 0 10px;
-        font-family: $mainFontMedium, $spareFonts;
+        @include defaultInputStyle();
         margin: 3px 0;
         resize: none;
       }
@@ -62,11 +93,12 @@
       margin: 10px 10px 10px 10px;
 
       button {
-        @include boxSize(100px, 100px);
-        background-color: rgb(201, 201, 201);
+        @include boxSize(100%, 198px);
+        background-color: $mainColor;
         border-radius: 4px;
         font-family: $mainFontMedium, $spareFonts;
-        font-size: 17px;
+        font-size: 40px;
+        color: #fff;
         cursor: pointer;
       }
     }

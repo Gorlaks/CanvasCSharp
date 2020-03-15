@@ -58,7 +58,9 @@ const en = {
 	"Add": "Add",
 	"Preview": "Preview",
 	"Rows_count": "Rows count",
-	"Columns_count": "Columns count"
+	"Columns_count": "Columns count",
+	"Template_name": "Template name",
+	"Create_canvas_template": "Create canvas template"
 }
 
 export default en;

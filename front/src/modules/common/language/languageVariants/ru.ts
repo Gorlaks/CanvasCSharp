@@ -58,7 +58,9 @@ const ru = {
 	"Add": "Добавить",
 	"Preview": "Предпросмотр",
 	"Rows_count": "Количество строк",
-	"Columns_count": "Количество столбцов"
+	"Columns_count": "Количество столбцов",
+	"Template_name": "Название шаблона",
+	"Create_canvas_template": "Создать шаблон канваса"
 }
 
 export default ru;
