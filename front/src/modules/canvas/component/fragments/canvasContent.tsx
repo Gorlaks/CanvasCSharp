@@ -4,7 +4,7 @@ import { container } from "tsyringe";
 import { message } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 
-import { PlusButton } from "../../../../assets/ui/ui";
+import PlusButton from "../../../../assets/ui/plusButton/plusButton";
 import { newStrokeInTextArea, resizeContainer, LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
 import { ICanvasBlocksData } from "../../../common/redux/interfaces";

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { LS } from "../../../../utils/helpers";
-import { PlusButton } from "../../../../assets/ui/ui";
+import PlusButton from "../../../../assets/ui/plusButton/plusButton";
 
 const Panel = (props: {
 	setCreateCanvasModalState: Function

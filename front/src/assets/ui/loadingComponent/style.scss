@@ -1,0 +1,8 @@
+.loading-component {
+  width: 100vw;
+  height: 100vh;
+  @include flexCenter;
+  position: absolute;
+  top: 0;
+  font-size: 50px;
+}
