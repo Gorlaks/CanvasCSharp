@@ -1,5 +1,4 @@
 ﻿using System;
-using Canvas.Modules.User;
 using Canvas.Controllers;
 using MongoDB.Driver;
 
@@ -7,37 +6,45 @@ namespace Canvas.Modules.Auth
 {
     public class AuthService : IAuthService
     {
-        private IUserRepository UserRepository;
         private IMongoCollection<RegistrationData> Collection;
-        public AuthService(IUserRepository userRepository, IMongoDatabase store)
+        public AuthService(IMongoDatabase store)
         {
-            UserRepository = userRepository;
             Collection = store.GetCollection<RegistrationData>("User");
         }
 
         public string Registration(RegistrationData data)
         {
-            try
-            {
-                string login = data.login;
-                string email = data.email;
-                if(login.Length != 0 && email.Length != 0)
-                {
-                    Collection.InsertOne(data);
+            string login = data.login;
+            string email = data.email;
+            long userCount = Collection.Find(item => item.login == login).CountDocuments();
 
-                    return "{" +
-                        $"\"id\": \"{data._id}\", " +
-                        $"\"login\": \"{login}\", " +
-                        $"\"email\": \"{email}\"" +
-                    "}";
-                } else
+            if (login.Length != 0 && email.Length != 0)
+            {
+                if(userCount == 0)
                 {
-                    return $"{{\"error\": \"Incorrect_data\"}}";
+                    try
+                    {
+                        Collection.InsertOne(data);
+
+                        return "{" +
+                            $"\"id\": \"{data._id}\", " +
+                            $"\"login\": \"{login}\", " +
+                            $"\"email\": \"{email}\"" +
+                        "}";
+                    }
+                    catch (Exception e)
+                    {
+                        return $"{{\"error\": \"Something_went_wrong\"}}";
+                    }
+                }
+                else
+                {
+                    return $"{{\"error\": \"Login_is_busy\"}}";
                 }
             }
-            catch(Exception e)
+            else
             {
-                return $"{{\"error\": \"{e}\"}}";
+                return $"{{\"error\": \"Incorrect_data\"}}";
             }
         }
     }

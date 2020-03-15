@@ -6,4 +6,9 @@ namespace Canvas.Modules.Auth
     {
         string Registration(RegistrationData data);
     }
+
+    public interface IAuthRepository
+    {
+        string Login(LoginData data);
+    }
 }

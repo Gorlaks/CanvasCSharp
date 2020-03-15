@@ -21,6 +21,7 @@ namespace Canvas.Initialize
         public static IUserRepository userRepository;
         public static ICanvasRepository canvasRepository;
         public static ICanvasTemplateRepository canvasTemplateRepository;
+        public static IAuthRepository authRepository;
 
         public static IUserService userService;
         public static ICanvasService canvasService;
@@ -36,10 +37,11 @@ namespace Canvas.Initialize
             userRepository = new UserRepository(store);
             canvasRepository = new CanvasRepository(store);
             canvasTemplateRepository = new CanvasTemplateRepository(store);
+            authRepository = new AuthRepository(store);
 
             userService = new UserService(userRepository);
             canvasService = new CanvasService(canvasTemplateRepository, store);
-            authService = new AuthService(userRepository, store);
+            authService = new AuthService(store);
 
         }
     }
