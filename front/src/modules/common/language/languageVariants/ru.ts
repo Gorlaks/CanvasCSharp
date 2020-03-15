@@ -49,7 +49,16 @@ const ru = {
 	"What key actions do we need to work? For distribution channels?": "Какие ключевые действия нам необходимы для работы? Для каналов сбыта?",
 	"Who are our key partners? Who are our key suppliers?": "Кто наши ключевые партнеры? Кто наши ключевые поставщики?",
 	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "Каковы наиболее важные затраты, связанные с бизнес-моделью? Какие ключевые ресурсы являются самыми дорогими?",
-	"Canvas_success_update": "Канвас успешно обновлен"
+	"Canvas_success_update": "Канвас успешно обновлен",
+
+	// Create canvas template modal translate
+	"Position": "Местоположение",
+	"Canvas_block_title": "Заголовок",
+	"Description": "Описание",
+	"Add": "Добавить",
+	"Preview": "Предпросмотр",
+	"Rows_count": "Количество строк",
+	"Columns_count": "Количество столбцов"
 }
 
 export default ru;

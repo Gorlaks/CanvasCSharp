@@ -35,7 +35,17 @@ export interface ICanvasData {
 	type: string;
 	columns: number;
 	rows: number;
-	data: ICanvasBlocksData;
+	data: ICanvasBlocksData[];
+}
+
+export interface ICreateCanvasTemplate {
+	ownerId: string | null;
+	title: string | null;
+	type: string | null;
+	date: string | null;
+	rows: number | null;
+	columns: number | null;
+	data: ICanvasBlocksData[];
 }
 
 export interface ICanvasBlocksData {
