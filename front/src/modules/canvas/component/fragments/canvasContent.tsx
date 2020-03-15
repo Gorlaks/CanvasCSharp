@@ -37,7 +37,7 @@ const CanvasContent = (props: {
 			</header>
 
 			<div className="canvas__body" style={canvasContentStyles}>
-				{props.canvasData.id && Object.keys(data).map((item, index) => {
+				{canvasData.id && Object.keys(data).map((item, index) => {
 					const { position, title, content, description } = (data as any)[item];
 					const canvasItemStyles = {
 						gridArea: `${position[0]}/${position[1]}/${position[2]}/${position[3]}`

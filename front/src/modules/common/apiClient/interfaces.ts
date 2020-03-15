@@ -1,11 +1,11 @@
 export interface IParams {
-	ownerId?: string,
-	login?: string;
-	password?: string;
-	canvasId?: string;
-	type?: string;
-	title?: string;
-	data?: Array<Record<string, any>>;
+	ownerId?: string | null,
+	login?: string | null;
+	password?: string | null;
+	canvasId?: string | null;
+	type?: string | null;
+	title?: string | null;
+	data?: Array<Record<string, any>> | null;
 }
 
 export interface IApiClient {
