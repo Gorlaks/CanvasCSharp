@@ -7,9 +7,9 @@ import { RoutePath } from "./utils/constants";
 import { ILocalStorageApi } from "./modules/common/storage/interfaces"
 
 import Header from "./modules/header/component/header";
-import Auth from "./modules/auth/component/auth";
-import User from "./modules/user/component/user";
-import Canvas from "./modules/canvas/component/canvas";
+const Auth = React.lazy(() => import("./modules/auth/component/auth"));
+const User = React.lazy(() => import("./modules/user/component/user"));
+const Canvas = React.lazy(() => import("./modules/canvas/component/canvas"));
 
 message.config({
   maxCount: 1
@@ -23,8 +23,8 @@ function App() {
   const language = localStorageApi.getLocalData("language", "");
 
   useEffect(() => {
-    if(!language) localStorageApi.setLocalData("language", "en");
-    if(!isAuthorized) history.push("/auth");
+    if (!language) localStorageApi.setLocalData("language", "en");
+    if (!isAuthorized) history.push("/auth");
   }, [])
 
   return (
