@@ -7,7 +7,7 @@ import { ICreateCanvasTemplateModalService } from "../interfaces";
 
 import Preview from "./fragments/preview";
 import LeftInUpColumn from "./fragments/leftInUpColumn";
-import EmptyReview from "./fragments/emptyReview";
+import EmptyPreview from "./fragments/emptyPreview";
 import RightInUpColumn from "./fragments/rightInUpColumn";
 import CreateCanvasTemplateModalBody from "./fragments/createCanvasTemplateModalBody";
 
@@ -58,7 +58,7 @@ const CreateCanvasTemplateModal = () => {
           />
           {(() => {
             switch(templateState.data[0].position.length) {
-              case 0: return <EmptyReview />; break;
+              case 0: return <EmptyPreview />; break;
               default: return <Preview templateData={templateState} />
             }
           })()}
