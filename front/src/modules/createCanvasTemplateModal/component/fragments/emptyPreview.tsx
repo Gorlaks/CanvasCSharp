@@ -1,7 +1,7 @@
 import React from "react";
 import { LS } from "../../../../utils/helpers";
 
-const EmptyReview = () => {
+const EmptyPreview = () => {
   return (
     <div className="empty-review">
       <p>{LS("Preview")}</p>
@@ -9,4 +9,4 @@ const EmptyReview = () => {
   )
 }
 
-export default EmptyReview;
+export default EmptyPreview;
