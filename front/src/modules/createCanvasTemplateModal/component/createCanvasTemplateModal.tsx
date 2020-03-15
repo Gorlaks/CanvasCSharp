@@ -37,7 +37,7 @@ const CreateCanvasTemplateModal = () => {
     <div className="create-canvas-template-modal">
       <Modal
         title={<p className="create-canvas-template-modal__title">{LS("Create_canvas_template")}</p>}
-        visible={true}
+        visible={false}
         onOk={() => {
           setLoadingState(true);
           createCanvasTemplateModalService.createCanvasTemplate(templateState)
