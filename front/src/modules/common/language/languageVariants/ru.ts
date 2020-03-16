@@ -57,10 +57,19 @@ const ru = {
 	"Description": "Описание",
 	"Add": "Добавить",
 	"Preview": "Предпросмотр",
-	"Rows_count": "Количество строк",
-	"Columns_count": "Количество столбцов",
+	"Rows_total": "Всего строк",
+	"Columns_total": "Всего столбцов",
 	"Template_name": "Название шаблона",
-	"Create_canvas_template": "Создать шаблон канваса"
+	"Create_canvas_template": "Создать шаблон канваса",
+	"Row_start": "Начало строки",
+	"Row_end": "Конец строки",
+	"Column_start": "Начало столбца",
+	"Column_end": "Конец столбца",
+
+	// admin page translate
+	"Administration": "Administration",
+	"Create_canvas": "Создать канвас",
+	"Create_template": "Создать шаблон"
 }
 
 export default ru;

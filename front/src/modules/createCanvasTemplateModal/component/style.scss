@@ -11,6 +11,9 @@
 
     .left-in-up-column {
       @include boxSize(275px, 100%);
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
 
       &__fields {
         div {
@@ -33,14 +36,24 @@
           }
         }
       }
+
+      &__description {
+        span, p {
+          font-family: $mainFontRegular, $spareFonts;
+          font-size: 14px;
+          line-height: 20px;
+          margin: 0;
+        }
+      }
     }
 
-    .empty-review {
+    .empty-preview {
       @include boxSize(250px, 100%);
       @include flexCenter();
       border: 2px solid $mainColor;
       
       p {
+        color: $mainColorDarker;
         font-family: $mainFontMedium, $spareFonts;
         font-size: 20px;
         margin: 0;
@@ -105,16 +118,25 @@
   }
 }
 
-.review {
+.preview {
   @include boxSize(200px, 100%);
   margin: 0;
   display: grid;
-  div {
+  position: relative;
+  &__cover {
+    @include boxSize(100%, 100%);
+    position: absolute;
+    background-color: transparent;
+  }
+  div:not(.preview__cover) {
     @include boxSize(auto, auto);
-    border: 1px solid rgb(150, 150, 150);
-    textarea {
-      @include boxSize(auto, auto);
-      resize: none;
+    border: 1px solid $mainColor;
+    text-align: center;
+    font-family: $mainFontRegular, $spareFonts;
+    font-size: 12px;
+    overflow: hidden;
+    span {
+      font-family: $mainFontMedium, $spareFonts;
     }
   }
 }
