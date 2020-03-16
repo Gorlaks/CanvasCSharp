@@ -15,7 +15,8 @@ const Preview = (props: {
   }
 
   return (
-    <div className="review" style={canvasContentStyles}>
+    <div className="preview" style={canvasContentStyles}>
+      <div className="preview__cover"></div>
       {data.length && Object.keys(data).map((item, index) => {
         const { position, title } = (data as any)[item];
         const canvasItemStyles = {
@@ -24,8 +25,8 @@ const Preview = (props: {
         return (
           <>
             {data[index].position.length > 0 && <div key={index} style={canvasItemStyles}>
-              <p className="review__title">
-                {++index}. {LS(title)}
+              <p className="preview__title">
+                <span>{++index}.</span> {LS(title)}
               </p>
             </div>}
           </>

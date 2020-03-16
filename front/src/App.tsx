@@ -10,6 +10,7 @@ import Header from "./modules/header/component/header";
 const Auth = React.lazy(() => import("./modules/auth/component/auth"));
 const User = React.lazy(() => import("./modules/user/component/user"));
 const Canvas = React.lazy(() => import("./modules/canvas/component/canvas"));
+const Admin = React.lazy(() => import("./modules/admin/admin"));
 
 message.config({
   maxCount: 1
@@ -30,6 +31,7 @@ function App() {
   return (
     <>
       <Header />
+      <Admin />
       <Switch>
         <Route exact path={RoutePath.AUTH_PATH} component={Auth} />
         <Route exact path={RoutePath.USER_PATH} component={User} />

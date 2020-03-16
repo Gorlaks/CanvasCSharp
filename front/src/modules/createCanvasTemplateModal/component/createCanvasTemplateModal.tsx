@@ -11,7 +11,11 @@ import EmptyPreview from "./fragments/emptyPreview";
 import RightInUpColumn from "./fragments/rightInUpColumn";
 import CreateCanvasTemplateModalBody from "./fragments/createCanvasTemplateModalBody";
 
-const CreateCanvasTemplateModal = () => {
+const CreateCanvasTemplateModal = (props: {
+  modalState: boolean,
+  setModalState: Function
+}) => {
+  const { modalState, setModalState } = props;
   const createCanvasTemplateModalService: ICreateCanvasTemplateModalService = container
   .resolve("createCanvasTemplateModalService");
 
@@ -32,22 +36,22 @@ const CreateCanvasTemplateModal = () => {
       },
     ]
   });
-
+  console.log(templateState)
   return (
     <div className="create-canvas-template-modal">
       <Modal
         title={<p className="create-canvas-template-modal__title">{LS("Create_canvas_template")}</p>}
-        visible={false}
+        visible={modalState}
         onOk={() => {
           setLoadingState(true);
           createCanvasTemplateModalService.createCanvasTemplate(templateState)
-          .then(() => setLoadingState(false))
+          .then(() => setModalState(false))
           .catch(() => {
             message.error(LS("Something_went_wrong"));
-            setLoadingState(false);
-          });
+          })
+          .finally(() => setLoadingState(false));
         }}
-        onCancel={() => { }}
+        onCancel={() => setModalState(false)}
         confirmLoading={loadingState}
         width={800}
       >

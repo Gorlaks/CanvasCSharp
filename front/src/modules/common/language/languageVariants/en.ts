@@ -57,10 +57,19 @@ const en = {
 	"Description": "Description",
 	"Add": "Add",
 	"Preview": "Preview",
-	"Rows_count": "Rows count",
-	"Columns_count": "Columns count",
+	"Rows_total": "Rows total",
+	"Columns_total": "Columns total",
 	"Template_name": "Template name",
-	"Create_canvas_template": "Create canvas template"
+	"Create_canvas_template": "Create canvas template",
+	"Row_start": "Row start",
+	"Row_end": "Row end",
+	"Column_start": "Column start",
+	"Column_end": "Column end",
+
+	// admin page translate
+	"Administration": "Administration",
+	"Create_canvas": "Create canvas",
+	"Create_template": "Create template"
 }
 
 export default en;
