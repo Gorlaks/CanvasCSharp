@@ -8,9 +8,6 @@ const Panel = () => {
   const [createCanvasTemplateModalState, setCreateCanvasTemplateModalState] = useState(false);
   return (
     <div className="admin__panel">
-      <div className="admin__panel__sort">
-
-      </div>
       <div className="admin__panel__search">
 
       </div>

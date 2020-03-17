@@ -36,7 +36,7 @@ const CreateCanvasTemplateModal = (props: {
       },
     ]
   });
-  console.log(templateState)
+
   return (
     <div className="create-canvas-template-modal">
       <Modal

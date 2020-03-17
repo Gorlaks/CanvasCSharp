@@ -25,3 +25,9 @@
 	font-family: $mainFontRegular, $spareFonts;
 	cursor: pointer;
 }
+
+@mixin defaultActionButtonInTable {
+	background-color: transparent;
+	color: $buttonBackgroundColor;
+	cursor: pointer;
+}

@@ -1,7 +1,7 @@
 .admin {
   padding: 0 15%;
   header {
-    @include boxSize(100%, 60px);
+    @include boxSize(100%, auto);
     padding: 20px 0;
 
     .admin__title {
@@ -13,25 +13,83 @@
       @include boxSize(100%, 100px);
       display: flex;
 
-      &__sort {
-        @include boxSize(30%, 100px);
-      }
-
       &__search {
-        @include boxSize(30%, 100px);
+        @include boxSize(40%, 100px);
       }
 
       &__creat-template-btn {
-        @include boxSize(40%, 100px);
+        @include boxSize(60%, 100px);
         display: grid;
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: 1fr;  
         div {
           @include boxSize(100%, 100%);
           @include flexCenter();
-          padding: 0 0 0 40%;
+          padding: 0 0 0 60%;
         }
       }
     }
+  }
+
+  &__content {
+    @include boxSize(100%, 700px);
+  }
+}
+
+.users-table {
+  .ant-table-cell {
+    text-align: center;
+
+    .user__table__actions {
+      @include flexCenter();
+
+      button {
+			  @include defaultActionButtonInTable();
+      }
+    }
+  }
+}
+
+.canvas-templates-board {
+  &__type-name {
+    text-align: center;
+    font-family: $mainFontMedium, $spareFonts;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+  }
+  &__template-wrapper {
+    @include boxSize(200px, auto);
+  }
+
+  &__template {
+    @include boxSize(100%, 200px);
+    position: relative;
+  }
+  &__carpet {
+    @include boxSize(100%, 100%);
+    background-color: $mainColor;
+    position: absolute;
+    z-index: 1;
+  }
+  .canvas-template-review {
+    @include boxSize(100%, 100%);
+    z-index: 2;
+    grid-gap: 2px;
+    border: 2px solid $mainColor;
+    div {
+      border: none;
+      background-color: #fff;
+    }
+  }
+
+  &__actions {
+    @include boxSize(100%, 40px);
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    font-family: $mainFontRegular, $spareFonts;
+    line-height: 40px;
   }
 }

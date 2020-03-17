@@ -36,9 +36,7 @@
 		}
 
 		&__action-btn {
-			background-color: transparent;
-			color: $buttonBackgroundColor;
-			cursor: pointer;
+			@include defaultActionButtonInTable();
 		}
 
 		&__actions-separator {

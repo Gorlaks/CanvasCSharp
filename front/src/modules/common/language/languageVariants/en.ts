@@ -69,7 +69,12 @@ const en = {
 	// admin page translate
 	"Administration": "Administration",
 	"Create_canvas": "Create canvas",
-	"Create_template": "Create template"
+	"Create_template": "Create template",
+	"Users": "Users",
+	"Canvas_templates": "Canvas templates",
+	"Name": "Name",
+	"Registration_date": "Registration date",
+	"Projects": "Projects"
 }
 
 export default en;
