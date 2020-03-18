@@ -17,3 +17,26 @@ export const resizeContainer = (e: any) => {
 		e.target.style.height = e.target.scrollHeight + "px";
 	}
 }
+
+export const similarityWordSearch = (str: string, chunk: string): Array<string> | boolean => {
+	const regExp: RegExp = new RegExp(`(${chunk})`);
+	const isSimilar: boolean = str.includes(chunk);
+	let leftSideAfterSlice: string = "",
+		rightSideAfterSlice: string = "";
+
+	if (isSimilar) {
+		const sliceStr: string = str.replace(regExp, " ");
+		let newStr: string = "";
+
+		for (let i = 0; i < sliceStr.length; i++) {
+			if (sliceStr[i] === " ") {
+				leftSideAfterSlice += newStr;
+				newStr = "";
+			} else newStr += sliceStr[i]
+		}
+		
+		rightSideAfterSlice += newStr;
+		return [leftSideAfterSlice, chunk, rightSideAfterSlice];
+	}
+	return false;
+}
