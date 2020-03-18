@@ -10,7 +10,7 @@ import * as serviceWorker from './serviceWorker';
 import initStore from "./initialize/store";
 import initModules from "./initialize/modules";
 
-import LoadingComponent from "./assets/ui/loadingComponent/loadingComponent";
+import Splash from "./assets/ui/splash/splash";
 
 initModules();
 const store = initStore();
@@ -18,7 +18,7 @@ const store = initStore();
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
-			<Suspense fallback={<LoadingComponent />}>
+			<Suspense fallback={<Splash />}>
 				<App />
 			</Suspense>
 		</Router>
