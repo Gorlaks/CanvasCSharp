@@ -22,6 +22,7 @@ const CreateCanvasTemplateModal = (props: {
   .resolve("createCanvasTemplateModalService");
 
   const [loadingState, setLoadingState] = useState(false);
+  /**@desc default canvas template data*/
   const [templateState, setTemplateState] = useState({
     ownerId: null,
     title: null,

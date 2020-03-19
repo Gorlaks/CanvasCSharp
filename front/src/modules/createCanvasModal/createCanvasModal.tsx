@@ -21,6 +21,7 @@ const CreateCanvasModal = (props: {
   const [loadingState, setLoadingState] = useState(false);
   const [title, setTitle] = useState("");
   const [canvasType, setCanvasType] = useState("Lean");
+  
   return (
     <div className="create-canvas-modal">
       <Modal

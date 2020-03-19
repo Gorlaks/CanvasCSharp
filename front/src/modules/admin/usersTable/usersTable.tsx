@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Table as AntTable } from "antd";
 
 import { LS } from "../../../utils/helpers";
