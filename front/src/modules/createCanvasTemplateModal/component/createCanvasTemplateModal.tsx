@@ -1,3 +1,4 @@
+/** @module CreateCanvasTemplateModal */
 import React, { useState } from "react";
 import { container } from "tsyringe";
 import { Modal, message } from "antd";
@@ -11,6 +12,7 @@ import EmptyPreview from "./fragments/emptyPreview";
 import RightInUpColumn from "./fragments/rightInUpColumn";
 import CreateCanvasTemplateModalBody from "./fragments/createCanvasTemplateModalBody";
 
+
 const CreateCanvasTemplateModal = (props: {
   modalState: boolean,
   setModalState: Function
@@ -20,6 +22,7 @@ const CreateCanvasTemplateModal = (props: {
   .resolve("createCanvasTemplateModalService");
 
   const [loadingState, setLoadingState] = useState(false);
+  /**@desc default canvas template data*/
   const [templateState, setTemplateState] = useState({
     ownerId: null,
     title: null,
@@ -36,7 +39,7 @@ const CreateCanvasTemplateModal = (props: {
       },
     ]
   });
-  console.log(templateState)
+
   return (
     <div className="create-canvas-template-modal">
       <Modal

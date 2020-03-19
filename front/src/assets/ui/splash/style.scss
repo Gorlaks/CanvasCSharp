@@ -1,6 +1,7 @@
-.loading-component {
+.splash {
   width: 100vw;
   height: 100vh;
+  background-color: rgba(131, 131, 131, 0.5);
   @include flexCenter;
   position: absolute;
   top: 0;

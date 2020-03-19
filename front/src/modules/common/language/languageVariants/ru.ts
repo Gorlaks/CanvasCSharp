@@ -69,7 +69,12 @@ const ru = {
 	// admin page translate
 	"Administration": "Administration",
 	"Create_canvas": "Создать канвас",
-	"Create_template": "Создать шаблон"
+	"Create_template": "Создать шаблон",
+	"Users": "Пользователи",
+	"Canvas_templates": "Шаблоны канваса",
+	"Name": "Имя",
+	"Registration_date": "Дата регистрации",
+	"Projects": "Проекты"
 }
 
 export default ru;

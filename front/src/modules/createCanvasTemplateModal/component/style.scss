@@ -50,6 +50,7 @@
     .empty-preview {
       @include boxSize(250px, 100%);
       @include flexCenter();
+      position: relative;
       border: 2px solid $mainColor;
       
       p {
@@ -121,22 +122,10 @@
 .preview {
   @include boxSize(200px, 100%);
   margin: 0;
-  display: grid;
   position: relative;
-  &__cover {
+  .canvas-template-review__cover {
     @include boxSize(100%, 100%);
     position: absolute;
     background-color: transparent;
-  }
-  div:not(.preview__cover) {
-    @include boxSize(auto, auto);
-    border: 1px solid $mainColor;
-    text-align: center;
-    font-family: $mainFontRegular, $spareFonts;
-    font-size: 12px;
-    overflow: hidden;
-    span {
-      font-family: $mainFontMedium, $spareFonts;
-    }
   }
 }

@@ -23,6 +23,10 @@ function App() {
   const isAuthorized = Boolean(userAuthData.id);
   const language = localStorageApi.getLocalData("language", "");
 
+  /**
+	 * @desc Checks for language information in the localStorage
+   * and check authorization of current user.
+	*/
   useEffect(() => {
     if (!language) localStorageApi.setLocalData("language", "en");
     if (!isAuthorized) history.push("/auth");

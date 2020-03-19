@@ -1,3 +1,4 @@
+/** @module CreateCanvasModal */
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Modal, message } from "antd";
@@ -20,6 +21,7 @@ const CreateCanvasModal = (props: {
   const [loadingState, setLoadingState] = useState(false);
   const [title, setTitle] = useState("");
   const [canvasType, setCanvasType] = useState("Lean");
+  
   return (
     <div className="create-canvas-modal">
       <Modal
