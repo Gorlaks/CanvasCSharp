@@ -14,11 +14,16 @@ const Table = (props: {
 }) => {
 	const userService: IUserService = container.resolve("userService");
 
+	/**
+	 * @desc Make a request to the server for canvas list of current user
+	 * and put received information to redux store.
+	*/
 	useEffect(() => {
 		const { id } = props.userAuthData;
 		userService.setCanvasList(id);
 	}, [])
 
+	/**@desc Table columns.*/
 	const columns = [
 		{
 			title: LS("Title"),

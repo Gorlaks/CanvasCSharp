@@ -1,3 +1,4 @@
+/** @module Canvas */
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -21,6 +22,10 @@ const Canvas = (props: {
 
 	const [canvasDataState, setCanvasDataState] = useState({});
 
+	/**
+	 * @desc Make a request about choosen canvas to the server
+	 * and put received information to redux store.
+	*/
 	useEffect(() => {
 		if(!canvasId) history.push(RoutePath.USER_PATH);
 		canvasRepository.getCanvasById(userAuthData.id, canvasId)

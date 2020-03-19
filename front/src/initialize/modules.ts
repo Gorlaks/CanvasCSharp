@@ -16,6 +16,9 @@ import CanvasService from "../modules/canvas/canvasService";
 import HeaderService from "../modules/header/headerService";
 import CreateCanvasTemplateModalService from "../modules/createCanvasTemplateModal/createCanvasTemplateModalService";
 
+/**
+ * @desc Create singleton objects of every service, repository, etc in project.
+*/
 const initModules = (): void => {
 	const localStorageApi = new LocalStorageApi();
 	const apiClient = new ApiClient(url);

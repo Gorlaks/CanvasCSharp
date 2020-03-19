@@ -12,6 +12,9 @@ import initModules from "./initialize/modules";
 
 import Splash from "./assets/ui/splash/splash";
 
+/**
+ * @desc Initialize modules and redux store.
+*/
 initModules();
 const store = initStore();
 

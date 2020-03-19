@@ -16,6 +16,11 @@ const Login = (props: {
 	const [login, setLogin] = useState("");
 	const [password, setPassword] = useState("");
 
+	/**
+	 * @desc Make a request to the server for login
+	 * and put received information to redux store.
+	 * @event onClick.
+	*/
 	const sendLogin = () => {
 		if(login && password) {
 			const loading = message.loading(LS("Loading"));

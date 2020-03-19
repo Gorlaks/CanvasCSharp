@@ -1,3 +1,4 @@
+/** @module Admin */
 import React from "react";
 import { Tabs } from "antd";
 import { connect } from "react-redux";

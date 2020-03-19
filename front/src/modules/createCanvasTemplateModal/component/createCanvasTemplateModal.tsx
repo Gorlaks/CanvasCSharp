@@ -1,3 +1,4 @@
+/** @module CreateCanvasTemplateModal */
 import React, { useState } from "react";
 import { container } from "tsyringe";
 import { Modal, message } from "antd";
@@ -10,6 +11,7 @@ import LeftInUpColumn from "./fragments/leftInUpColumn";
 import EmptyPreview from "./fragments/emptyPreview";
 import RightInUpColumn from "./fragments/rightInUpColumn";
 import CreateCanvasTemplateModalBody from "./fragments/createCanvasTemplateModalBody";
+
 
 const CreateCanvasTemplateModal = (props: {
   modalState: boolean,
