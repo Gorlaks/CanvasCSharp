@@ -12,11 +12,12 @@ const User = React.lazy(() => import("./modules/user/component/user"));
 const Canvas = React.lazy(() => import("./modules/canvas/component/canvas"));
 const Admin = React.lazy(() => import("./modules/admin/admin"));
 
+/** @description Config antd message component. */
 message.config({
   maxCount: 1
 })
 
-function App() {
+const App = () => {
   const history = useHistory();
   const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
   const userAuthData = localStorageApi.getLocalData("userAuthData", {});
