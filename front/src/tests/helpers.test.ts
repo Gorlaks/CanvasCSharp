@@ -1,6 +1,4 @@
-import React from "react";
 import "reflect-metadata";
-
 import { similarityWordSearch } from "../utils/helpers";
 
 describe("Tests: helpers", () => {
