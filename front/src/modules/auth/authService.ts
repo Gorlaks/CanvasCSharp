@@ -19,6 +19,7 @@ class AuthService implements IAuthService {
 		this.apiClient = apiClient;
 	}
 
+	/** @description Write user data to redux store after login. */
 	async login(login: string, password: string) {
 		const result = await this.authRepository.authentication(login, password);
 
@@ -33,6 +34,7 @@ class AuthService implements IAuthService {
 		}
 	}
 
+	/** @description User registration and write user data to redux store */
 	async registration(data: IRegistrationData) {
 		const result = await this.apiClient.sendRequest(data, "/registration");
 		if(result.error) throw result.error;

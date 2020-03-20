@@ -17,7 +17,7 @@ const Login = (props: {
 	const [password, setPassword] = useState("");
 
 	/**
-	 * @desc Make a request to the server for login
+	 * @description Make a request to the server for login
 	 * and put received information to redux store.
 	 * @event onClick.
 	*/

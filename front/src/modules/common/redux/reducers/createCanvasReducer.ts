@@ -1,12 +1,13 @@
 import { ICanvasReducer } from "../interfaces";
 
-const CreateCommonReducer = (initialState: ICanvasReducer) => {
-	const commonReducer = (state: ICanvasReducer = initialState, action: any) => {
+/** @description Reducer with data of canvas component. */
+const CreateCanvasReducer = (initialState: ICanvasReducer) => {
+	const canvasReducer = (state: ICanvasReducer = initialState, action: any) => {
 		switch(action.type) {
 			default: return state;
 		}
 	}
-	return commonReducer;
+	return canvasReducer;
 }
 
-export default CreateCommonReducer;
+export default CreateCanvasReducer;

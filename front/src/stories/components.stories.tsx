@@ -1,3 +1,4 @@
+/** @description Stories of react components from modules folder. */
 import React from "react";
 import { Provider } from "react-redux";
 
@@ -16,8 +17,16 @@ import CreateCanvasTemplateModal from "../modules/createCanvasTemplateModal/comp
 initModules();
 const store = initStore();;
 
+/**
+ * @description Header component.
+ * @module Header.
+*/
 export const WithHeader = () => <Header />;
 
+/**
+ * @description Admin component.
+ * @module Admin.
+*/
 export const WithAdmin = () => {
   return (
     <Provider store={store}>
@@ -26,6 +35,10 @@ export const WithAdmin = () => {
   )
 };
 
+/** 
+ * @description Modal window for canvas template creating.
+ * @module CreateCanvasTemplateModal.
+*/
 export const WithCreateCanvasTemplateModal = () => {
   return (
     <CreateCanvasTemplateModal
@@ -35,6 +48,10 @@ export const WithCreateCanvasTemplateModal = () => {
   )
 }
 
+/** 
+ * @description Modal window for canvas creating.
+ * @module CreateCanvasModal.
+*/
 export const WithCreateCanvasModal = () => {
   return (
     <CreateCanvasModal

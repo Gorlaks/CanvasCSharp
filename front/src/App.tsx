@@ -24,7 +24,7 @@ function App() {
   const language = localStorageApi.getLocalData("language", "");
 
   /**
-	 * @desc Checks for language information in the localStorage
+	 * @description Checks for language information in the localStorage
    * and check authorization of current user.
 	*/
   useEffect(() => {

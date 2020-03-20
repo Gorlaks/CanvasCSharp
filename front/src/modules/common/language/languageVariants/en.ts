@@ -1,3 +1,4 @@
+/** @description Object with words in English. */
 const en = {
 	// common translate
 	"Loading": "...Loading",

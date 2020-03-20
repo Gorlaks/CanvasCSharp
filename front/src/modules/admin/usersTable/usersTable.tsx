@@ -6,7 +6,7 @@ import { LS } from "../../../utils/helpers";
 import ActionCell from "./actionCell";
 
 const UsersTable = () => {
-	/**@desc Table columns.*/
+	/**@description Table columns.*/
   const columns = [
     {
 			title: "№",

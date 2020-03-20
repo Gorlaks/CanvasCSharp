@@ -4,7 +4,7 @@ import { Menu as AntMenu } from "antd";
 import { IHeaderService } from "../../interfaces";
 
 enum Keys {
-  EXIT = "Exit"
+  LOG_OUT = "LogOut"
 }
 
 const { SubMenu } = AntMenu;
@@ -22,7 +22,7 @@ const Menu = (props: {
           </p>
         }
       >
-        <AntMenu.Item key={Keys.EXIT}>Exit</AntMenu.Item>
+        <AntMenu.Item key={Keys.LOG_OUT}>Log out</AntMenu.Item>
       </SubMenu>
     </AntMenu>
   )
@@ -33,7 +33,7 @@ const handleActions = (props: {
 }) => {
   const headerService: IHeaderService = container.resolve("headerService");
   const { key } = props;
-  if(key === Keys.EXIT) headerService.exit();
+  if(key === Keys.LOG_OUT) headerService.LogOut();
 }
 
 export default Menu;

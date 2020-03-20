@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
+
 import { LS } from "../../../../utils/helpers";
 import { ICreateCanvasTemplate } from "../../../common/redux/interfaces";
 
@@ -31,6 +32,10 @@ const CreateCanvasTemplateModalBody = (props: {
         );
       })}
       <div className="add-btn">
+        {/**
+         * @description Add new block to grid layout.
+         * @event
+        */}
         <button onClick={() => {
           templateState.data.push({
             position: [],

@@ -9,6 +9,7 @@ class UserService implements IUserService {
 		this.userRepository = userRepository;
 	}
 
+	/** @description Write received canvas list to redux store. */
 	async setCanvasList(ownerId: string) {
 		const canvasList = await this.userRepository.getCanvasList(ownerId);
 		GetStore().dispatch({

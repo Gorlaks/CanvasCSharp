@@ -1,3 +1,4 @@
+/** @description Creating redux store */
 import { container } from "tsyringe";
 
 import { CreateStore } from "../modules/common/redux/store";

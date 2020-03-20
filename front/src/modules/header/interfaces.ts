@@ -1,3 +1,3 @@
 export interface IHeaderService {
-  exit(): void;
+  LogOut(): void;
 };

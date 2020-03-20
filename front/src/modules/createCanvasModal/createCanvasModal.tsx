@@ -14,10 +14,13 @@ const CreateCanvasModal = (props: {
   setModalState: Function,
   userAuthData: IUserAuthData
 }) => {
+  const { isOpened, setModalState } = props;
+
   const history = useHistory();
   const canvasService: ICanvasService = container.resolve("canvasService");
   const localStorageApi:ILocalStorageApi  = container.resolve("localStorageApi");
-  const { isOpened, setModalState } = props;
+
+  /** @description Splash icon state in ok button. */
   const [loadingState, setLoadingState] = useState(false);
   const [title, setTitle] = useState("");
   const [canvasType, setCanvasType] = useState("Lean");
@@ -26,6 +29,7 @@ const CreateCanvasModal = (props: {
     <div className="create-canvas-modal">
       <Modal
         visible={isOpened}
+        /** @description Create canvas action. */
         onOk={() => {
           const ownerId = props.userAuthData.id;
           setLoadingState(true);

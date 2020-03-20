@@ -20,10 +20,11 @@ const Canvas = (props: {
 	const canvasId: string = localStorageApi.getLocalData("canvasId", "");
 	const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
 
+	/** @description Canvas data for building grid layout. */
 	const [canvasDataState, setCanvasDataState] = useState({});
 
 	/**
-	 * @desc Make a request about choosen canvas to the server
+	 * @description Make a request about choosen canvas to the server
 	 * and put received information to redux store.
 	*/
 	useEffect(() => {

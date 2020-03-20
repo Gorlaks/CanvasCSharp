@@ -1,9 +1,9 @@
 import React from "react";
 
-import { LS } from "../../../../utils/helpers";
 import { ICreateCanvasTemplate } from "../../../common/redux/interfaces";
 import CanvasTemplateReview from "../../../../assets/ui/canvasTemplateReview/canvasTemplateReview";
 
+/** @description Component for viewing the constructed grid layout. */
 const Preview = (props: {
   templateData: ICreateCanvasTemplate
 }) => {

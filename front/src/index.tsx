@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+/** @description For tsyringe library. */
 import "reflect-metadata";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -13,7 +14,7 @@ import App from './App';
 import Splash from "./assets/ui/splash/splash";
 
 /**
- * @desc Initialize modules and redux store.
+ * @description Initialize modules and redux store.
 */
 initModules();
 const store = initStore();

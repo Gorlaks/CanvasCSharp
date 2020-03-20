@@ -10,6 +10,7 @@ class LanguageService implements ILanguageService {
     this.localStorageApi = localStorageApi;
   }
 
+	/** @description Write language to redux store and local storage. */
 	changeLanguage(language: string): void {
 		GetStore().dispatch({
 			type: types.CHANGE_LANGUAGE,

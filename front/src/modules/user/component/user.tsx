@@ -14,6 +14,7 @@ const User = (props: {
 	userAuthData: IUserAuthData,
 	canvasList: Array<ICanvasList>
 }) => {
+	/** @description State of modal for creating of canvas. */
 	const [createCanvasModalIsOpened, setCreateCanvasModalState] = useState(false);
 
 	return (
