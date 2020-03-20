@@ -3,6 +3,7 @@ import React from "react";
 import { LS } from "../../../../utils/helpers";
 import PlusButton from "../../../../assets/ui/plusButton/plusButton";
 
+/** @description Panel with actions like creating a canvas. */
 const Panel = (props: {
 	setCreateCanvasModalState: Function
 }) => {

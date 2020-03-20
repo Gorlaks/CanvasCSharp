@@ -1,3 +1,4 @@
+/** @description Creating single objects from every module */
 import { container } from "tsyringe";
 import { url } from "../utils/constants";
 
@@ -17,7 +18,7 @@ import HeaderService from "../modules/header/headerService";
 import CreateCanvasTemplateModalService from "../modules/createCanvasTemplateModal/createCanvasTemplateModalService";
 
 /**
- * @desc Create singleton objects of every service, repository, etc in project.
+ * @description Create singleton objects of every service, repository, etc in project.
 */
 const initModules = (): void => {
 	const localStorageApi = new LocalStorageApi();
@@ -25,7 +26,7 @@ const initModules = (): void => {
 
 	const authRepository = new AuthRepository(apiClient);
 	const languageRepository = new LanguageRepository();
-	const userRepositroy = new UserRepositroy();
+	const userRepositroy = new UserRepositroy(apiClient);
 	const canvasRepository = new CanvasRepository();
 
 	const authService = new AuthService(authRepository, localStorageApi, apiClient);

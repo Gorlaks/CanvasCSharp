@@ -2,6 +2,7 @@ import React from "react";
 import { LS } from "../../../../utils/helpers";
 import { ICreateCanvasTemplate } from "../../../common/redux/interfaces";
 
+/** @description Block with name of template field. */
 const RightInUpColumn = (props: {
   templateState: ICreateCanvasTemplate,
   setTemplateState: Function

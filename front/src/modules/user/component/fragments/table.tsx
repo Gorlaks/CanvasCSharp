@@ -15,7 +15,7 @@ const Table = (props: {
 	const userService: IUserService = container.resolve("userService");
 
 	/**
-	 * @desc Make a request to the server for canvas list of current user
+	 * @description Make a request to the server for canvas list of current user
 	 * and put received information to redux store.
 	*/
 	useEffect(() => {
@@ -23,7 +23,7 @@ const Table = (props: {
 		userService.setCanvasList(id);
 	}, [])
 
-	/**@desc Table columns.*/
+	/**@description Table columns.*/
 	const columns = [
 		{
 			title: LS("Title"),
@@ -53,6 +53,7 @@ const Table = (props: {
 
 	let data: Array<Record<string, any>> = [];
 
+	/** @description Filling the table with canvas list data. */
 	props.canvasList.length && props.canvasList.map((item, index) => {
 		data.push({
 			key: index++,

@@ -10,6 +10,7 @@ import { IReduxStore } from "../../common/redux/interfaces";
 
 const { TabPane } = Tabs;
 
+/** @description Login and registration components in tabs */
 const Auth = (props: {
 	language: string
 }) => {

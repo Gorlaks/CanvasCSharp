@@ -19,7 +19,7 @@ const Registration = (props: {
 	const [password, setPassword] = useState("");
 
 	/**
-	 * @desc Make a request to the server for registration
+	 * @description Make a request to the server for registration
 	 * and put received information to redux store.
 	 * @event onClick.
 	*/

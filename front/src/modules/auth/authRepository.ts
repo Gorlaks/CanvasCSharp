@@ -8,6 +8,7 @@ class AuthRepository implements IAuthRepository {
 		this.apiClient = apiClient;
 	}
 
+	/** @description Send post request for login. */
 	async authentication(login: string, password: string) {
 		const result = await this.apiClient.sendRequest({
 			login,

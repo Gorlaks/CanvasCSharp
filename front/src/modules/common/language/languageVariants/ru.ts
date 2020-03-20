@@ -1,3 +1,4 @@
+/** @description Object with words in Russian. */
 const ru = {
 	// common translate
 	"Loading": "...Загрузка",

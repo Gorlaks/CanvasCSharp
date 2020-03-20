@@ -11,6 +11,7 @@ class CanvasService implements ICanvasService {
     this.apiClient = apiClient;
   }
 
+  /** @description Send post request for deleting canvas from database. */
   async deleteCanvas(ownerId: string, canvasId: string) {
     return await this.apiClient.sendRequest({
       ownerId,
@@ -18,6 +19,7 @@ class CanvasService implements ICanvasService {
     }, "/deleteCanvas");
   }
 
+  /** @description Send post request for creating canvas for user. */
   async createCanvas(ownerId: string, title: string, type: string) {
     return await this.apiClient.sendRequest({
       ownerId,
@@ -26,6 +28,7 @@ class CanvasService implements ICanvasService {
     }, "/createCanvas");
   }
 
+  /** @description Change data in redux store after delete canvas from canvas list of user. */
   async setCanvasListAfterRemoving(canvasId: string) {
     const canvasList = GetStore().getState().userReducer.canvasList
     .filter((item: ICanvasData) => item.id !== canvasId);
@@ -35,6 +38,7 @@ class CanvasService implements ICanvasService {
     })
   }
 
+  /** @description Send post request for update canvas in database. */
   async updateCanvas(canvasData: Record<string, any>) {
     return await this.apiClient.sendRequest({
       canvasId: canvasData.id,

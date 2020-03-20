@@ -1,13 +1,14 @@
 import { container } from "tsyringe";
 import { ILanguageRepository } from "../modules/common/language/interfaces";
 
+/** @description For translate. */
 export const LS = (sentense: string): string => {
 	const languageRepository: ILanguageRepository = container.resolve("languageRepository");
 	return languageRepository.translate(sentense);
 }
 
 /**
- * @desc Increases the number of lines by 1 after pressing enter.
+ * @description Increases the number of lines by 1 after pressing enter.
  * e props - textarea data.
  * @event
 */
@@ -18,7 +19,7 @@ export const newStrokeInTextArea = (e: any) => {
 }
 
 /**
- * @desc Increases height of the textarea window if the text exceeds the width.
+ * @description Increases height of the textarea window if the text exceeds the width.
  * e props - textarea data
  * @event
 */
@@ -29,7 +30,7 @@ export const resizeContainer = (e: any) => {
 }
 
 /**
- * @desc For searching by name.
+ * @description For searching by name.
 */
 export const similarityWordSearch = (str: string, chunk: string): Array<string> | boolean => {
 	const regExp: RegExp = new RegExp(`(${chunk})`);

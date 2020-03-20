@@ -9,6 +9,7 @@ class CreateCanvasTemplateModalService implements ICreateCanvasTemplateModalServ
     this.apiClient = apiClient;
   }
 
+  /** @description Send post request for creating canvas template. */
   async createCanvasTemplate(templateData: ICreateCanvasTemplate) {
     await this.apiClient.sendRequest(templateData, "/createCanvasTemplate")
   }

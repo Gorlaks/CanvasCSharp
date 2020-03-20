@@ -11,6 +11,7 @@ import LeftInUpColumn from "./fragments/leftInUpColumn";
 import EmptyPreview from "./fragments/emptyPreview";
 import RightInUpColumn from "./fragments/rightInUpColumn";
 import CreateCanvasTemplateModalBody from "./fragments/createCanvasTemplateModalBody";
+import { ICreateCanvasTemplate } from "../../common/redux/interfaces";
 
 
 const CreateCanvasTemplateModal = (props: {
@@ -22,7 +23,7 @@ const CreateCanvasTemplateModal = (props: {
   .resolve("createCanvasTemplateModalService");
 
   const [loadingState, setLoadingState] = useState(false);
-  /**@desc default canvas template data*/
+  /** @description default canvas template data. */
   const [templateState, setTemplateState] = useState({
     ownerId: null,
     title: null,
@@ -45,15 +46,13 @@ const CreateCanvasTemplateModal = (props: {
       <Modal
         title={<p className="create-canvas-template-modal__title">{LS("Create_canvas_template")}</p>}
         visible={modalState}
-        onOk={() => {
-          setLoadingState(true);
-          createCanvasTemplateModalService.createCanvasTemplate(templateState)
-          .then(() => setModalState(false))
-          .catch(() => {
-            message.error(LS("Something_went_wrong"));
-          })
-          .finally(() => setLoadingState(false));
-        }}
+        /** @description Create canvas template action. */
+        onOk={() => handleOk({
+          createCanvasTemplateModalService,
+          setLoadingState,
+          setModalState,
+          templateState
+        })}
         onCancel={() => setModalState(false)}
         confirmLoading={loadingState}
         width={800}
@@ -83,6 +82,29 @@ const CreateCanvasTemplateModal = (props: {
       </Modal>
     </div>
   )
+}
+
+/** @description Function for ok attribute in modal component */
+const handleOk = (props: {
+  templateState: ICreateCanvasTemplate
+  createCanvasTemplateModalService: ICreateCanvasTemplateModalService,
+  setLoadingState: Function,
+  setModalState: Function
+}) => {
+  const {
+    templateState,
+    createCanvasTemplateModalService,
+    setLoadingState,
+    setModalState
+  } = props;
+
+  setLoadingState(true);
+  createCanvasTemplateModalService.createCanvasTemplate(templateState)
+  .then(() => setModalState(false))
+  .catch(() => {
+    message.error(LS("Something_went_wrong"));
+  })
+  .finally(() => setLoadingState(false));
 }
 
 export default CreateCanvasTemplateModal;

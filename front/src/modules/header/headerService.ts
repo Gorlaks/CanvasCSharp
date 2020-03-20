@@ -9,7 +9,8 @@ class HeaderService implements IHeaderService {
     this.localStorageApi = localStorageApi;
   }
 
-  exit() {
+  /** @description Log out. */
+  LogOut() {
     this.localStorageApi.clearLocalData();
     window.location.pathname = RoutePath.AUTH_PATH;
   }
