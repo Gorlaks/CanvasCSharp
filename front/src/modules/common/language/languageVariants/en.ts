@@ -29,6 +29,7 @@ const en = {
 	"Actions": "Actions",
 	"Id is not found": "Id is not found",
 	"Delete": "Delete",
+	"Id_is_not_found": "Id is not found",
 
 	// canvas page translate
 	"Consumer segments": "Consumer segments",
@@ -51,6 +52,7 @@ const en = {
 	"Who are our key partners? Who are our key suppliers?": "Who are our key partners? Who are our key suppliers?",
 	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "What are the most important costs associated with a business model? Which key resources are the most expensive?",
 	"Canvas_success_update": "Canvas updated successfully",
+	"Download_pdf": "Download pdf",
 
 	// Create canvas template modal translate
 	"Position": "Position",

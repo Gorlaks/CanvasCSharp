@@ -26,7 +26,7 @@ const Login = (props: {
 			const loading = message.loading(LS("Loading"));
 			authService.login(login, password)
 			.then(() => history.push("/user"))
-			.catch(() => message.error(LS("Something_went_wrong")))
+			.catch((e: { error: string }) => message.error(e.error))
 			.finally(() => loading());
 		} else message.error(LS("Empty_field_error"));
 	}

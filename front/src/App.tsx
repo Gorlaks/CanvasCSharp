@@ -36,7 +36,6 @@ const App = () => {
   return (
     <>
       <Header />
-      <Admin />
       <Switch>
         <Route exact path={RoutePath.AUTH_PATH} component={Auth} />
         <Route exact path={RoutePath.USER_PATH} component={User} />
