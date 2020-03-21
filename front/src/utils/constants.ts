@@ -1,7 +1,7 @@
 /**
  * @description Url path of server for apiClient.
 */
-export const url: string = "https://localhost:5001";
+export const url: string = "https://canvas-back.herokuapp.com";
 
 /**
  * @description Route paths for routing.

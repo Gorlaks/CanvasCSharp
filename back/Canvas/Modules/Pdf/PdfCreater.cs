@@ -54,7 +54,7 @@ namespace Canvas.Modules.Pdf
         /// <returns> Link for the download the html document. </returns>
         public string SavePdf(string htmlString, string outputFile)
         {
-            string pathToFile = $"https://localhost:5001/{outputFile}.pdf";
+            string pathToFile = $"https://canvas-back.herokuapp.com/{outputFile}.pdf";
             PdfDocument PDF = this.Renderer.RenderHtmlAsPdf(htmlString);
             string OutputPath = $"wwwroot/{outputFile}.pdf";
             PDF.TrySaveAs(OutputPath);
