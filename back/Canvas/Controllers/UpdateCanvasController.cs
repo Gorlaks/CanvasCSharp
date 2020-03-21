@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace Canvas.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
+    /// <summary>
+    ///     The controller to update the requested canvas in database.
+    /// </summary>
     public class UpdateCanvasController : Controller
     {
         [HttpPost]
@@ -18,6 +19,9 @@ namespace Canvas.Controllers
         }
     }
 
+    /// <summary>
+    ///     The model for data about canvas.
+    /// </summary>
     public class SaveCanvasData
     {
         public string canvasId { get; set; }

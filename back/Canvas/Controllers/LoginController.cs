@@ -4,6 +4,10 @@ namespace Canvas.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
+    /// <summary>
+    ///     The controller to check user in database to login.
+    /// </summary>
     public class LoginController : Controller
     {
         [HttpPost]
@@ -14,6 +18,9 @@ namespace Canvas.Controllers
         }
     }
 
+    /// <summary>
+    ///     The model for data about an user.
+    /// </summary>
     public class LoginData
     {
         public string login { get; set; }
