@@ -29,6 +29,7 @@ const ru = {
 	"Actions": "Действия",
 	"Id is not found": "Не найдет идентификатор",
 	"Delete": "Удалить",
+	"Id_is_not_found": "Идентификатор не найден",
 
 	// canvas page translate
 	"Consumer segments": "Сегменты потребителей",
@@ -51,6 +52,7 @@ const ru = {
 	"Who are our key partners? Who are our key suppliers?": "Кто наши ключевые партнеры? Кто наши ключевые поставщики?",
 	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "Каковы наиболее важные затраты, связанные с бизнес-моделью? Какие ключевые ресурсы являются самыми дорогими?",
 	"Canvas_success_update": "Канвас успешно обновлен",
+	"Download_pdf": "Скачать pdf",
 
 	// Create canvas template modal translate
 	"Position": "Местоположение",

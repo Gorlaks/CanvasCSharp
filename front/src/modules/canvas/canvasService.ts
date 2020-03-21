@@ -4,6 +4,9 @@ import { ICanvasService } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 import * as types from "../../utils/reduxConstants";
 
+/**
+ * The main class to process canvas data.
+*/
 class CanvasService implements ICanvasService {
   private apiClient: IApiClient;
 
@@ -46,6 +49,13 @@ class CanvasService implements ICanvasService {
       title: canvasData.title,
       data: canvasData.data
     }, "/updateCanvas");
+  }
+
+  async downloadPdf(canvasData: ICanvasData) {
+    return await this.apiClient.sendRequest({
+      title: canvasData.title,
+      data: canvasData.data
+    }, "/createPdf");
   }
 }
 

@@ -101,9 +101,7 @@ const handleOk = (props: {
   setLoadingState(true);
   createCanvasTemplateModalService.createCanvasTemplate(templateState)
   .then(() => setModalState(false))
-  .catch(() => {
-    message.error(LS("Something_went_wrong"));
-  })
+  .catch((e: {error: string}) => message.error(LS(e.error)))
   .finally(() => setLoadingState(false));
 }
 

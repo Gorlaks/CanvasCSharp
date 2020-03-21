@@ -27,7 +27,7 @@ const Registration = (props: {
 		const loading = message.loading(LS("Loading"));
 		authService.registration({ email, login, password })
 		.then(() => history.push("/user"))
-		.catch((e: string) => message.error(LS(e)))
+		.catch((e: {error: string}) => message.error(LS(e.error)))
 		.finally(() => loading());
   }
   

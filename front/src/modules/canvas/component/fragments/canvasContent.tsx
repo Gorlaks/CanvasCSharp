@@ -1,13 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { container } from "tsyringe";
-import { message } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
+import { container } from "tsyringe";
 
 import PlusButton from "../../../../assets/ui/plusButton/plusButton";
 import { newStrokeInTextArea, resizeContainer, LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
-import { ICanvasBlocksData } from "../../../common/redux/interfaces";
+import { handleUpdate, writeContentToCanvasDataBlocks, handleDownloadPdf } from "./functions";
 import { ICanvasService } from "../../interfaces";
 
 const CanvasContent = (props: {
@@ -16,6 +15,7 @@ const CanvasContent = (props: {
 	const history = useHistory();
 	const { canvasData } = props;
 	const { columns, rows, data, title, type } = canvasData;
+	const canvasService: ICanvasService = container.resolve("canvasService");
 
 	/** @description Create grid layout. */
 	const canvasContentStyles = {
@@ -31,10 +31,13 @@ const CanvasContent = (props: {
 					<button className="back-arrow" onClick={() => history.push(RoutePath.USER_PATH)}><LeftOutlined /></button>
 					<span className="title">{LS("Editing")} {LS("Canvas")}</span>
 					<span className="type">{type}</span>
-					<PlusButton text={LS("Save")} handleClick={handleUpdate} />
+					<PlusButton text={LS("Save")} handleClick={() => handleUpdate({canvasData, canvasService})} />
 				</div>
 				<div className="canvas__header__low">
 					<input type="text" placeholder={LS("Enter_canvas_name")} defaultValue={title} onChange={(e: any) => canvasData.title = e.target.value} />
+					<div className="canvas__header__low__buttons">
+						<button onClick={() => handleDownloadPdf({canvasData, canvasService})}>{LS("Download_pdf")}</button>
+					</div>
 				</div>
 			</header>
 
@@ -67,27 +70,6 @@ const CanvasContent = (props: {
 			</div>
 		</div>
 	)
-}
-
-/** @description Write user's content of canvas to canvasData.data for sending to the server. */
-const writeContentToCanvasDataBlocks = (e: any, canvasData: Record<string, any>) => {
-	canvasData.data = canvasData.data.map((item: ICanvasBlocksData) => {
-		if (item.title === e.target.dataset.title) {
-			item.content = e.target.value;
-			return item
-		}
-		return item
-	})
-}
-
-/** @description Update canvas function. */
-const handleUpdate = (canvasData: Record<string, any>) => {
-	const canvasService: ICanvasService = container.resolve("canvasService");
-	const loading = message.loading(LS("Loading"));
-	canvasService.updateCanvas(canvasData)
-		.then(() => message.success(LS("Canvas_success_update")))
-		.catch(() => message.error(LS("Something_went_wrong")))
-		.finally(() => loading());
 }
 
 export default CanvasContent;

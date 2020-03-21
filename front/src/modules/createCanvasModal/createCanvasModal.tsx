@@ -39,10 +39,10 @@ const CreateCanvasModal = (props: {
             setLoadingState(false);
             history.push(RoutePath.CANVAS_PATH);
           })
-          .catch(() => {
-            message.error(LS("Something_went_wrong"));
+          .catch((e: {error: string}) => {
+            message.error(LS(e.error))
             setLoadingState(false);
-          })
+          });
         }}
         confirmLoading={loadingState}
         onCancel={() => setModalState(false)}

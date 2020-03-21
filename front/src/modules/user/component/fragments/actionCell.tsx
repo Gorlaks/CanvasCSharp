@@ -44,7 +44,7 @@ const handleEdit = (props: {
 
   localStorageApi.setLocalData("canvasId", record.id);
   const canvasId = localStorageApi.getLocalData("canvasId", null);
-  if (!canvasId) message.error(LS("Id is not found"));
+  if (!canvasId) message.error(LS("Id_is_not_found"));
   else history.push(RoutePath.CANVAS_PATH)
 }
 
@@ -61,7 +61,7 @@ const handleDelete = (props: {
     .then((item: { id: string }) => {
       canvasService.setCanvasListAfterRemoving(item.id);
     })
-    .catch(() => message.error(LS("Something_went_wrong")))
+    .catch((e: {error: string}) => message.error(LS(e.error)))
     .finally(() => loading());
 }
 
