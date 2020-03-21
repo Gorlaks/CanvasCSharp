@@ -35,7 +35,7 @@ const CanvasContent = (props: {
 				</div>
 				<div className="canvas__header__low">
 					<input type="text" placeholder={LS("Enter_canvas_name")} defaultValue={title} onChange={(e: any) => canvasData.title = e.target.value} />
-					<div>
+					<div className="canvas__header__low__buttons">
 						<button onClick={() => handleDownloadPdf({canvasData, canvasService})}>{LS("Download_pdf")}</button>
 					</div>
 				</div>
