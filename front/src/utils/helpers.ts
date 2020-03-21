@@ -30,14 +30,16 @@ export const resizeContainer = (e: any) => {
 }
 
 /**
- * @description For searching by name.
+ * @description For searching by name and word cropping for highlighting.
 */
 export const similarityWordSearch = (str: string, chunk: string): Array<string> | boolean => {
 	const regExp: RegExp = new RegExp(`(${chunk})`);
+	/** @description checking the word for coincidence. */
 	const isSimilar: boolean = str.includes(chunk);
 	let leftSideAfterSlice: string = "",
 		rightSideAfterSlice: string = "";
 
+	/** @description word cropping for highlighting */
 	if (isSimilar) {
 		const sliceStr: string = str.replace(regExp, " ");
 		let newStr: string = "";
