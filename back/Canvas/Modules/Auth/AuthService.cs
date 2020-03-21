@@ -45,7 +45,7 @@ namespace Canvas.Modules.Auth
                             $"\"email\": \"{email}\"" +
                         "}";
                     }
-                    catch (Exception e)
+                    catch
                     {
                         return $"{{\"error\": \"Something_went_wrong\"}}";
                     }
