@@ -6,6 +6,9 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Canvas.Models
 {
+    /// <summary>
+    ///     Model for the canvas collection in the database.
+    /// </summary>
     public class Canvas
     {
         [BsonId]
@@ -20,6 +23,9 @@ namespace Canvas.Models
         public List<CanvasItemInData> data { get; set; }
     }
 
+    /// <summary>
+    ///     Model for the list of the data field in the canvas collection.
+    /// </summary>
     public class CanvasItemInData
     {
         public int[] position { get; set; }

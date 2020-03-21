@@ -25,6 +25,10 @@ namespace Canvas
             app.UseHttpsRedirection();
             app.UseMvc();
 
+            /// <summary>
+            ///     Initialize all needed modules like service, repository, etc.
+            /// </summary>
+            /// <param name='app'"> IApplicationBuilder. </param>
             Initialize.Modules.InitModules(app);
 
             app.Run(async (context) =>

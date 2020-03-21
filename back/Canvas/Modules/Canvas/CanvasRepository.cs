@@ -1,29 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using MongoDB.Driver;
 using Canvas.Controllers;
 
 namespace Canvas.Modules.Canvas
 {
+    /// <summary>
+    ///     The main class for getting some data about canvas from database in canvas collection.
+    /// </summary>
     public class CanvasRepository : ICanvasRepository
     {
-        private IMongoDatabase Store;
+        /// <value> Gets the collection with canvas data from database. </value>
         private IMongoCollection<Models.Canvas> Collection;
 
         public CanvasRepository(IMongoDatabase store)
         {
-            Store = store;
             Collection = store.GetCollection<Models.Canvas>("Canvas");
         }
+        /// <summary>
+        ///     Method for getting canvas list of requested user from database.
+        /// </summary>
+        /// <param name="data"> Data about user like id. </param>
+        /// <returns> String with canvas list data. </returns>
         public string GetUserCanvasList(UserData data)
         {
+            string ownerId = data.ownerId;
+            /// <value> For create answer with data about canvas </value>
+            string answer = "[";
+
+            /// <summary>
+            ///     Try to get canvas list of requested user and
+            ///     save it to canvasList variable with canvas model like type.
+            /// </summary>
             try
             {
-                string ownerId = data.ownerId;
-                string answer = "[";
                 List<Models.Canvas> canvasList = Collection.Find(item => item.ownerId == ownerId).ToListAsync().Result;
+                // Counter to determine the element during an array traversal.
                 int index = 0;
+                // Index last element in array.
                 int lastIndex = canvasList.Count - 1;
                 foreach (var item in canvasList)
                 {
@@ -45,19 +59,18 @@ namespace Canvas.Modules.Canvas
             }
         }
 
-        public string GetAllCanvases()
-        {
-            FilterDefinitionBuilder<Models.Canvas> builder = new FilterDefinitionBuilder<Models.Canvas>();
-            FilterDefinition<Models.Canvas> filter = builder.Empty;
-            List<Models.Canvas> result = Collection.Find(filter).ToListAsync().Result;
-            return "";
-        }
-
+        /// <summary>
+        ///     The method for getting canvas by id from database.
+        /// </summary>
+        /// <param name="data"> Data about canvas, data like id of owner and canvas. </param>
+        /// <returns> String with data about received canvas. </returns>
         public string GetCanvasById(CanvasByIdData data)
         {
-
             string ownerId = data.ownerId,
                    canvasId = data.canvasId;
+            /// <summary>
+            ///     Try to find canvas by canvas and user id.
+            /// </summary>
             try
             {
                 Models.Canvas canvas = Collection.Find(item =>
@@ -66,7 +79,9 @@ namespace Canvas.Modules.Canvas
                 if(canvas != null)
                 {
                     string blocksInfo = "[";
+                    // Counter to determine the element during an array traversal.
                     int index = 0;
+                    // Index last element in array.
                     int countItems = canvas.data.Count - 1;
 
                     foreach (Models.CanvasItemInData item in canvas.data)
@@ -98,13 +113,10 @@ namespace Canvas.Modules.Canvas
                 {
                     return $"{{\"error\": \"There is no canvas with same id\"}}";
                 }
-
-
-
             }
-            catch (Exception e)
+            catch
             {
-                return $"{{\"error\": \"{e}\"}}";
+                return $"{{\"error\": \"Something_went_wrong\"}}";
             }
 
         }

@@ -2,6 +2,9 @@
 
 namespace Canvas.Models
 {
+    /// <summary>
+    ///     Model for the user collection in database.
+    /// </summary>
     public class User
     {
         public ObjectId _id { get; set; }

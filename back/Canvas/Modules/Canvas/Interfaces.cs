@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-
-using Canvas.Controllers;
+﻿using Canvas.Controllers;
 
 namespace Canvas.Modules.Canvas
 {
     public interface ICanvasRepository
     {
         string GetUserCanvasList(UserData data);
-        string GetAllCanvases();
         string GetCanvasById(CanvasByIdData data);
     }
     public interface ICanvasService
