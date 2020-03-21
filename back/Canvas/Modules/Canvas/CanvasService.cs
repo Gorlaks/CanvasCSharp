@@ -35,7 +35,7 @@ namespace Canvas.Modules.Canvas
 
             // Get a template of canvas of the requested type from database (canvas template collection).
             Models.Canvas canvas = CanvasTemplateRepository.getCanvasTemplateByType(type);
-
+            canvas._id = "";
             canvas.ownerId = ownerId;
             canvas.title = title;
 

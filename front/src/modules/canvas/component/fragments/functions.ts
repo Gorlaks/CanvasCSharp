@@ -42,7 +42,10 @@ export const handleDownloadPdf = (props: {
 	const { canvasData, canvasService } = props;
 	const loading = message.loading(LS("Loading"));
 	canvasService.downloadPdf(canvasData)
-		.then((item: string) => window.open(item))
+		.then((item: Record<string, string>) => {
+			if(!item.error) window.open(item.pathToDocument);
+			else message.error(LS(item.error));
+		})
 		.catch((e: { error: string }) => message.error(e.error))
 		.finally(() => loading());
 };

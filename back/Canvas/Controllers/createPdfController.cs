@@ -32,8 +32,6 @@ namespace Canvas.Controllers
     public class CreatePdfData
     {
         public string title { get; set; }
-        public string rows { get; set; }
-        public string columns { get; set; }
         public List<Models.CanvasItemInData> data { get; set; }
     }
 }

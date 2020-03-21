@@ -34,10 +34,12 @@ const CreateCanvasModal = (props: {
           const ownerId = props.userAuthData.id;
           setLoadingState(true);
           canvasService.createCanvas(ownerId, title, canvasType)
-          .then((item: {id: string}) => {
-            localStorageApi.setLocalData("canvasId", item.id);
-            setLoadingState(false);
-            history.push(RoutePath.CANVAS_PATH);
+          .then((item: Record<string, string>) => {
+            if(!item.error) {
+              localStorageApi.setLocalData("canvasId", item.id);
+              setLoadingState(false);
+              history.push(RoutePath.CANVAS_PATH);
+            } else message.error(LS(item.error));
           })
           .catch((e: {error: string}) => {
             message.error(LS(e.error))
