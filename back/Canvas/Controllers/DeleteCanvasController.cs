@@ -1,13 +1,13 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-using MongoDB;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Canvas.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
+    /// <summary>
+    ///     The controller to delete the canvas from database.
+    /// </summary>
     public class DeleteCanvasController : Controller
     {
         [HttpPost]
@@ -18,6 +18,9 @@ namespace Canvas.Controllers
         }
     }
 
+    /// <summary>
+    ///     The model for data about canvas.
+    /// </summary>
     public class DeleteCanvasData
     {
         public string ownerId { get; set; }

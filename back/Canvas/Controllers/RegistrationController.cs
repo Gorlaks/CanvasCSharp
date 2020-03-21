@@ -7,6 +7,10 @@ namespace Canvas.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
+    /// <summary>
+    ///     The controller to regist a new user to database in user collection.
+    /// </summary>
     public class RegistrationController : Controller
     {
         [HttpPost]
@@ -17,6 +21,9 @@ namespace Canvas.Controllers
         }
     }
 
+    /// <summary>
+    ///     The model for data about a new user.
+    /// </summary>
     public class RegistrationData
     {
         [BsonId]

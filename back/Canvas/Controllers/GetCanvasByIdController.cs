@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Canvas.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
+    /// <summary>
+    ///     The controller to get a canvas by id.
+    /// </summary>
     public class GetCanvasByIdController : Controller
     {
         [HttpPost]
@@ -18,6 +18,9 @@ namespace Canvas.Controllers
         }
     }
 
+    /// <summary>
+    ///     The model for data about canvas.
+    /// </summary>
     public class CanvasByIdData
     {
         public string ownerId { get; set; }
