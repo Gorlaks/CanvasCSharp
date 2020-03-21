@@ -26,9 +26,9 @@
     button {
       @include boxSize(74px, 32px);
       background-color: transparent;
-      border: 1px solid $mainColor;
+      border: 1px solid $secondMainColor;
       font-size: 14px;
-      color: $mainColor;
+      color: $secondMainColor;
       font-family: $mainFontRegular, $spareFonts;
       cursor: pointer;
     }

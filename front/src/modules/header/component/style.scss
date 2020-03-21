@@ -27,14 +27,17 @@
     &-wrapper {
       @include boxSize(auto, 100%);
       padding: 10px 0 0 0;
-      
+
+      .ant-menu, .ant-menu-light, .ant-menu-root, .ant-menu-horizontal {
+        border: none !important;
+      }
       .header__user-logo {
         @include boxSize(40px, 40px);
         @include flexCenter();
         background-color: #dadada;
         border-radius: 50%;
         margin: auto;
-
+        
         .anticon-user {
           font-size: 16px;
         }
@@ -42,7 +45,7 @@
 
       p {
         font-family: $mainFontMedium, $spareFonts;
-        color: $mainColor;
+        color: $secondMainColor;
         text-decoration: underline;
       }
     }
