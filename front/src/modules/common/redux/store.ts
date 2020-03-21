@@ -9,6 +9,7 @@ const CreateStore = (reducers: any) => {
 	return store;
 }
 
+/** @description Function for getting store if it exists. */
 const GetStore = () => {
 	if(store !== null) return store;
 	else throw new Error("Store is null"); 

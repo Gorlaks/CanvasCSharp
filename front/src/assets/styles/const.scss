@@ -20,13 +20,15 @@ $buttonBackgroundColorHover 			:rgba(0, 132, 255, 1);
 $buttonTextColor 									:#ffffff;
 
 //user page styles
-
 $createButtonBackgroundColor  		:#1890FF;
 $createButtonBackgroundColorHover :rgba(0, 132, 255, 1);
 $createButtonTextColor  					:#ffffff;
 
 // canvas page styles
-
 $canvasTypeTextColor							:#979797;
 $canvasBorderColor								:#000000;
 $arrowBackBackgroundColorHover    :rgba(175, 175, 175, .4);
+
+// canvas template creater modal styles
+$mainColor                        :rgb(161, 161, 161);
+$mainColorDarker                  :rgb(126, 126, 126);

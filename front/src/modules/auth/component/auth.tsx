@@ -1,3 +1,4 @@
+/** @module Authorization */
 import React from "react";
 import { Tabs } from "antd";
 import { connect } from "react-redux";
@@ -9,6 +10,7 @@ import { IReduxStore } from "../../common/redux/interfaces";
 
 const { TabPane } = Tabs;
 
+/** @description Login and registration components in tabs */
 const Auth = (props: {
 	language: string
 }) => {

@@ -1,12 +1,12 @@
 .plusButton {
-    @include boxSize(112px, 32px);
+    @include boxSize(auto, 32px);
     display: flex;
     background-color: $createButtonBackgroundColor;
     border-radius: 4px;
     font-size: 14px;
     color: $createButtonTextColor;
     font-family: $mainFontRegular, $spareFonts;
-    padding: 1px 0 0 0;
+    padding: 1px 5px 0 0;
     cursor: pointer;
 
     p {
@@ -15,15 +15,15 @@
         .anticon  {
             @include boxSize(auto, auto);
             margin: 0;
-            padding: 0;
         }
     }
 
     span {
-        @include boxSize(80px, 100%);
+        @include boxSize(auto, 100%);
         display: block;
         background-color: transparent;
         padding: 0 15px 0 0;
+        margin: 0 0 0 4px;
         line-height: 32px;
     }
 }

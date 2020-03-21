@@ -1,3 +1,4 @@
+/** @module Canvas */
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -19,8 +20,13 @@ const Canvas = (props: {
 	const canvasId: string = localStorageApi.getLocalData("canvasId", "");
 	const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
 
+	/** @description Canvas data for building grid layout. */
 	const [canvasDataState, setCanvasDataState] = useState({});
 
+	/**
+	 * @description Make a request about choosen canvas to the server
+	 * and put received information to redux store.
+	*/
 	useEffect(() => {
 		if(!canvasId) history.push(RoutePath.USER_PATH);
 		canvasRepository.getCanvasById(userAuthData.id, canvasId)

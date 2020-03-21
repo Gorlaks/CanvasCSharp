@@ -1,3 +1,4 @@
+/** @description Object with words in English. */
 const en = {
 	// common translate
 	"Loading": "...Loading",
@@ -49,7 +50,32 @@ const en = {
 	"What key actions do we need to work? For distribution channels?": "What key actions do we need to work? For distribution channels?",
 	"Who are our key partners? Who are our key suppliers?": "Who are our key partners? Who are our key suppliers?",
 	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "What are the most important costs associated with a business model? Which key resources are the most expensive?",
-	"Canvas_success_update": "Canvas updated successfully"
+	"Canvas_success_update": "Canvas updated successfully",
+
+	// Create canvas template modal translate
+	"Position": "Position",
+	"Canvas_block_title": "Title",
+	"Description": "Description",
+	"Add": "Add",
+	"Preview": "Preview",
+	"Rows_total": "Rows total",
+	"Columns_total": "Columns total",
+	"Template_name": "Template name",
+	"Create_canvas_template": "Create canvas template",
+	"Row_start": "Row start",
+	"Row_end": "Row end",
+	"Column_start": "Column start",
+	"Column_end": "Column end",
+
+	// admin page translate
+	"Administration": "Administration",
+	"Create_canvas": "Create canvas",
+	"Create_template": "Create template",
+	"Users": "Users",
+	"Canvas_templates": "Canvas templates",
+	"Name": "Name",
+	"Registration_date": "Registration date",
+	"Projects": "Projects"
 }
 
 export default en;

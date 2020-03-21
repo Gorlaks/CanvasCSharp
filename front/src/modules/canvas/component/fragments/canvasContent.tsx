@@ -17,6 +17,7 @@ const CanvasContent = (props: {
 	const { canvasData } = props;
 	const { columns, rows, data, title, type } = canvasData;
 
+	/** @description Create grid layout. */
 	const canvasContentStyles = {
 		gridTemplateRows: `repeat(${rows}, 1fr)`,
 		gridTemplateColumns: `repeat(${columns}, 1fr)`
@@ -24,6 +25,7 @@ const CanvasContent = (props: {
 
 	return (
 		<div>
+			{/** @description Component with some actions like update, download, etc. */}
 			<header className="canvas__header">
 				<div className="canvas__header__up">
 					<button className="back-arrow" onClick={() => history.push(RoutePath.USER_PATH)}><LeftOutlined /></button>
@@ -36,8 +38,9 @@ const CanvasContent = (props: {
 				</div>
 			</header>
 
+			{/** @description Grid layout with canvas data. */}
 			<div className="canvas__body" style={canvasContentStyles}>
-				{props.canvasData.id && Object.keys(data).map((item, index) => {
+				{canvasData.id && Object.keys(data).map((item, index) => {
 					const { position, title, content, description } = (data as any)[item];
 					const canvasItemStyles = {
 						gridArea: `${position[0]}/${position[1]}/${position[2]}/${position[3]}`
@@ -66,6 +69,7 @@ const CanvasContent = (props: {
 	)
 }
 
+/** @description Write user's content of canvas to canvasData.data for sending to the server. */
 const writeContentToCanvasDataBlocks = (e: any, canvasData: Record<string, any>) => {
 	canvasData.data = canvasData.data.map((item: ICanvasBlocksData) => {
 		if (item.title === e.target.dataset.title) {
@@ -76,6 +80,7 @@ const writeContentToCanvasDataBlocks = (e: any, canvasData: Record<string, any>)
 	})
 }
 
+/** @description Update canvas function. */
 const handleUpdate = (canvasData: Record<string, any>) => {
 	const canvasService: ICanvasService = container.resolve("canvasService");
 	const loading = message.loading(LS("Loading"));

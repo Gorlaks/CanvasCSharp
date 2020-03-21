@@ -7,6 +7,7 @@ class ApiClient implements IApiClient {
 		this.url = url;
 	}
 
+	/** @description Method for sending post requests to the server. */
 	async sendRequest(params: IParams, path: string) {
 		const answer = await fetch(`${this.url}${path}`, {
 			method: "POST",

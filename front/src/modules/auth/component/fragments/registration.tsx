@@ -18,6 +18,11 @@ const Registration = (props: {
   const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
+	/**
+	 * @description Make a request to the server for registration
+	 * and put received information to redux store.
+	 * @event onClick.
+	*/
 	const sendRegistration = () => {
 		const loading = message.loading(LS("Loading"));
 		authService.registration({ email, login, password })

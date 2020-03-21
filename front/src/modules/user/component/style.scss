@@ -1,5 +1,5 @@
 .user {
-	padding: 0 15% 0 15%;
+	padding: 0 15%;
 	&__title {
 		display: block;
 		@include boxSize(100%, 22px);
@@ -36,9 +36,7 @@
 		}
 
 		&__action-btn {
-			background-color: transparent;
-			color: $buttonBackgroundColor;
-			cursor: pointer;
+			@include defaultActionButtonInTable();
 		}
 
 		&__actions-separator {

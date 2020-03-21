@@ -1,3 +1,4 @@
+/** @description Object with words in Russian. */
 const ru = {
 	// common translate
 	"Loading": "...Загрузка",
@@ -49,7 +50,32 @@ const ru = {
 	"What key actions do we need to work? For distribution channels?": "Какие ключевые действия нам необходимы для работы? Для каналов сбыта?",
 	"Who are our key partners? Who are our key suppliers?": "Кто наши ключевые партнеры? Кто наши ключевые поставщики?",
 	"What are the most important costs associated with a business model? Which key resources are the most expensive?": "Каковы наиболее важные затраты, связанные с бизнес-моделью? Какие ключевые ресурсы являются самыми дорогими?",
-	"Canvas_success_update": "Канвас успешно обновлен"
+	"Canvas_success_update": "Канвас успешно обновлен",
+
+	// Create canvas template modal translate
+	"Position": "Местоположение",
+	"Canvas_block_title": "Заголовок",
+	"Description": "Описание",
+	"Add": "Добавить",
+	"Preview": "Предпросмотр",
+	"Rows_total": "Всего строк",
+	"Columns_total": "Всего столбцов",
+	"Template_name": "Название шаблона",
+	"Create_canvas_template": "Создать шаблон канваса",
+	"Row_start": "Начало строки",
+	"Row_end": "Конец строки",
+	"Column_start": "Начало столбца",
+	"Column_end": "Конец столбца",
+
+	// admin page translate
+	"Administration": "Administration",
+	"Create_canvas": "Создать канвас",
+	"Create_template": "Создать шаблон",
+	"Users": "Пользователи",
+	"Canvas_templates": "Шаблоны канваса",
+	"Name": "Имя",
+	"Registration_date": "Дата регистрации",
+	"Projects": "Проекты"
 }
 
 export default ru;

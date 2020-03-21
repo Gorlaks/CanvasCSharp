@@ -10,18 +10,24 @@ import Header from "./modules/header/component/header";
 const Auth = React.lazy(() => import("./modules/auth/component/auth"));
 const User = React.lazy(() => import("./modules/user/component/user"));
 const Canvas = React.lazy(() => import("./modules/canvas/component/canvas"));
+const Admin = React.lazy(() => import("./modules/admin/admin"));
 
+/** @description Config antd message component. */
 message.config({
   maxCount: 1
 })
 
-function App() {
+const App = () => {
   const history = useHistory();
   const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
   const userAuthData = localStorageApi.getLocalData("userAuthData", {});
   const isAuthorized = Boolean(userAuthData.id);
   const language = localStorageApi.getLocalData("language", "");
 
+  /**
+	 * @description Checks for language information in the localStorage
+   * and check authorization of current user.
+	*/
   useEffect(() => {
     if (!language) localStorageApi.setLocalData("language", "en");
     if (!isAuthorized) history.push("/auth");
@@ -30,6 +36,7 @@ function App() {
   return (
     <>
       <Header />
+      <Admin />
       <Switch>
         <Route exact path={RoutePath.AUTH_PATH} component={Auth} />
         <Route exact path={RoutePath.USER_PATH} component={User} />

@@ -1,3 +1,4 @@
+/** @module Header */
 import React from "react";
 import { container } from "tsyringe";
 import { UserOutlined } from "@ant-design/icons";
