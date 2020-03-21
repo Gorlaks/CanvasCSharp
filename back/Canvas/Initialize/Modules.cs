@@ -7,6 +7,7 @@ using Canvas.Modules.User;
 using Canvas.Modules.Canvas;
 using Canvas.Modules.Auth;
 using Canvas.Modules.CanvasTemplate;
+using Canvas.Modules.Pdf;
 
 namespace Canvas.Initialize
 {
@@ -27,6 +28,8 @@ namespace Canvas.Initialize
         public static ICanvasService canvasService;
         public static IAuthService authService;
 
+        public static IPdfCreater pdfCreater;
+
         /// <summary>
         ///     The method for initialize needed modules.
         /// </summary>
@@ -45,6 +48,7 @@ namespace Canvas.Initialize
             canvasService = new CanvasService(canvasTemplateRepository, store);
             authService = new AuthService(store);
 
+            pdfCreater = new PdfCreater();
         }
     }
 }

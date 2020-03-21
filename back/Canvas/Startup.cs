@@ -24,6 +24,7 @@ namespace Canvas
             app.UseCors(builder => builder.AllowAnyOrigin().WithMethods("POST", "GET").AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseStaticFiles();
 
             /// <summary>
             ///     Initialize all needed modules like service, repository, etc.
