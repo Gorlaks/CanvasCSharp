@@ -5,5 +5,5 @@ export interface IUserRepository {
 }
 
 export interface IUserService {
-	setCanvasList(ownerId: string): void;
+	setCanvasList(ownerId: string): Promise<any>;
 }

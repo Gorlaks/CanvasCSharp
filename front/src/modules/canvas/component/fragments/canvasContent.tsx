@@ -43,6 +43,7 @@ const CanvasContent = (props: {
 
 			{/** @description Grid layout with canvas data. */}
 			<div className="canvas__body" style={canvasContentStyles}>
+				<div className="canvas__body__background"></div>
 				{canvasData.id && Object.keys(data).map((item, index) => {
 					const { position, title, content, description } = (data as any)[item];
 					const canvasItemStyles = {

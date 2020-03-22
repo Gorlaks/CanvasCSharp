@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Table as AntTable } from "antd";
 import { container } from "tsyringe";
 
@@ -6,6 +6,7 @@ import { LS } from "../../../../utils/helpers";
 import { IUserService } from "../../interfaces";
 import { IUserAuthData, ICanvasList } from "../../../common/redux/interfaces";
 import ActionCell from "./actionCell";
+import ComponentLoading from "../../../../assets/ui/componentLoading/componentLoading";
 
 
 const Table = (props: {
@@ -13,6 +14,7 @@ const Table = (props: {
 	canvasList: Array<ICanvasList>
 }) => {
 	const userService: IUserService = container.resolve("userService");
+	const [tableLoading, setTableLoading] = useState(true);
 
 	/**
 	 * @description Make a request to the server for canvas list of current user
@@ -20,7 +22,8 @@ const Table = (props: {
 	*/
 	useEffect(() => {
 		const { id } = props.userAuthData;
-		userService.setCanvasList(id);
+		userService.setCanvasList(id)
+		.finally(() => setTableLoading(false));
 	}, [])
 
 	/**@description Table columns.*/
@@ -66,7 +69,7 @@ const Table = (props: {
 
 	return (
 		<div className="user__table">
-			<AntTable columns={columns} dataSource={data} />
+			{!tableLoading ? <AntTable columns={columns} dataSource={data} /> : <ComponentLoading />}
 		</div>
 	)
 }

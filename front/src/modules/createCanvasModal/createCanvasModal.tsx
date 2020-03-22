@@ -18,13 +18,13 @@ const CreateCanvasModal = (props: {
 
   const history = useHistory();
   const canvasService: ICanvasService = container.resolve("canvasService");
-  const localStorageApi:ILocalStorageApi  = container.resolve("localStorageApi");
+  const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
 
   /** @description Splash icon state in ok button. */
   const [loadingState, setLoadingState] = useState(false);
   const [title, setTitle] = useState("");
   const [canvasType, setCanvasType] = useState("Lean");
-  
+
   return (
     <div className="create-canvas-modal">
       <Modal
@@ -34,17 +34,17 @@ const CreateCanvasModal = (props: {
           const ownerId = props.userAuthData.id;
           setLoadingState(true);
           canvasService.createCanvas(ownerId, title, canvasType)
-          .then((item: Record<string, string>) => {
-            if(!item.error) {
-              localStorageApi.setLocalData("canvasId", item.id);
+            .then((item: Record<string, string>) => {
+              if (!item.error) {
+                localStorageApi.setLocalData("canvasId", item.id);
+                setLoadingState(false);
+                history.push(RoutePath.CANVAS_PATH);
+              } else message.error(LS(item.error));
+            })
+            .catch((e: ExceptionInformation) => {
+              message.error(LS(e.toString()))
               setLoadingState(false);
-              history.push(RoutePath.CANVAS_PATH);
-            } else message.error(LS(item.error));
-          })
-          .catch((e: {error: string}) => {
-            message.error(LS(e.error))
-            setLoadingState(false);
-          });
+            });
         }}
         confirmLoading={loadingState}
         onCancel={() => setModalState(false)}
@@ -61,7 +61,7 @@ const CreateCanvasModal = (props: {
           />
         </div>
         <div className="create-canvas-modal__type-choice">
-          <button onClick={() => setCanvasType("Lean") }>Lean</button>
+          <button onClick={() => setCanvasType("Lean")}>Lean</button>
         </div>
       </Modal>
     </div>

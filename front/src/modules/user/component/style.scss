@@ -16,6 +16,9 @@
 	}
 
 	&__table {
+		@include boxSize(100%, auto);
+		min-height: 200px;
+		position: relative;
 		.ant-table-content {
 			.ant-table-tbody {
 				font-family: $mainFontRegular, $spareFonts;

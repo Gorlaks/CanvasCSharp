@@ -58,10 +58,11 @@ const handleDelete = (props: {
 
   const loading = message.loading(LS("Loading"));
   canvasService.deleteCanvas(userAuthData.id, record.id)
-    .then((item: { id: string }) => {
-      canvasService.setCanvasListAfterRemoving(item.id);
+    .then((item: Record<string, string>) => {
+      if (!item.error) canvasService.setCanvasListAfterRemoving(item.id);
+      else message.error(LS(item.error));
     })
-    .catch((e: {error: string}) => message.error(LS(e.error)))
+    .catch((e: ExceptionInformation) => message.error(LS(e.toString())))
     .finally(() => loading());
 }
 
