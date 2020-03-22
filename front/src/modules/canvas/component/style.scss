@@ -68,7 +68,8 @@
   }
 
   &__body {
-    @include boxSize(100%, 100vh);
+    @include boxSize(100%, auto);
+    min-height: 800px;
     display: grid;
     margin: 30px 0 0 0;
     padding: 1px;
