@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { container } from "tsyringe";
+import { message } from "antd";
 
 import { IReduxStore, IUserAuthData } from "../../common/redux/interfaces";
 import { ILocalStorageApi } from "../../common/storage/interfaces";
@@ -10,6 +11,8 @@ import { RoutePath } from "../../../utils/constants";
 import { ICanvasRepository } from "../interfaces";
 
 import CanvasContent from "./fragments/canvasContent";
+import ComponentLoading from "../../../assets/ui/componentLoading/componentLoading";
+import { LS } from "../../../utils/helpers";
 
 const Canvas = (props: {
 	language: string
@@ -21,7 +24,7 @@ const Canvas = (props: {
 	const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
 
 	/** @description Canvas data for building grid layout. */
-	const [canvasDataState, setCanvasDataState] = useState({});
+	const [canvasDataState, setCanvasDataState] = useState({ data: null });
 
 	/**
 	 * @description Make a request about choosen canvas to the server
@@ -30,12 +33,16 @@ const Canvas = (props: {
 	useEffect(() => {
 		if(!canvasId || canvasId === "undefined") history.push(RoutePath.USER_PATH);
 		canvasRepository.getCanvasById(userAuthData.id, canvasId)
-		.then(item => setCanvasDataState(item));
+		.then((item: any) => {
+			if(!item.error) setCanvasDataState(item);
+			else message.error(LS(item.error))
+		});
 	}, [])
-	
+	console.log(Boolean(canvasDataState.data))
 	return (
 		<div className="canvas">
-			<CanvasContent canvasData={canvasDataState} />
+			{canvasDataState.data ? <CanvasContent canvasData={canvasDataState} />
+			: <div className="canvas__component-loading"><ComponentLoading /></div>}
 		</div>
 	)
 }

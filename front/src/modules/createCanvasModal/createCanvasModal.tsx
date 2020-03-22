@@ -41,8 +41,8 @@ const CreateCanvasModal = (props: {
               history.push(RoutePath.CANVAS_PATH);
             } else message.error(LS(item.error));
           })
-          .catch((e: {error: string}) => {
-            message.error(LS(e.error))
+          .catch((e: ExceptionInformation) => {
+            message.error(LS(e.toString()))
             setLoadingState(false);
           });
         }}

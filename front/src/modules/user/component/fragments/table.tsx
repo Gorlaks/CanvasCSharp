@@ -6,6 +6,7 @@ import { LS } from "../../../../utils/helpers";
 import { IUserService } from "../../interfaces";
 import { IUserAuthData, ICanvasList } from "../../../common/redux/interfaces";
 import ActionCell from "./actionCell";
+import ComponentLoading from "../../../../assets/ui/componentLoading/componentLoading";
 
 
 const Table = (props: {
@@ -66,7 +67,7 @@ const Table = (props: {
 
 	return (
 		<div className="user__table">
-			<AntTable columns={columns} dataSource={data} />
+			{data.length ? <AntTable columns={columns} dataSource={data} /> : <ComponentLoading />}
 		</div>
 	)
 }

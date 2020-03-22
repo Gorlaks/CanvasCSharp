@@ -6,6 +6,7 @@ import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
 import { LS } from "../../../../utils/helpers";
 
 import { IAuthService } from "../../interfaces";
+import { RoutePath } from "../../../../utils/constants";
 
 
 const Registration = (props: {
@@ -26,8 +27,11 @@ const Registration = (props: {
 	const sendRegistration = () => {
 		const loading = message.loading(LS("Loading"));
 		authService.registration({ email, login, password })
-		.then(() => history.push("/user"))
-		.catch((e: {error: string}) => message.error(LS(e.error)))
+		.then((item: Record<string, string>) => {
+			if(!item.error) history.push(RoutePath.USER_PATH);
+			else message.error(LS(item.error));
+		})
+		.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
 		.finally(() => loading());
   }
   

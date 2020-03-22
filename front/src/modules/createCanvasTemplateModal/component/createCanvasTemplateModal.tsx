@@ -100,8 +100,11 @@ const handleOk = (props: {
 
   setLoadingState(true);
   createCanvasTemplateModalService.createCanvasTemplate(templateState)
-  .then(() => setModalState(false))
-  .catch((e: {error: string}) => message.error(LS(e.error)))
+  .then((item: Record<string, string>) => {
+    if(!item.error) setModalState(false);
+    else message.error(LS(item.error));
+  })
+  .catch((e: ExceptionInformation) => message.error(LS(e.toString())))
   .finally(() => setLoadingState(false));
 }
 

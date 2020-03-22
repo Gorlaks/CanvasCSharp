@@ -1,7 +1,7 @@
-.splash {
+.component-loading {
   width: 100%;
   height: 100%;
-  background-color: rgba(131, 131, 131, 0.4);
+  background-color: transparent;
   @include flexCenter;
   position: absolute;
   top: 0;

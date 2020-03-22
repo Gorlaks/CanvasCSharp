@@ -6,6 +6,7 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { LS } from "../../../../utils/helpers";
 
 import { IAuthService } from "../../interfaces";
+import { RoutePath } from "../../../../utils/constants";
 
 const Login = (props: {
 	language: string
@@ -25,8 +26,11 @@ const Login = (props: {
 		if(login && password) {
 			const loading = message.loading(LS("Loading"));
 			authService.login(login, password)
-			.then(() => history.push("/user"))
-			.catch((e: { error: string }) => message.error(e.error))
+			.then((item: Record<string, string>) => {
+				if(!item.error) history.push(RoutePath.USER_PATH);
+				else message.error(LS(item.error));
+			})
+			.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
 			.finally(() => loading());
 		} else message.error(LS("Empty_field_error"));
 	}

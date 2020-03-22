@@ -27,8 +27,11 @@ export const handleUpdate = (props: {
 	const { canvasData, canvasService } = props;
 	const loading = message.loading(LS("Loading"));
 	canvasService.updateCanvas(canvasData)
-		.then(() => message.success(LS("Canvas_success_update")))
-		.catch((e: { error: string }) => message.error(e.error))
+		.then((item: Record<string, string>) => {
+			if(!item.error) message.success(LS("Canvas_success_update"));
+			else message.error(LS(item.error));
+		})
+		.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
 		.finally(() => loading());
 };
 
@@ -46,6 +49,6 @@ export const handleDownloadPdf = (props: {
 			if(!item.error) window.open(item.pathToDocument);
 			else message.error(LS(item.error));
 		})
-		.catch((e: { error: string }) => message.error(e.error))
+		.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
 		.finally(() => loading());
 };
