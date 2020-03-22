@@ -21,14 +21,14 @@ export const writeContentToCanvasDataBlocks = (e: any, canvasData: Record<string
  * @description Update canvas function.
 */
 export const handleUpdate = (props: {
-  canvasData: Record<string, any>,
-  canvasService: ICanvasService
+	canvasData: Record<string, any>,
+	canvasService: ICanvasService
 }) => {
 	const { canvasData, canvasService } = props;
 	const loading = message.loading(LS("Loading"));
 	canvasService.updateCanvas(canvasData)
 		.then((item: Record<string, string>) => {
-			if(!item.error) message.success(LS("Canvas_success_update"));
+			if (!item.error) message.success(LS("Canvas_success_update"));
 			else message.error(LS(item.error));
 		})
 		.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
@@ -39,14 +39,14 @@ export const handleUpdate = (props: {
  * @description The method for download canvas in pdf format.
 */
 export const handleDownloadPdf = (props: {
-  canvasData: Record<string, any>,
-  canvasService: ICanvasService
+	canvasData: Record<string, any>,
+	canvasService: ICanvasService
 }) => {
 	const { canvasData, canvasService } = props;
 	const loading = message.loading(LS("Loading"));
 	canvasService.downloadPdf(canvasData)
 		.then((item: Record<string, string>) => {
-			if(!item.error) window.open(item.pathToDocument);
+			if (!item.error) window.open(item.pathToDocument);
 			else message.error(LS(item.error));
 		})
 		.catch((e: ExceptionInformation) => message.error(LS(e.toString())))

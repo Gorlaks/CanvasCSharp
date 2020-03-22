@@ -23,15 +23,15 @@ const Login = (props: {
 	 * @event onClick.
 	*/
 	const sendLogin = () => {
-		if(login && password) {
+		if (login && password) {
 			const loading = message.loading(LS("Loading"));
 			authService.login(login, password)
-			.then((item: Record<string, string>) => {
-				if(!item.error) history.push(RoutePath.USER_PATH);
-				else message.error(LS(item.error));
-			})
-			.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
-			.finally(() => loading());
+				.then((item: Record<string, string>) => {
+					if (!item?.error) history.push(RoutePath.USER_PATH);
+					else message.error(LS(item.error));
+				})
+				.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
+				.finally(() => loading());
 		} else message.error(LS("Empty_field_error"));
 	}
 

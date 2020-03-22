@@ -20,7 +20,7 @@ const CreateCanvasTemplateModal = (props: {
 }) => {
   const { modalState, setModalState } = props;
   const createCanvasTemplateModalService: ICreateCanvasTemplateModalService = container
-  .resolve("createCanvasTemplateModalService");
+    .resolve("createCanvasTemplateModalService");
 
   const [loadingState, setLoadingState] = useState(false);
   /** @description default canvas template data. */
@@ -63,7 +63,7 @@ const CreateCanvasTemplateModal = (props: {
             setTemplateState={setTemplateState}
           />
           {(() => {
-            switch(templateState.data[0].position.length) {
+            switch (templateState.data[0].position.length) {
               case 0: return <EmptyPreview />; break;
               default: return <Preview templateData={templateState} />
             }
@@ -100,12 +100,12 @@ const handleOk = (props: {
 
   setLoadingState(true);
   createCanvasTemplateModalService.createCanvasTemplate(templateState)
-  .then((item: Record<string, string>) => {
-    if(!item.error) setModalState(false);
-    else message.error(LS(item.error));
-  })
-  .catch((e: ExceptionInformation) => message.error(LS(e.toString())))
-  .finally(() => setLoadingState(false));
+    .then((item: Record<string, string>) => {
+      if (!item.error) setModalState(false);
+      else message.error(LS(item.error));
+    })
+    .catch((e: ExceptionInformation) => message.error(LS(e.toString())))
+    .finally(() => setLoadingState(false));
 }
 
 export default CreateCanvasTemplateModal;

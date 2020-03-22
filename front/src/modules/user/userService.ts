@@ -16,6 +16,7 @@ class UserService implements IUserService {
 			type: types.SET_CANVAS_LIST,
 			canvasList
 		});
+		return canvasList;
 	}
 }
 

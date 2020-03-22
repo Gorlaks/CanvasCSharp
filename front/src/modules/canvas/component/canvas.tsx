@@ -31,18 +31,20 @@ const Canvas = (props: {
 	 * and put received information to redux store.
 	*/
 	useEffect(() => {
-		if(!canvasId || canvasId === "undefined") history.push(RoutePath.USER_PATH);
-		canvasRepository.getCanvasById(userAuthData.id, canvasId)
-		.then((item: any) => {
-			if(!item.error) setCanvasDataState(item);
-			else message.error(LS(item.error))
-		});
+		if (!canvasId || canvasId === "undefined") history.push(RoutePath.USER_PATH);
+		else {
+			canvasRepository.getCanvasById(userAuthData.id, canvasId)
+				.then((item: any) => {
+					if (!item.error) setCanvasDataState(item);
+					else message.error(LS(item.error))
+				});
+		}
 	}, [])
-	console.log(Boolean(canvasDataState.data))
+
 	return (
 		<div className="canvas">
 			{canvasDataState.data ? <CanvasContent canvasData={canvasDataState} />
-			: <div className="canvas__component-loading"><ComponentLoading /></div>}
+				: <div className="canvas__component-loading"><ComponentLoading /></div>}
 		</div>
 	)
 }
