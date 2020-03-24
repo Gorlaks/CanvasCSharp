@@ -1,45 +1,41 @@
 /** @module User */
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { container } from "tsyringe";
 
-import { LS } from "../../../utils/helpers";
-import { IReduxStore, IUserAuthData, ICanvasList } from "../../common/redux/interfaces"
-
+import userStatesStorage from "../../../initialize/statesStorages/userStatesStorage";
 import Panel from "./fragments/panel";
 import Table from "./fragments/table";
 import CreateCanvasModal from "../../createCanvasModal/createCanvasModal";
+import { ICanvasList } from "../interfaces";
+import { ILocalStorageApi } from "../../common/storage/interfaces";
+import { LS } from "../../../utils/helpers";
 
-const User = (props: {
-	language: string,
-	userAuthData: IUserAuthData,
-	canvasList: Array<ICanvasList>
-}) => {
+const User = () => {
+	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
+	const [canvasList, setCanvasList] = useState([]);
+	userStatesStorage.registState<Array<ICanvasList>>("canvasList", {
+		state: canvasList,
+		setState: setCanvasList
+	});
 	/** @description State of modal for creating of canvas. */
 	const [createCanvasModalIsOpened, setCreateCanvasModalState] = useState(false);
+	const userAuthData = localStorageApi.getLocalData("userAuthData", {});
 
 	return (
 		<div className="user">
 			<p className="user__title">{LS("Canvas_list")}</p>
 			<Panel setCreateCanvasModalState={setCreateCanvasModalState} />
 			<Table
-				userAuthData={props.userAuthData}
-				canvasList={props.canvasList}
+				userAuthData={userAuthData}
+				canvasList={canvasList}
 			/>
 			<CreateCanvasModal
 				isOpened={createCanvasModalIsOpened}
 				setModalState={setCreateCanvasModalState}
-				userAuthData={props.userAuthData}
+				userAuthData={userAuthData}
 			/>
 		</div>
 	)
 }
 
-const mapStateToProps = (state: IReduxStore) => {
-	return {
-		language: state.commonReducer.language,
-		userAuthData: state.userReducer.userAuthData,
-		canvasList: state.userReducer.canvasList
-	}
-}
-
-export default connect(mapStateToProps, null)(User);
+export default User;

@@ -1,6 +1,5 @@
 import { container } from "tsyringe";
 
-
 import { ICanvasRepository } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 

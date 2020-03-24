@@ -12,3 +12,9 @@ export interface IRegistrationData {
 	login: string;
 	password: string;
 }
+
+export interface IUserAuthData {
+	id: string;
+	login: string;
+	email: string;
+}

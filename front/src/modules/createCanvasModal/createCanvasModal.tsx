@@ -6,8 +6,8 @@ import { container } from "tsyringe";
 import { LS } from "../../utils/helpers";
 import { RoutePath } from "../../utils/constants";
 import { ICanvasService } from "../canvas/interfaces";
-import { IUserAuthData } from "../common/redux/interfaces"
 import { ILocalStorageApi } from "../common/storage/interfaces"
+import { IUserAuthData } from "../auth/interfaces";
 
 const CreateCanvasModal = (props: {
   isOpened: boolean,

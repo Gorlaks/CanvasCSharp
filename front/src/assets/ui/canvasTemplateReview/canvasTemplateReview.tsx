@@ -1,7 +1,7 @@
 import React from "react";
 
 import { LS } from "../../../utils/helpers";
-import { ICreateCanvasTemplate } from "../../../modules/common/redux/interfaces";
+import { ICreateCanvasTemplate } from "../../../modules/canvas/interfaces";
 
 const CanvasTemplateReview = (props: {
   templateData: ICreateCanvasTemplate

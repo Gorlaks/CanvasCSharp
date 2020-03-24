@@ -1,11 +1,10 @@
-import { ILanguageRepository } from "./interfaces";
-import { GetStore } from "../redux/store";
-
+import commonStatesStorage from "../../../initialize/statesStorages/commonStatesStorage";
 import * as languages from "./languageVariants/exportLanguages";
+import { ILanguageRepository } from "./interfaces";
 
 class LanguageRepository implements ILanguageRepository {
 	getCurrentLanguage(): string {
-		const { language } = GetStore().getState().commonReducer;
+		const language = commonStatesStorage.getState<string>("language");
 		return language;
 	}
 

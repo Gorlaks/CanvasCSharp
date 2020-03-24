@@ -1,8 +1,6 @@
 import { IAuthService, IAuthRepository, IRegistrationData } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 import { ILocalStorageApi } from "../common/storage/interfaces";
-import { GetStore } from "../common/redux/store";
-import * as types from "../../utils/reduxConstants";
 
 class AuthService implements IAuthService {
 	private authRepository: IAuthRepository;
@@ -23,28 +21,17 @@ class AuthService implements IAuthService {
 	async login(login: string, password: string) {
 		const result = await this.authRepository.authentication(login, password);
 
-		if(result.error) {
-			throw result.error;
-		} else {
-			this.localStorageApi.setLocalData("userAuthData", result);
-			GetStore().dispatch({
-				type: types.SET_USER_AUTH_DATA,
-				userAuthData: result
-			});
-		}
+		if (result.error) throw result.error;
+		this.localStorageApi.setLocalData("userAuthData", result);
 	}
 
 	/** @description User registration and write user data to redux store */
 	async registration(data: IRegistrationData) {
 		const result = await this.apiClient.sendRequest(data, "/registration");
-		if(result.error) throw result.error;
+		if (result.error) throw result.error;
 
 		this.localStorageApi.setLocalData("userAuthData", result);
-			GetStore().dispatch({
-				type: types.SET_USER_AUTH_DATA,
-				userAuthData: result
-			});
-			return result;
+		return result;
 	}
 }
 

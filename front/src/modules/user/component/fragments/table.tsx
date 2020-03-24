@@ -3,10 +3,10 @@ import { Table as AntTable } from "antd";
 import { container } from "tsyringe";
 
 import { LS } from "../../../../utils/helpers";
-import { IUserService } from "../../interfaces";
-import { IUserAuthData, ICanvasList } from "../../../common/redux/interfaces";
+import { IUserService, ICanvasList } from "../../interfaces";
 import ActionCell from "./actionCell";
 import ComponentLoading from "../../../../assets/ui/componentLoading/componentLoading";
+import { IUserAuthData } from "../../../auth/interfaces";
 
 
 const Table = (props: {

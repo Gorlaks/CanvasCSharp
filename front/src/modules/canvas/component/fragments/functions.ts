@@ -1,8 +1,7 @@
 import { message } from "antd";
 
 import { LS } from "../../../../utils/helpers";
-import { ICanvasBlocksData } from "../../../common/redux/interfaces";
-import { ICanvasService } from "../../interfaces";
+import { ICanvasService, ICanvasBlocksData } from "../../interfaces";
 
 /**
  * @description Write user's content of canvas to canvasData.data for sending to the server.

@@ -7,7 +7,7 @@ import { LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
 import { ICanvasService } from "../../../canvas/interfaces";
 import { ILocalStorageApi } from "../../../common/storage/interfaces";
-import { IUserAuthData } from "../../../common/redux/interfaces";
+import { IUserAuthData } from "../../../auth/interfaces";
 
 /** @description Cell with some actions like edit and delete canvas. */
 const ActionCell = (props: {

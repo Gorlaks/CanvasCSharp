@@ -1,8 +1,7 @@
-import { GetStore } from "../common/redux/store";
-import { ICanvasData } from "../common/redux/interfaces";
-import { ICanvasService } from "./interfaces";
+import userStatesStorage from "../../initialize/statesStorages/userStatesStorage";
+
+import { ICanvasService, ICanvasData } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
-import * as types from "../../utils/reduxConstants";
 
 /**
  * The main class to process canvas data.
@@ -33,12 +32,9 @@ class CanvasService implements ICanvasService {
 
   /** @description Change data in redux store after delete canvas from canvas list of user. */
   async setCanvasListAfterRemoving(canvasId: string) {
-    const canvasList = GetStore().getState().userReducer.canvasList
+    const canvasList = userStatesStorage.getState<Array<ICanvasData>>("canvasList")
     .filter((item: ICanvasData) => item.id !== canvasId);
-    await GetStore().dispatch({
-      type: types.SET_CANVAS_LIST,
-			canvasList
-    })
+    await userStatesStorage.setState("canvasList", canvasList);
   }
 
   /** @description Send post request for update canvas in database. */
