@@ -25,6 +25,7 @@ namespace Canvas.Modules.User
         public string GetUsers(GetUsersModel data)
         {
             if (data.id != "5e53b6871c9d440000527bc4") return "{\"error\": \"Have_to_be_admin\"}";
+            if (data.id == "") return "{\"error\": \"Id_not_found\"}";
                 
             FilterDefinitionBuilder<Models.User> builder = new FilterDefinitionBuilder<Models.User>();
             FilterDefinition<Models.User> filter = builder.Empty;
@@ -37,14 +38,15 @@ namespace Canvas.Modules.User
             foreach(Models.User user in users)
             {
                 answer += "{" +
-                    $"\"id\": \"{user._id}\"" +
-                    $"\"login\": \"{user.login}\"" +
+                    $"\"id\": \"{user._id}\", " +
+                    $"\"login\": \"{user.login}\", " +
                     $"\"email\": \"{user.email}\"" +
-                    $"}}{(lastIndex != index ? ',' : ' ')}";
+                $"}}{(lastIndex != index ? ',' : ' ')}";
+                index++;
             }
             answer += "]";
 
-            return $"{{\"users\": \"{answer}\"}}";
+            return answer;
         }
 
         /// <summary>

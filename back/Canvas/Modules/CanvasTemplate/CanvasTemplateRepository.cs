@@ -54,17 +54,18 @@ namespace Canvas.Modules.CanvasTemplate
             foreach (Models.Canvas template in canvasTemplates)
             {
                 answer += "{" +
-                    $"\"id\": \"{template._id}\"" +
-                    $"\"type\": \"{template.type}\"" +
-                    $"\"rows\": \"{template.rows}\"" +
-                    $"\"columns\": \"{template.columns}\"" +
+                    $"\"id\": \"{template._id}\", " +
+                    $"\"type\": \"{template.type}\", " +
+                    $"\"rows\": \"{template.rows}\", " +
+                    $"\"columns\": \"{template.columns}\", " +
                     $"\"data\": \"{template.data}\"" +
-                    $"}}{(lastIndex != index ? ',' : ' ')}";
+                $"}}{(lastIndex != index ? ',' : ' ')}";
+                index++;
             }
 
             answer += "]";
 
-            return $"{{\"templates\": \"{answer}\"}}";
+            return answer;
         }
     }
 }
