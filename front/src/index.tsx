@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 import * as serviceWorker from './serviceWorker';
 import initModules from "./initialize/modules";
 
-import App from './App';
+import App from './app';
 import Splash from "./assets/ui/splash/splash";
 
 /**
