@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using MongoDB.Driver;
-using Canvas.Controllers;
+
+using Canvas.Controllers.Admin;
 
 namespace Canvas.Modules.User
 {
@@ -21,14 +21,32 @@ namespace Canvas.Modules.User
         /// <summary>
         ///     The method to get all users in database.
         /// </summary>
-        /// <returns> Variable of the List type of the User model. </returns>
-        public List<Models.User> GetUsers()
+        /// <returns> Variable of the string type with data of the User model. </returns>
+        public string GetUsers(GetUsersModel data)
         {
+            if (data.id != "5e53b6871c9d440000527bc4") return "{\"error\": \"Have_to_be_admin\"}";
+            if (data.id == "") return "{\"error\": \"Id_not_found\"}";
+                
             FilterDefinitionBuilder<Models.User> builder = new FilterDefinitionBuilder<Models.User>();
             FilterDefinition<Models.User> filter = builder.Empty;
-            List<Models.User> result = Collection.Find(filter).ToListAsync().Result;
+            List<Models.User> users = Collection.Find(filter).ToListAsync().Result;
 
-            return result;
+            string answer = "[";
+            int index = 0;
+            int lastIndex = users.Count - 1;
+
+            foreach(Models.User user in users)
+            {
+                answer += "{" +
+                    $"\"id\": \"{user._id}\", " +
+                    $"\"login\": \"{user.login}\", " +
+                    $"\"email\": \"{user.email}\"" +
+                $"}}{(lastIndex != index ? ',' : ' ')}";
+                index++;
+            }
+            answer += "]";
+
+            return answer;
         }
 
         /// <summary>

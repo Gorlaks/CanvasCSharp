@@ -4,6 +4,7 @@ namespace Canvas.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
     /// <summary>
     ///     The controller to create a new canvas in database.
     /// </summary>
@@ -18,7 +19,7 @@ namespace Canvas.Controllers
     }
 
     /// <summary>
-    ///     The model for data about canvas.
+    ///     The model for data about new canvas.
     /// </summary>
     public class CreateCanvasData
     {
