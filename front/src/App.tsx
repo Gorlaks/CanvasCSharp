@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route, useHistory } from "react-router-dom";
 import { message } from "antd";
 import { container } from "tsyringe";
 
+import commonStatesStorage from "./initialize/statesStorages/commonStatesStorage";
 import { RoutePath } from "./utils/constants";
-import { ILocalStorageApi } from "./modules/common/storage/interfaces"
+import { ILocalStorageApi } from "./modules/common/storage/interfaces";
 
 import Header from "./modules/header/component/header";
 const Auth = React.lazy(() => import("./modules/auth/component/auth"));
@@ -23,6 +24,14 @@ const App = () => {
   const userAuthData = localStorageApi.getLocalData("userAuthData", {});
   const isAuthorized = Boolean(userAuthData.id);
   const language = localStorageApi.getLocalData("language", "");
+
+  const [languageState, setLanguageState] = useState(language);
+
+  /** @description Register language state in the states storage. */
+  commonStatesStorage.registState<string>("language", {
+    state: languageState,
+    setState: setLanguageState
+  });
 
   /**
 	 * @description Checks for language information in the localStorage

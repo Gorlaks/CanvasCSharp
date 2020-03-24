@@ -1,9 +1,8 @@
 import React from "react";
-import { ICreateCanvasTemplate } from "../../common/redux/interfaces";
-
-import { LS } from "../../../utils/helpers";
 
 import CanvasTemplateReview from "../../../assets/ui/canvasTemplateReview/canvasTemplateReview";
+import { LS } from "../../../utils/helpers";
+import { ICreateCanvasTemplate } from "../../canvas/interfaces";
 
 const CanvasTemplatesBoard = () => {
   const defaultDatas: Array<ICreateCanvasTemplate> = [];

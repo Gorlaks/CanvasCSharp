@@ -1,20 +1,16 @@
 /** @module Admin */
 import React from "react";
 import { Tabs } from "antd";
-import { connect } from "react-redux";
 
 import { LS } from "../../utils/helpers";
 import Panel from "./fragments/panel";
-import { IReduxStore } from "../common/redux/interfaces";
 
 import UsersTable from "./usersTable/usersTable";
 import CanvasTemplatesBoard from "./canvasTemplatesBoard/canvasTemplatesBoard";
 
 const { TabPane } = Tabs;
 
-const Admin = (props: {
-  language?: string
-}) => {
+const Admin = () => {
   const tabBarStyle = {
 		display: "flex",
 		justifyContent: "center"
@@ -39,10 +35,4 @@ const Admin = (props: {
   )
 }
 
-const mapStateToProps = (state: IReduxStore) => {
-  return {
-    language: state.commonReducer.language
-  }
-}
-
-export default connect(mapStateToProps, null)(Admin);
+export default Admin;

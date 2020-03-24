@@ -1,6 +1,6 @@
 import { ICreateCanvasTemplateModalService } from "./interfaces";
-import { ICreateCanvasTemplate } from "../common/redux/interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
+import { ICreateCanvasTemplate } from "../canvas/interfaces";
 
 class CreateCanvasTemplateModalService implements ICreateCanvasTemplateModalService {
   private apiClient: IApiClient;

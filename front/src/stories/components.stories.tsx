@@ -1,13 +1,11 @@
 /** @description Stories of react components from modules folder. */
 import React from "react";
-import { Provider } from "react-redux";
 
 import "reflect-metadata";
 import 'antd/dist/antd.css';
 import "../index.scss";
 
 import initModules from "../initialize/modules";
-import initStore from "../initialize/store";
 
 import Header from "../modules/header/component/header";
 import Admin from "../modules/admin/admin";
@@ -15,7 +13,6 @@ import CreateCanvasModal from "../modules/createCanvasModal/createCanvasModal";
 import CreateCanvasTemplateModal from "../modules/createCanvasTemplateModal/component/createCanvasTemplateModal";
 
 initModules();
-const store = initStore();;
 
 /**
  * @description Header component.
@@ -28,11 +25,7 @@ export const WithHeader = () => <Header />;
  * @module Admin.
 */
 export const WithAdmin = () => {
-  return (
-    <Provider store={store}>
-      <Admin />
-    </Provider>
-  )
+  return <Admin />
 };
 
 /** 

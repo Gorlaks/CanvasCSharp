@@ -1,9 +1,8 @@
 import React from "react";
 import { Table as AntTable } from "antd";
 
-import { LS } from "../../../utils/helpers";
-
 import ActionCell from "./actionCell";
+import { LS } from "../../../utils/helpers";
 
 const UsersTable = () => {
 	/**@description Table columns.*/

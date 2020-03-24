@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 
 import { LS } from "../../../../utils/helpers";
-import { ICreateCanvasTemplate } from "../../../common/redux/interfaces";
+import { ICreateCanvasTemplate } from "../../../canvas/interfaces";
 
 const CreateCanvasTemplateModalBody = (props: {
   templateState: ICreateCanvasTemplate,

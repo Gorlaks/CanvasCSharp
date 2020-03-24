@@ -1,4 +1,5 @@
 import React from "react";
+
 import { LS } from "../../../../utils/helpers";
 
 /** @description the inscription - Preview if canvas data is empty */

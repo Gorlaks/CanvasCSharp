@@ -5,13 +5,13 @@ import { Modal, message } from "antd";
 
 import { LS } from "../../../utils/helpers";
 import { ICreateCanvasTemplateModalService } from "../interfaces";
+import { ICreateCanvasTemplate } from "../../canvas/interfaces";
 
 import Preview from "./fragments/preview";
 import LeftInUpColumn from "./fragments/leftInUpColumn";
 import EmptyPreview from "./fragments/emptyPreview";
 import RightInUpColumn from "./fragments/rightInUpColumn";
 import CreateCanvasTemplateModalBody from "./fragments/createCanvasTemplateModalBody";
-import { ICreateCanvasTemplate } from "../../common/redux/interfaces";
 
 
 const CreateCanvasTemplateModal = (props: {
@@ -86,7 +86,7 @@ const CreateCanvasTemplateModal = (props: {
 
 /** @description Function for ok attribute in modal component */
 const handleOk = (props: {
-  templateState: ICreateCanvasTemplate
+  templateState: ICreateCanvasTemplate,
   createCanvasTemplateModalService: ICreateCanvasTemplateModalService,
   setLoadingState: Function,
   setModalState: Function

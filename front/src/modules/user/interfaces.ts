@@ -1,4 +1,10 @@
-import { ICanvasList } from "../common/redux/interfaces";
+export interface ICanvasList {
+	id: string;
+	ownerId: string;
+	title: string;
+	date: string;
+	type: string;
+}
 
 export interface IUserRepository {
 	getCanvasList(ownerId: string): Promise<ICanvasList>;
@@ -7,3 +13,4 @@ export interface IUserRepository {
 export interface IUserService {
 	setCanvasList(ownerId: string): Promise<any>;
 }
+

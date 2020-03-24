@@ -1,5 +1,3 @@
-import { ICanvasData } from "../common/redux/interfaces";
-
 export interface ICanvasRepository {
 	getCanvasById(ownerId: string, id: string): Promise<ICanvasData>;
 }
@@ -10,4 +8,30 @@ export interface ICanvasService {
 		setCanvasListAfterRemoving(canvasId: string): void;
 		updateCanvas(canvasData: Record<string, any>): Promise<any>;
 		downloadPdf(canvasData: Record<string, any>): Promise<any>;
+}
+
+export interface ICanvasData {
+	id: string
+	title: string;
+	type: string;
+	columns: number;
+	rows: number;
+	data: ICanvasBlocksData[];
+}
+
+export interface ICreateCanvasTemplate {
+	ownerId: string | null;
+	title: string | null;
+	type: string | null;
+	date: string | null;
+	rows: number | null;
+	columns: number | null;
+	data: ICanvasBlocksData[];
+}
+
+export interface ICanvasBlocksData {
+	position: number[];
+	title: string;
+	content: string;
+	description: string;
 }

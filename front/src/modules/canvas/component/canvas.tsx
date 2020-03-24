@@ -1,22 +1,19 @@
 /** @module Canvas */
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
 import { container } from "tsyringe";
 import { message } from "antd";
 
-import { IReduxStore, IUserAuthData } from "../../common/redux/interfaces";
 import { ILocalStorageApi } from "../../common/storage/interfaces";
 import { RoutePath } from "../../../utils/constants";
 import { ICanvasRepository } from "../interfaces";
+import { IUserAuthData } from "../../auth/interfaces";
 
 import CanvasContent from "./fragments/canvasContent";
 import ComponentLoading from "../../../assets/ui/componentLoading/componentLoading";
 import { LS } from "../../../utils/helpers";
 
-const Canvas = (props: {
-	language: string
-}) => {
+const Canvas = () => {
 	const history = useHistory();
 	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
 	const canvasRepository: ICanvasRepository = container.resolve("canvasRepository");
@@ -49,10 +46,4 @@ const Canvas = (props: {
 	)
 }
 
-const mapStateToProps = (state: IReduxStore) => {
-	return {
-		language: state.commonReducer.language
-	}
-}
-
-export default connect(mapStateToProps, null)(Canvas);
+export default Canvas;

@@ -1,7 +1,6 @@
+import commonStatesStorage from "../../../initialize/statesStorages/commonStatesStorage";
 import { ILanguageService } from "./interfaces";
 import { ILocalStorageApi } from "../storage/interfaces";
-import { GetStore } from "../redux/store";
-import * as types from "../../../utils/reduxConstants";
 
 class LanguageService implements ILanguageService {
 	private localStorageApi: ILocalStorageApi;
@@ -12,10 +11,7 @@ class LanguageService implements ILanguageService {
 
 	/** @description Write language to redux store and local storage. */
 	changeLanguage(language: string): void {
-		GetStore().dispatch({
-			type: types.CHANGE_LANGUAGE,
-			language
-		});
+		commonStatesStorage.setState("language", language);
 		this.localStorageApi.setLocalData("language", language);
 	}
 }

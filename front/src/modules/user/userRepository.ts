@@ -1,5 +1,3 @@
-import { container } from "tsyringe";
-
 import { IUserRepository } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 

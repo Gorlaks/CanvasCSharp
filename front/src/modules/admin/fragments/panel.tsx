@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { LS } from "../../../utils/helpers";
 
 import PlusButton from "../../../assets/ui/plusButton/plusButton";
 import CreateCanvasTemplateModal from "../../createCanvasTemplateModal/component/createCanvasTemplateModal";
+import { LS } from "../../../utils/helpers";
 
 const Panel = () => {
   const [createCanvasTemplateModalState, setCreateCanvasTemplateModalState] = useState(false);

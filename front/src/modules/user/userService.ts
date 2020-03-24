@@ -1,6 +1,5 @@
-import { GetStore } from "../common/redux/store";
+import userStatesStorage from "../../initialize/statesStorages/userStatesStorage";
 import { IUserService, IUserRepository } from "./interfaces";
-import * as types from "../../utils/reduxConstants";
 
 class UserService implements IUserService {
 	private userRepository: IUserRepository;
@@ -12,10 +11,8 @@ class UserService implements IUserService {
 	/** @description Write received canvas list to redux store. */
 	async setCanvasList(ownerId: string) {
 		const canvasList = await this.userRepository.getCanvasList(ownerId);
-		GetStore().dispatch({
-			type: types.SET_CANVAS_LIST,
-			canvasList
-		});
+		userStatesStorage.setState("canvasList", canvasList)
+
 		return canvasList;
 	}
 }
