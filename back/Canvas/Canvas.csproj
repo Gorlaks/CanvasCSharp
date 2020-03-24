@@ -20,4 +20,8 @@
     <ProjectReference Include="..\LocalModulesStorage\LocalModulesStorage.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

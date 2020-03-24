@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using MongoDB.Driver;
+
+using Canvas.Controllers.Admin;
 
 namespace Canvas.Modules.CanvasTemplate
 {
@@ -21,7 +25,7 @@ namespace Canvas.Modules.CanvasTemplate
         /// </summary>
         /// <param name="type"> Type of the needed template </param>
         /// <returns> variable of the canvas template model </returns>
-        public Models.Canvas getCanvasTemplateByType(string type)
+        public Models.Canvas GetCanvasTemplateByType(string type)
         {
             try
             {
@@ -31,6 +35,36 @@ namespace Canvas.Modules.CanvasTemplate
             {
                 throw new Exception($"{{\"error\": \"Something_went_wrong\"}}");
             }
+        }
+
+        public string GetCanvasTemplates(GetCanvasTemplatesModel data)
+        {
+            if (data.id == "") return "{\"error\": \"Id_not_found\"}";
+
+            FilterDefinitionBuilder<Models.Canvas> builder = new FilterDefinitionBuilder<Models.Canvas>();
+            FilterDefinition<Models.Canvas> filter = builder.Empty;
+            List<Models.Canvas> canvasTemplates = Collection.Find(filter).ToListAsync().Result;
+
+            if (canvasTemplates.Count < 1) return "\"templates\": \"There_is_no_templates\"";
+
+            string answer = "[";
+            int index = 0;
+            int lastIndex = canvasTemplates.Count - 1;
+
+            foreach (Models.Canvas template in canvasTemplates)
+            {
+                answer += "{" +
+                    $"\"id\": \"{template._id}\"" +
+                    $"\"type\": \"{template.type}\"" +
+                    $"\"rows\": \"{template.rows}\"" +
+                    $"\"columns\": \"{template.columns}\"" +
+                    $"\"data\": \"{template.data}\"" +
+                    $"}}{(lastIndex != index ? ',' : ' ')}";
+            }
+
+            answer += "]";
+
+            return $"{{\"templates\": \"{answer}\"}}";
         }
     }
 }
