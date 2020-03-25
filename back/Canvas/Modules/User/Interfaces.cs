@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-
-using Canvas.Controllers;
+﻿using Canvas.Controllers.Admin;
 
 namespace Canvas.Modules.User
 {
     public interface IUserRepository
     {
-        List<Models.User> GetUsers();
+        string GetUsers(GetUsersModel data);
         Models.User GetUser(string login);
     }
 

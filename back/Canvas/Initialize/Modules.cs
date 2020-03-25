@@ -16,19 +16,20 @@ namespace Canvas.Initialize
     /// </summary>
     public static class Modules
     {
-        public static InitStore initStore;
-        public static IMongoDatabase store;
+        public static InitStore initStore { get; set; }
+        public static IMongoDatabase store { get; set; }
 
-        public static IUserRepository userRepository;
-        public static ICanvasRepository canvasRepository;
-        public static ICanvasTemplateRepository canvasTemplateRepository;
-        public static IAuthRepository authRepository;
+        public static IUserRepository userRepository { get; set; }
+        public static ICanvasRepository canvasRepository { get; set; }
+        public static ICanvasTemplateRepository canvasTemplateRepository { get; set; }
+        public static IAuthRepository authRepository { get; set; }
 
-        public static IUserService userService;
-        public static ICanvasService canvasService;
-        public static IAuthService authService;
+        public static IUserService userService { get; set; }
+        public static ICanvasService canvasService { get; set; }
+        public static IAuthService authService { get; set; }
+        public static ICanvasTemplateService canvasTemplateService { get; set; }
 
-        public static IPdfCreater pdfCreater;
+        public static IPdfCreater pdfCreater { get; set; }
 
         /// <summary>
         ///     The method for initialize needed modules.
@@ -47,6 +48,7 @@ namespace Canvas.Initialize
             userService = new UserService(userRepository);
             canvasService = new CanvasService(canvasTemplateRepository, store);
             authService = new AuthService(store);
+            canvasTemplateService = new CanvasTemplateService(store);
 
             pdfCreater = new PdfCreater();
         }

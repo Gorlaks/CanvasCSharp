@@ -76,43 +76,39 @@ namespace Canvas.Modules.Canvas
                 Models.Canvas canvas = Collection.Find(item =>
                 item._id == canvasId && item.ownerId == ownerId).First();
 
-                if(canvas != null)
+                if(canvas == null) return $"{{\"error\": \"There is no canvas with same id\"}}"; ;
+
+                string blocksInfo = "[";
+                // Counter to determine the element during an array traversal.
+                int index = 0;
+                // Index last element in array.
+                int countItems = canvas.data.Count - 1;
+
+                foreach (Models.CanvasItemInData item in canvas.data)
                 {
-                    string blocksInfo = "[";
-                    // Counter to determine the element during an array traversal.
-                    int index = 0;
-                    // Index last element in array.
-                    int countItems = canvas.data.Count - 1;
-
-                    foreach (Models.CanvasItemInData item in canvas.data)
-                    {
-                        blocksInfo += "{" +
-                            $"\"position\": [{item.position[0]}, {item.position[1]}, {item.position[2]}, {item.position[3]}], " +
-                            $"\"title\": \"{item.title}\", " +
-                            $"\"content\": \"{item.content}\", " +
-                            $"\"description\": \"{item.description}\" " +
-                        $"}}{(countItems != index ? ',' : ' ')}";
-                        index++;
-                    }
-
-                    blocksInfo += "]";
-
-                    string canvasData = "{" +
-                        $"\"id\": \"{canvas._id}\", " +
-                        $"\"ownerId\": \"{canvas.ownerId}\", " +
-                        $"\"title\": \"{canvas.title}\", " +
-                        $"\"type\": \"{canvas.type}\", " +
-                        $"\"date\": \"{canvas.date}\", " +
-                        $"\"rows\": \"{canvas.rows}\", " +
-                        $"\"columns\": \"{canvas.columns}\", " +
-                        $"\"data\": {blocksInfo}" +
-                    "}";
-                    return canvasData;
+                    blocksInfo += "{" +
+                        $"\"position\": [{item.position[0]}, {item.position[1]}, {item.position[2]}, {item.position[3]}], " +
+                        $"\"title\": \"{item.title}\", " +
+                        $"\"content\": \"{item.content}\", " +
+                        $"\"description\": \"{item.description}\" " +
+                    $"}}{(countItems != index ? ',' : ' ')}";
+                    index++;
                 }
-                else
-                {
-                    return $"{{\"error\": \"There is no canvas with same id\"}}";
-                }
+
+                blocksInfo += "]";
+
+                string canvasData = "{" +
+                    $"\"id\": \"{canvas._id}\", " +
+                    $"\"ownerId\": \"{canvas.ownerId}\", " +
+                    $"\"title\": \"{canvas.title}\", " +
+                    $"\"type\": \"{canvas.type}\", " +
+                    $"\"date\": \"{canvas.date}\", " +
+                    $"\"rows\": \"{canvas.rows}\", " +
+                    $"\"columns\": \"{canvas.columns}\", " +
+                    $"\"data\": {blocksInfo}" +
+                "}";
+
+                return canvasData;
             }
             catch
             {
