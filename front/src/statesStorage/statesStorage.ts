@@ -31,7 +31,7 @@ class StatesStorage implements IStatesStorageType {
 
   /**
   * @description To add new state and setState to the storage.
-  * @param stateKeyName - Name of key in the storage that keeps state data.
+  * @param stateKeyName - Name of the key in the storage that keeps state and setState.
   * @param value - State and setState received after useState hook.
   */
   registState<T>(stateKeyName: string, value: { state: T, setState: SetStateType }): void {
@@ -45,7 +45,7 @@ class StatesStorage implements IStatesStorageType {
 
   /**
   * @description To get state field from the storage collection.
-  * @param stateKeyName - Name of key with state and setState fields.
+  * @param stateKeyName - Name of the key with state and setState fields.
   * @returns Any type.
   */
   getState<T>(stateKeyName: string): T {
@@ -60,7 +60,7 @@ class StatesStorage implements IStatesStorageType {
 
   /**
   * @description To change state and re-render tree.
-  * @param stateKeyName - Name of key with state and setState fields.
+  * @param stateKeyName - Name of the key with state and setState fields.
   * @param value - New state.
   */
   setState(stateKeyName: string, value: any): void {

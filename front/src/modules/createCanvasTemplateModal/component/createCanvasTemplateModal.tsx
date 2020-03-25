@@ -1,11 +1,11 @@
 /** @module CreateCanvasTemplateModal */
 import React, { useState } from "react";
-import { container } from "tsyringe";
 import { Modal, message } from "antd";
 
+import createCanvasTemplateModalService from "../../../initialize/services/createCanvasTemplateModalService";
 import { LS } from "../../../utils/helpers";
-import { ICreateCanvasTemplateModalService } from "../interfaces";
 import { ICreateCanvasTemplate } from "../../canvas/interfaces";
+import { ICreateCanvasTemplateModalService } from "../interfaces";
 
 import Preview from "./fragments/preview";
 import LeftInUpColumn from "./fragments/leftInUpColumn";
@@ -19,8 +19,6 @@ const CreateCanvasTemplateModal = (props: {
   setModalState: Function
 }) => {
   const { modalState, setModalState } = props;
-  const createCanvasTemplateModalService: ICreateCanvasTemplateModalService = container
-    .resolve("createCanvasTemplateModalService");
 
   const [loadingState, setLoadingState] = useState(false);
   /** @description default canvas template data. */

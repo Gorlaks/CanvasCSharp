@@ -1,17 +1,15 @@
 /** @module Header */
 import React from "react";
-import { container } from "tsyringe";
 import { UserOutlined } from "@ant-design/icons";
 
-import { ILanguageService } from "../../common/language/interfaces";
-import { ILocalStorageApi } from "../../common/storage/interfaces";
+import languageService from "../../../initialize/services/languageService";
+import localStorageApi from "../../../initialize/api/localStorageApi";
 
 import Menu from "./fragments/menu";
 
 const Header = () => {
-	const languageService: ILanguageService = container.resolve("languageService");
-	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
 	const login = localStorageApi.getLocalData("userAuthData", {}).login;
+
 	return (
 		<div className="header">
 			<div className="header__languages">

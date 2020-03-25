@@ -1,6 +1,7 @@
 import React from "react";
-import { container } from "tsyringe";
 import { Menu as AntMenu } from "antd";
+
+import headerService from "../../../../initialize/services/headerService";
 import { IHeaderService } from "../../interfaces";
 
 enum Keys {
@@ -31,7 +32,6 @@ const Menu = (props: {
 const handleActions = (props: {
   key: string,
 }) => {
-  const headerService: IHeaderService = container.resolve("headerService");
   const { key } = props;
   if(key === Keys.LOG_OUT) headerService.LogOut();
 }

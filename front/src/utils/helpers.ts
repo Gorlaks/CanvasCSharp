@@ -1,9 +1,7 @@
-import { container } from "tsyringe";
-import { ILanguageRepository } from "../modules/common/language/interfaces";
+import languageRepository from "../initialize/repositories/languageRepository";
 
 /** @description For translate. */
 export const LS = (sentense: string): string => {
-	const languageRepository: ILanguageRepository = container.resolve("languageRepository");
 	return languageRepository.translate(sentense);
 }
 
