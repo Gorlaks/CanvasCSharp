@@ -7,4 +7,9 @@ namespace Canvas.Modules.CanvasTemplate
         Models.Canvas GetCanvasTemplateByType(string type);
         string GetCanvasTemplates(GetCanvasTemplatesModel data);
     }
+
+    public interface ICanvasTemplateService
+    {
+        string CreateCanvasTemplate(CreateCanvasTemplateModel data);
+    }
 }

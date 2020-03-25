@@ -12,9 +12,10 @@ namespace Canvas.Controllers.Admin
     public class CreateCanvasTemplateController : Controller
     {
         [HttpPost]
-        public void Post(CreateCanvasTemplateModel data)
+        public string Post(CreateCanvasTemplateModel data)
         {
-
+            string answer = Initialize.Modules.canvasTemplateService.CreateCanvasTemplate(data);
+            return answer;
         }
     }
 

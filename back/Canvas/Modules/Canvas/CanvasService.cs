@@ -101,11 +101,11 @@ namespace Canvas.Modules.Canvas
                 {
                     int[] position = item.position;
                     blocksData.Add(new BsonDocument {
-                    { "position", new BsonArray(new[] { position[0], position[1], position[2], position[3] }) },
-                    { "title", item.title },
-                    { "content", item.content },
-                    { "description", item.description },
-                });
+                        { "position", new BsonArray(new[] { position[0], position[1], position[2], position[3] }) },
+                        { "title", item.title },
+                        { "content", item.content },
+                        { "description", item.description },
+                    });
                 };
 
                 var builder = Builders<Models.Canvas>.Filter;
