@@ -23,6 +23,8 @@ class AuthService implements IAuthService {
 
 		if (result.error) throw result.error;
 		this.localStorageApi.setLocalData("userAuthData", result);
+		
+		return result;
 	}
 
 	/** @description User registration and write user data to redux store */

@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { container } from "tsyringe";
 import { message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { LS } from "../../../../utils/helpers";
 
-import { IAuthService } from "../../interfaces";
+import authService from "../../../../initialize/services/authService";
+import { LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
 
 const Login = (props: {
 	language: string
 }) => {
 	const history = useHistory();
-	const authService: IAuthService = container.resolve("authService");
 
 	const [login, setLogin] = useState("");
 	const [password, setPassword] = useState("");
@@ -27,7 +25,7 @@ const Login = (props: {
 			const loading = message.loading(LS("Loading"));
 			authService.login(login, password)
 				.then((item: Record<string, string>) => {
-					if (!item?.error) history.push(RoutePath.USER_PATH);
+					if (!item.error) history.push(RoutePath.USER_PATH);
 					else message.error(LS(item.error));
 				})
 				.catch((e: ExceptionInformation) => message.error(LS(e.toString())))

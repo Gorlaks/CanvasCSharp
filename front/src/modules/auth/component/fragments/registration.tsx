@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { container } from "tsyringe";
 import { message } from "antd";
 import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
+
+import authService from "../../../../initialize/services/authService";
 import { LS } from "../../../../utils/helpers";
-
-import { IAuthService } from "../../interfaces";
 import { RoutePath } from "../../../../utils/constants";
-
 
 const Registration = (props: {
 	language: string
 }) => {
 	const history = useHistory();
-	const authService: IAuthService = container.resolve("authService");
 
 	const [login, setLogin] = useState("");
 	const [email, setEmail] = useState("");

@@ -1,13 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { LeftOutlined } from "@ant-design/icons";
-import { container } from "tsyringe";
 
+import canvasService from "../../../../initialize/services/canvasService";
 import PlusButton from "../../../../assets/ui/plusButton/plusButton";
 import { newStrokeInTextArea, resizeContainer, LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
 import { handleUpdate, writeContentToCanvasDataBlocks, handleDownloadPdf } from "./functions";
-import { ICanvasService } from "../../interfaces";
 
 const CanvasContent = (props: {
 	canvasData: Record<string, any>
@@ -15,7 +14,6 @@ const CanvasContent = (props: {
 	const history = useHistory();
 	const { canvasData } = props;
 	const { columns, rows, data, title, type } = canvasData;
-	const canvasService: ICanvasService = container.resolve("canvasService");
 
 	/** @description Create grid layout. */
 	const canvasContentStyles = {

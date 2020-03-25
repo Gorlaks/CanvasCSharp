@@ -1,8 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
-import { container } from "tsyringe";
 
+import canvasService from "../../../../initialize/services/canvasService";
+import localStorageApi from "../../../../initialize/api/localStorageApi";
 import { LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
 import { ICanvasService } from "../../../canvas/interfaces";
@@ -17,8 +18,7 @@ const ActionCell = (props: {
   /** @description record - data about all items in antd table. */
   const { userAuthData, record } = props;
   const history = useHistory();
-  const canvasService: ICanvasService = container.resolve("canvasService");
-  const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
+  
   return (
     <div className="user__table__actions">
       <button className="user__table__action-btn" onClick={() => handleEdit({

@@ -1,18 +1,13 @@
 /** @description Stories of react components from modules folder. */
 import React from "react";
 
-import "reflect-metadata";
 import 'antd/dist/antd.css';
 import "../index.scss";
-
-import initModules from "../initialize/modules";
 
 import Header from "../modules/header/component/header";
 import Admin from "../modules/admin/admin";
 import CreateCanvasModal from "../modules/createCanvasModal/createCanvasModal";
 import CreateCanvasTemplateModal from "../modules/createCanvasTemplateModal/component/createCanvasTemplateModal";
-
-initModules();
 
 /**
  * @description Header component.

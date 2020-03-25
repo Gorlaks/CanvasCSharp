@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Table as AntTable } from "antd";
-import { container } from "tsyringe";
 
+import userService from "../../../../initialize/services/userService";
 import { LS } from "../../../../utils/helpers";
-import { IUserService, ICanvasList } from "../../interfaces";
+import { ICanvasList } from "../../interfaces";
 import ActionCell from "./actionCell";
 import ComponentLoading from "../../../../assets/ui/componentLoading/componentLoading";
 import { IUserAuthData } from "../../../auth/interfaces";
@@ -13,7 +13,6 @@ const Table = (props: {
 	userAuthData: IUserAuthData
 	canvasList: Array<ICanvasList>
 }) => {
-	const userService: IUserService = container.resolve("userService");
 	const [tableLoading, setTableLoading] = useState(true);
 
 	/**

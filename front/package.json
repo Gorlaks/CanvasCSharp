@@ -18,9 +18,7 @@
     "react-dom": "~16.13.0",
     "react-router-dom": "~5.1.2",
     "react-scripts": "~3.4.0",
-    "reflect-metadata": "~0.1.13",
     "sass-loader": "~8.0.2",
-    "tsyringe": "~4.1.0",
     "typescript": "~3.7.5"
   },
   "scripts": {
