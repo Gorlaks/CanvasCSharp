@@ -22,6 +22,11 @@ const Registration = (props: {
 	 * @event onClick.
 	*/
 	const sendRegistration = () => {
+		if (!login || !password || !email) {
+			message.error(LS("Empty_field_error"));
+			return;
+		}
+
 		const loading = message.loading(LS("Loading"));
 		authService.registration({ email, login, password })
 			.then((item: Record<string, string>) => {
@@ -32,21 +37,32 @@ const Registration = (props: {
 			.finally(() => loading());
 	}
 
+	const handleKeyPressRegist = (e: any) => {
+		if (e.which == 13) sendRegistration();
+	}
+
 	return (
 		<div>
 			<div className="auth__filed">
 				<div className="auth__icon"><MailOutlined /></div>
-				<input type="email" placeholder={LS("Email")} onChange={(e: any) => setEmail(e.target.value)} />
+				<input type="email" placeholder={LS("Email")}
+					onKeyPress={handleKeyPressRegist} onChange={(e: any) => setEmail(e.target.value)} />
 			</div>
 			<div className="auth__filed">
 				<div className="auth__icon"><UserOutlined /></div>
-				<input type="text" placeholder={LS("Login")} onChange={(e: any) => setLogin(e.target.value)} />
+				<input type="text" placeholder={LS("Login")} onKeyPress={handleKeyPressRegist}
+					onChange={(e: any) => setLogin(e.target.value)} />
 			</div>
 			<div className="auth__filed">
 				<div className="auth__icon"><LockOutlined /></div>
-				<input type="password" placeholder={LS("Password")} onChange={(e: any) => setPassword(e.target.value)} />
+				<input type="password" placeholder={LS("Password")} onKeyPress={handleKeyPressRegist}
+					onChange={(e: any) => setPassword(e.target.value)} />
 			</div>
-			<button className="auth__btn" onClick={() => sendRegistration()}>{LS("Registration_button")}</button>
+			<button className="auth__btn" onKeyPress={(e: any) => {
+				if (e.keyCode === 13) sendRegistration();
+			}} onClick={() => sendRegistration()}>
+				{LS("Registration_button")}
+			</button>
 		</div>
 	)
 }

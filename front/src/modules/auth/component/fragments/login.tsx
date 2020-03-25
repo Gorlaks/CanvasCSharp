@@ -21,27 +21,36 @@ const Login = (props: {
 	 * @event onClick.
 	*/
 	const sendLogin = () => {
-		if (login && password) {
-			const loading = message.loading(LS("Loading"));
-			authService.login(login, password)
-				.then((item: Record<string, string>) => {
-					if (!item.error) history.push(RoutePath.USER_PATH);
-					else message.error(LS(item.error));
-				})
-				.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
-				.finally(() => loading());
-		} else message.error(LS("Empty_field_error"));
+		if (!login || !password) {
+			message.error(LS("Empty_field_error"));
+			return;
+		}
+
+		const loading = message.loading(LS("Loading"));
+		authService.login(login, password)
+			.then((item: Record<string, string>) => {
+				if (!item.error) history.push(RoutePath.USER_PATH);
+				else message.error(LS(item.error));
+			})
+			.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
+			.finally(() => loading());
+	}
+
+	const handleKeyPressRegist = (e: any) => {
+		if (e.which == 13) sendLogin();
 	}
 
 	return (
 		<div>
 			<div className="auth__filed">
 				<div className="auth__icon"><UserOutlined /></div>
-				<input type="text" placeholder={LS("Login")} onChange={(e: any) => setLogin(e.target.value)} />
+				<input type="text" placeholder={LS("Login")} onKeyPress={handleKeyPressRegist}
+					onChange={(e: any) => setLogin(e.target.value)} />
 			</div>
 			<div className="auth__filed">
 				<div className="auth__icon"><LockOutlined /></div>
-				<input type="password" placeholder={LS("Password")} onChange={(e: any) => setPassword(e.target.value)} />
+				<input type="password" placeholder={LS("Password")} onKeyPress={handleKeyPressRegist}
+					onChange={(e: any) => setPassword(e.target.value)} />
 			</div>
 			<button className="auth__btn" onClick={() => sendLogin()}>{LS("Login_button")}</button>
 		</div>
