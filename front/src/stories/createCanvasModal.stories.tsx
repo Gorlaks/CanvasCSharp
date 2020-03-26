@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import 'antd/dist/antd.css';
 import "../index.scss";
 
+import commonStatesStorage from "../initialize/statesStorages/commonStatesStorage";
 import CreateCanvasModal from "../modules/createCanvasModal/createCanvasModal";
 
 /** 
@@ -12,6 +13,10 @@ import CreateCanvasModal from "../modules/createCanvasModal/createCanvasModal";
  * @module CreateCanvasModal.
 */
 export const WithCreateCanvasModal = () => {
+  commonStatesStorage.registState<string>("language", {
+    state: "en",
+    setState: () => {}
+  });
   return (
     <Router>
       <CreateCanvasModal

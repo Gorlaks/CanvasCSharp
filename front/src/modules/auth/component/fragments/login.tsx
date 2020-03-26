@@ -26,7 +26,7 @@ const Login = (props: {
 			return;
 		}
 
-		const loading = message.loading(LS("Loading"));
+		const loading = message.loading(LS("Loading"), 100);
 		authService.login(login, password)
 			.then((item: Record<string, string>) => {
 				if (!item.error) history.push(RoutePath.USER_PATH);
