@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Modal, message } from "antd";
-import { container } from "tsyringe";
+
+import canvasService from "../../initialize/services/canvasService";
+import localStorageApi from "../../initialize/api/localStorageApi";
 import { LS } from "../../utils/helpers";
 import { RoutePath } from "../../utils/constants";
-import { ICanvasService } from "../canvas/interfaces";
-import { ILocalStorageApi } from "../common/storage/interfaces"
 import { IUserAuthData } from "../auth/interfaces";
 
 const CreateCanvasModal = (props: {
@@ -17,8 +17,6 @@ const CreateCanvasModal = (props: {
   const { isOpened, setModalState } = props;
 
   const history = useHistory();
-  const canvasService: ICanvasService = container.resolve("canvasService");
-  const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
 
   /** @description Splash icon state in ok button. */
   const [loadingState, setLoadingState] = useState(false);

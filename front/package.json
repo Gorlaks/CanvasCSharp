@@ -18,9 +18,7 @@
     "react-dom": "~16.13.0",
     "react-router-dom": "~5.1.2",
     "react-scripts": "~3.4.0",
-    "reflect-metadata": "~0.1.13",
     "sass-loader": "~8.0.2",
-    "tsyringe": "~4.1.0",
     "typescript": "~3.7.5"
   },
   "scripts": {
@@ -28,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook -c .storybook -o outStories"
   },
   "eslintConfig": {
     "extends": "react-app"

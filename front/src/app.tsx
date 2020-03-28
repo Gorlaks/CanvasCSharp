@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, useHistory } from "react-router-dom";
 import { message } from "antd";
-import { container } from "tsyringe";
 
 import commonStatesStorage from "./initialize/statesStorages/commonStatesStorage";
+import localStorageApi from "./initialize/api/localStorageApi";
 import { RoutePath } from "./utils/constants";
-import { ILocalStorageApi } from "./modules/common/storage/interfaces";
 
 import Header from "./modules/header/component/header";
 const Auth = React.lazy(() => import("./modules/auth/component/auth"));
@@ -20,10 +19,9 @@ message.config({
 
 const App = () => {
   const history = useHistory();
-  const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
   const userAuthData = localStorageApi.getLocalData("userAuthData", {});
-  const isAuthorized = Boolean(userAuthData.id);
   const language = localStorageApi.getLocalData("language", "");
+  const isAuthorized = Boolean(userAuthData.id);
 
   const [languageState, setLanguageState] = useState(language);
 

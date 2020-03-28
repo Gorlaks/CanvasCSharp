@@ -1,12 +1,11 @@
 /** @module Canvas */
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { container } from "tsyringe";
 import { message } from "antd";
 
-import { ILocalStorageApi } from "../../common/storage/interfaces";
+import localStorageApi from "../../../initialize/api/localStorageApi";
+import canvasRepository from "../../../initialize/repositories/canvasRepository";
 import { RoutePath } from "../../../utils/constants";
-import { ICanvasRepository } from "../interfaces";
 import { IUserAuthData } from "../../auth/interfaces";
 
 import CanvasContent from "./fragments/canvasContent";
@@ -15,8 +14,7 @@ import { LS } from "../../../utils/helpers";
 
 const Canvas = () => {
 	const history = useHistory();
-	const localStorageApi: ILocalStorageApi = container.resolve("localStorageApi");
-	const canvasRepository: ICanvasRepository = container.resolve("canvasRepository");
+
 	const canvasId: string = localStorageApi.getLocalData("canvasId", "");
 	const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
 
