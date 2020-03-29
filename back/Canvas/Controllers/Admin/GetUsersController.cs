@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using modules = Canvas.Initialize.Modules;
+
 namespace Canvas.Controllers.Admin
 {
     [ApiController]
@@ -13,7 +15,7 @@ namespace Canvas.Controllers.Admin
         [HttpPost]
         public string Post(GetUsersModel data)
         {
-            string answer = Initialize.Modules.userRepository.GetUsers(data);
+            string answer = modules.userRepository.GetUsers(data);
             return answer;
         }
     }

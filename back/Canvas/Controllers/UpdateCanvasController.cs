@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
+using modules = Canvas.Initialize.Modules;
+
 namespace Canvas.Controllers
 {
     [ApiController]
@@ -14,7 +16,7 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(SaveCanvasData data)
         {
-            string answer = Initialize.Modules.canvasService.UpdateCanvas(data);
+            string answer = modules.canvasService.UpdateCanvas(data);
             return answer;
         }
     }
