@@ -9,8 +9,9 @@ export const url: string = "https://canvas-back.herokuapp.com";
  * @type {string}
 */
 export enum RoutePath {
-	ROOT_PATH = "/",
-	AUTH_PATH = "/auth",
-	USER_PATH = "/user",
-	CANVAS_PATH = "/canvas"
+	ROOT_PATH 	= "/",
+	AUTH_PATH 	= "/auth",
+	USER_PATH 	= "/user",
+	CANVAS_PATH = "/canvas",
+	ADMIN_PATH 	= "/admin"
 };

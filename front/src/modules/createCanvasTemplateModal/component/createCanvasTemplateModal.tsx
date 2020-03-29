@@ -61,10 +61,8 @@ const CreateCanvasTemplateModal = (props: {
             setTemplateState={setTemplateState}
           />
           {(() => {
-            switch (templateState.data[0].position.length) {
-              case 0: return <EmptyPreview />; break;
-              default: return <Preview templateData={templateState} />
-            }
+            if(templateState.data[0].position.length === 0) return <EmptyPreview />;
+            else return <Preview templateData={templateState} />;
           })()}
           <RightInUpColumn
             templateState={templateState}

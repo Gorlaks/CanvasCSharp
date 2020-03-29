@@ -2,7 +2,6 @@ import React from "react";
 import { Menu as AntMenu } from "antd";
 
 import headerService from "../../../../initialize/services/headerService";
-import { IHeaderService } from "../../interfaces";
 
 enum Keys {
   LOG_OUT = "LogOut"

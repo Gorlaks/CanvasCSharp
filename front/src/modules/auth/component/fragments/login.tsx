@@ -3,13 +3,12 @@ import { useHistory } from "react-router-dom";
 import { message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
+import userStatesStorage from "../../../../initialize/statesStorages/userStatesStorage";
 import authService from "../../../../initialize/services/authService";
 import { LS } from "../../../../utils/helpers";
 import { RoutePath } from "../../../../utils/constants";
 
-const Login = (props: {
-	language: string
-}) => {
+const Login = () => {
 	const history = useHistory();
 
 	const [login, setLogin] = useState("");
@@ -29,7 +28,10 @@ const Login = (props: {
 		const loading = message.loading(LS("Loading"), 100);
 		authService.login(login, password)
 			.then((item: Record<string, string>) => {
-				if (!item.error) history.push(RoutePath.USER_PATH);
+				if (!item.error) {
+					userStatesStorage.setState("isAuthorized", true);
+					history.push(RoutePath.USER_PATH);
+				}
 				else message.error(LS(item.error));
 			})
 			.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
@@ -37,8 +39,8 @@ const Login = (props: {
 	}
 
 	const handleKeyPressRegist = (e: any) => {
-		if (e.which == 13) sendLogin();
-	}
+		if (e.which === 13) sendLogin();
+	};
 
 	return (
 		<div>

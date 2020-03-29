@@ -26,7 +26,7 @@ const Canvas = () => {
 	 * and put received information to redux store.
 	*/
 	useEffect(() => {
-		if (!canvasId || canvasId === "undefined") history.push(RoutePath.USER_PATH);
+		if (!canvasId) history.push(RoutePath.USER_PATH);
 		else {
 			canvasRepository.getCanvasById(userAuthData.id, canvasId)
 				.then((item: any) => {

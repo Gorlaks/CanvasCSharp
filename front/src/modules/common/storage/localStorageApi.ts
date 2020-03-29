@@ -8,7 +8,9 @@ class LocalStorageApi implements ILocalStorageApi {
 	getLocalData(key: string, defaultValue: any) {
 		const value: string = localStorage.getItem(key) || defaultValue;
 		try {
-			return JSON.parse(value);
+			const result = JSON.parse(value);
+			if(result === "undefined") return null;
+			return result;
 		} catch {
 			return value;
 		}
