@@ -3,6 +3,8 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
+using modules = Canvas.Initialize.Modules;
+
 namespace Canvas.Controllers
 {
     [ApiController]
@@ -16,7 +18,7 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(RegistrationData data)
         {
-            string answer = Initialize.Modules.authService.Registration(data);
+            string answer = modules.authService.Registration(data);
             return answer;
         }
     }

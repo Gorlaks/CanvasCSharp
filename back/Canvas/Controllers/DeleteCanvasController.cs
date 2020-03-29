@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using modules = Canvas.Initialize.Modules;
+
 namespace Canvas.Controllers
 {
     [ApiController]
@@ -13,7 +15,7 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(DeleteCanvasData data)
         {
-            string answer = Initialize.Modules.canvasService.DeleteCanvas(data);
+            string answer = modules.canvasService.DeleteCanvas(data);
             return answer;
         }
     }

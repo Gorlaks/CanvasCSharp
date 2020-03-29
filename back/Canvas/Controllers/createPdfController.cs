@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using Canvas.Modules.Pdf;
 
+using modules = Canvas.Initialize.Modules;
+
 namespace Canvas.Controllers
 {
     [ApiController]
@@ -15,7 +17,7 @@ namespace Canvas.Controllers
         [HttpPost]
         public string Post(CreatePdfData data)
         {
-            IPdfCreater pdfCreater = Initialize.Modules.pdfCreater;
+            IPdfCreater pdfCreater = modules.pdfCreater;
 
             // Generate html string.
             string htmlString = pdfCreater.GenerateHtmlString(data);
