@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import { message } from "antd";
 
 import commonStatesStorage from "./initialize/statesStorages/commonStatesStorage";
 import localStorageApi from "./initialize/api/localStorageApi";
-import { RoutePath } from "./utils/constants";
+import { RoutePath, allExistingRoutes } from "./utils/constants";
 
 import ProtectedRoute from "./hoc/protectedRoute";
 import Header from "./modules/header/component/header";
@@ -19,6 +19,9 @@ message.config({
 })
 
 const App = () => {
+  const history = useHistory();
+  const location = useLocation();
+  const isCorrectPath = allExistingRoutes.includes(location.pathname);
   const language = localStorageApi.getLocalData("language", "");
 
   const [languageState, setLanguageState] = useState(language);
@@ -35,6 +38,7 @@ const App = () => {
 	*/
   useEffect(() => {
     if (!language) localStorageApi.setLocalData("language", "en");
+    if (!isCorrectPath) history.push(RoutePath.USER_PATH);
   }, [])
 
   return (

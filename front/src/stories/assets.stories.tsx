@@ -1,8 +1,8 @@
 /** @description Stories of ui components from assets folder. */
 import React from "react";
 
-import "../index.scss";
 import "./style.scss";
+import "../index.scss";
 
 import Splash from "../assets/ui/splash/splash";
 import PlusButton from "../assets/ui/plusButton/plusButton";

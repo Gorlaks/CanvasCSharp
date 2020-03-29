@@ -1,6 +1,7 @@
 /** @module Authorization */
 import React from "react";
 import { Tabs } from "antd";
+import "./style.scss";
 
 import Login from "./fragments/login";
 import Registration from "./fragments/registration";

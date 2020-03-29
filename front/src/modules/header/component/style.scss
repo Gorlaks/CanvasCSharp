@@ -1,3 +1,7 @@
+@import "../../../assets/styles/const.scss";
+@import "../../../assets/styles/mixin.scss";
+
+
 .header {
   @include boxSize(100%, 80px);
   display: flex;

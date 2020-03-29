@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
+import "./style.scss";
 
 import localStorageApi from "../../../initialize/api/localStorageApi";
 import canvasRepository from "../../../initialize/repositories/canvasRepository";

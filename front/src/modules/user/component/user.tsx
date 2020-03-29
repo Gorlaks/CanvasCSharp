@@ -1,5 +1,6 @@
 /** @module User */
 import React, { useState } from "react";
+import "./style.scss";
 
 import localStorageApi from "../../../initialize/api/localStorageApi";
 import userStatesStorage from "../../../initialize/statesStorages/userStatesStorage";
