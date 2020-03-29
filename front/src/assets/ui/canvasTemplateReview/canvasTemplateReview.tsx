@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.scss";
 
 import { ICreateCanvasTemplate, ICanvasBlocksData, } from "../../../modules/canvas/interfaces";
 

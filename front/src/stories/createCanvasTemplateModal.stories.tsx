@@ -2,7 +2,7 @@
 import React from "react";
 
 import 'antd/dist/antd.css';
-import "../index.scss";
+import "../modules/createCanvasTemplateModal/component/style.scss";
 
 import commonStatesStorage from "../initialize/statesStorages/commonStatesStorage";
 import CreateCanvasTemplateModal from "../modules/createCanvasTemplateModal/component/createCanvasTemplateModal";

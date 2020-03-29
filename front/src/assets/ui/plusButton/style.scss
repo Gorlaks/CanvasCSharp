@@ -1,3 +1,6 @@
+@import "../../styles/const.scss";
+@import "../../styles/mixin.scss";
+
 .plusButton {
     @include boxSize(auto, 32px);
     display: flex;

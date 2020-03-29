@@ -1,6 +1,7 @@
 /** @module Header */
 import React, { useState, useEffect } from "react";
 import { UserOutlined } from "@ant-design/icons";
+import "./style.scss";
 
 import userStatesStorage from "../../../initialize/statesStorages/userStatesStorage";
 import languageService from "../../../initialize/services/languageService";

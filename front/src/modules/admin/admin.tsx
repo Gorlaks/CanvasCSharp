@@ -1,6 +1,7 @@
 /** @module Admin */
 import React from "react";
 import { Tabs } from "antd";
+import "./style.scss";
 
 import { LS } from "../../utils/helpers";
 import Panel from "./fragments/panel";

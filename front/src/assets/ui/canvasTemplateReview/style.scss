@@ -1,3 +1,6 @@
+@import "../../styles/const.scss";
+@import "../../styles/mixin.scss";
+
 .canvas-template-review {
   @include boxSize(100%, 100%);
   margin: 0;

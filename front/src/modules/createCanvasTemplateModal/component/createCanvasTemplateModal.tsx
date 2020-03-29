@@ -1,6 +1,7 @@
 /** @module CreateCanvasTemplateModal */
 import React, { useState } from "react";
 import { Modal, message } from "antd";
+import "./style.scss";
 
 import createCanvasTemplateModalService from "../../../initialize/services/createCanvasTemplateModalService";
 import { LS } from "../../../utils/helpers";
@@ -45,7 +46,7 @@ const CreateCanvasTemplateModal = (props: {
         title={<p className="create-canvas-template-modal__title">{LS("Create_canvas_template")}</p>}
         visible={modalState}
         /** @description Create canvas template action. */
-        onOk={() => handleOk({
+        onOk={() => handleCreateCanvasTemplate({
           createCanvasTemplateModalService,
           setLoadingState,
           setModalState,
@@ -81,7 +82,7 @@ const CreateCanvasTemplateModal = (props: {
 }
 
 /** @description Function for ok attribute in modal component */
-const handleOk = (props: {
+const handleCreateCanvasTemplate = (props: {
   templateState: ICreateCanvasTemplate,
   createCanvasTemplateModalService: ICreateCanvasTemplateModalService,
   setLoadingState: Function,
