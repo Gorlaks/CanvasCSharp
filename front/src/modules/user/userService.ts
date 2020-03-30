@@ -1,5 +1,5 @@
 import userStatesStorage from "../../initialize/statesStorages/userStatesStorage";
-import { IUserService, IUserRepository } from "./interfaces";
+import { IUserService, IUserRepository, ICanvasList } from "./interfaces";
 
 class UserService implements IUserService {
 	private userRepository: IUserRepository;
@@ -10,10 +10,19 @@ class UserService implements IUserService {
 
 	/** @description Write received canvas list to redux store. */
 	async setCanvasList(ownerId: string) {
-		const canvasList = await this.userRepository.getCanvasList(ownerId);
-		userStatesStorage.setState("canvasList", canvasList)
+		const canvasList: any = await this.userRepository.getCanvasList(ownerId);
+		const filteredCanvasList = await canvasList.map((item: ICanvasList, index: number) => {
+			return {
+				key: index++,
+				id: item.id,
+				title: item.title,
+				lastUpdate: item.date,
+				templateType: item.type,
+			};
+		})
+		userStatesStorage.setState("canvasList", filteredCanvasList);
 
-		return canvasList;
+		return filteredCanvasList;
 	}
 }
 
