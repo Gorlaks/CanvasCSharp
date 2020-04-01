@@ -11,8 +11,10 @@ import { IUserAuthData } from "../../../auth/interfaces";
 
 const Table = (props: {
 	userAuthData: IUserAuthData
-	canvasList: Array<ICanvasList>
+	filteredCanvasList: Array<ICanvasList>
+	setFilteredCanvasList: Function
 }) => {
+	const { userAuthData, filteredCanvasList, setFilteredCanvasList } = props;
 	const [tableLoading, setTableLoading] = useState(true);
 
 	/**
@@ -20,8 +22,9 @@ const Table = (props: {
 	 * and put received information to redux store.
 	*/
 	useEffect(() => {
-		const { id } = props.userAuthData;
+		const { id } = userAuthData;
 		userService.setCanvasList(id)
+		.then((item: any) => setFilteredCanvasList(item))
 		.finally(() => setTableLoading(false));
 	}, [])
 
@@ -53,22 +56,9 @@ const Table = (props: {
 		}
 	];
 
-	let data: Array<Record<string, any>> = [];
-
-	/** @description Filling the table with canvas list data. */
-	props.canvasList.length && props.canvasList.map((item, index) => {
-		data.push({
-			key: index++,
-			id: item.id,
-			title: item.title,
-			lastUpdate: item.date,
-			templateType: item.type,
-		})
-	})
-
 	return (
 		<div className="user__table">
-			{!tableLoading ? <AntTable columns={columns} dataSource={data} /> : <ComponentLoading />}
+			{!tableLoading ? <AntTable columns={columns} dataSource={filteredCanvasList} /> : <ComponentLoading />}
 		</div>
 	)
 }

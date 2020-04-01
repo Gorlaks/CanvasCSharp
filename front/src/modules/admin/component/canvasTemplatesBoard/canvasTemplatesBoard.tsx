@@ -1,8 +1,8 @@
 import React from "react";
 
-import CanvasTemplateReview from "../../../assets/ui/canvasTemplateReview/canvasTemplateReview";
-import { LS } from "../../../utils/helpers";
-import { ICreateCanvasTemplate } from "../../canvas/interfaces";
+import CanvasTemplateReview from "../../../../assets/ui/canvasTemplateReview/canvasTemplateReview";
+import { LS } from "../../../../utils/helpers";
+import { ICreateCanvasTemplate } from "../../../canvas/interfaces";
 
 const CanvasTemplatesBoard = () => {
   const defaultDatas: Array<ICreateCanvasTemplate> = [];

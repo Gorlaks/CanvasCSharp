@@ -14,8 +14,23 @@
 	&__panel {
 		@include boxSize(100%, 50px);
 		display: flex;
-		justify-content: flex-end;
-		align-items: center;
+
+		&__search {
+			@include boxSize(50%, 100%);
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+
+			input {
+				@include defaultInputStyle();
+			}
+		}
+		&__create {
+			@include boxSize(50%, 100%);
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
 	}
 
 	&__table {

@@ -1,4 +1,4 @@
-import { IApiClient, IParams } from "./interfaces";
+import { IApiClient, IBody } from "./interfaces";
 
 class ApiClient implements IApiClient {
 	private url: string;
@@ -8,10 +8,10 @@ class ApiClient implements IApiClient {
 	}
 
 	/** @description Method for sending post requests to the server. */
-	async sendRequest(params: IParams, path: string) {
+	async sendRequest(body: IBody, path: string) {
 		const answer = await fetch(`${this.url}${path}`, {
 			method: "POST",
-			body: JSON.stringify(params),
+			body: JSON.stringify(body),
 			headers: {
 				"Content-Type": "application/json"
 			}

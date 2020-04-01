@@ -12,6 +12,8 @@ import { LS } from "../../../utils/helpers";
 
 const User = () => {
 	const [canvasList, setCanvasList] = useState([]);
+	const [filteredCanvasList, setFilteredCanvasList] = useState([]);
+
 	userStatesStorage.registState<Array<ICanvasList>>("canvasList", {
 		state: canvasList,
 		setState: setCanvasList
@@ -23,10 +25,15 @@ const User = () => {
 	return (
 		<div className="user">
 			<p className="user__title">{LS("Canvas_list")}</p>
-			<Panel setCreateCanvasModalState={setCreateCanvasModalState} />
+			<Panel
+				setCreateCanvasModalState={setCreateCanvasModalState}
+				canvasList={canvasList}
+				setFilteredCanvasList={setFilteredCanvasList}
+			/>
 			<Table
 				userAuthData={userAuthData}
-				canvasList={canvasList}
+				filteredCanvasList={filteredCanvasList}
+				setFilteredCanvasList={setFilteredCanvasList}
 			/>
 			<CreateCanvasModal
 				isOpened={createCanvasModalIsOpened}

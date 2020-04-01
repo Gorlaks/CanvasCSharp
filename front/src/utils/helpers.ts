@@ -30,7 +30,7 @@ export const resizeContainer = (e: any) => {
 /**
  * @description For searching by name and word cropping for highlighting.
 */
-export const similarityWordSearch = (str: string, chunk: string): Array<string> | boolean => {
+export const similarityWordSearchWithHighlighting = (str: string, chunk: string): Array<string> => {
 	const regExp: RegExp = new RegExp(`(${chunk})`);
 	/** @description checking the word for coincidence. */
 	const isSimilar: boolean = str.includes(chunk);
@@ -48,9 +48,9 @@ export const similarityWordSearch = (str: string, chunk: string): Array<string> 
 				newStr = "";
 			} else newStr += sliceStr[i]
 		}
-		
+
 		rightSideAfterSlice += newStr;
 		return [leftSideAfterSlice, chunk, rightSideAfterSlice];
 	}
-	return false;
+	return [];
 }
