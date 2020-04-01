@@ -77,7 +77,8 @@ const ru = {
 	"Canvas_templates": "Шаблоны канваса",
 	"Name": "Имя",
 	"Registration_date": "Дата регистрации",
-	"Projects": "Проекты"
+	"Projects": "Проекты",
+	"Have_to_be_admin": "Вы должны быть администратором"
 }
 
 export default ru;

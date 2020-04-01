@@ -11,7 +11,7 @@ import Header from "./modules/header/component/header";
 const Auth = React.lazy(() => import("./modules/auth/component/auth"));
 const User = React.lazy(() => import("./modules/user/component/user"));
 const Canvas = React.lazy(() => import("./modules/canvas/component/canvas"));
-const Admin = React.lazy(() => import("./modules/admin/admin"));
+const Admin = React.lazy(() => import("./modules/admin/component/admin"));
 
 /** @description Config antd message component. */
 message.config({
