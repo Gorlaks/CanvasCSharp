@@ -19,7 +19,7 @@
     "react-router-dom": "~5.1.2",
     "react-scripts": "~3.4.0",
     "sass-loader": "~8.0.2",
-    "typescript": "~3.7.5"
+    "typescript": "~3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,6 +48,7 @@
     "@storybook/addon-actions": "^5.3.17",
     "@storybook/addon-links": "^5.3.17",
     "@storybook/preset-create-react-app": "^2.0.0",
-    "@storybook/react": "^5.3.17"
+    "@storybook/react": "^5.3.17",
+    "typedoc": "^0.17.3"
   }
 }
