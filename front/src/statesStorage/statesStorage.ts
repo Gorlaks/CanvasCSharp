@@ -13,14 +13,15 @@ interface IStatesStorageType {
 const stateKeyNameError = "Write a name of a state.";
 
 /**
-* @description The main class to create new storage with states specific module.
-* @example
-  const CommonStateStorage = new StateStorage({
-    language: {
-      state: "en",
-      setState: Dispatch<SetStateAction<any»
-    }
-  });
+  * @description The main class to create new storage with states specific module.
+  * @example ```typescript
+    const CommonStateStorage = new StateStorage({
+      language: {
+        state: "en",
+        setState: Dispatch<SetStateAction<any»
+      }
+    });
+  ```
 */
 class StatesStorage implements IStatesStorageType {
   private statesStorage: StatesStorageType;
@@ -68,11 +69,11 @@ class StatesStorage implements IStatesStorageType {
     const stateType = typeof stateKey.state;
     const valueType = typeof value;
 
-    if (!stateKeyName) 
+    if (!stateKeyName)
       throw new Error(stateKeyNameError);
-    if (stateType !== valueType) 
+    if (stateType !== valueType)
       throw new Error(`New value must be ${stateType} type.`);
-    if (stateKey.state === value) 
+    if (stateKey.state === value)
       console.warn(`State ${JSON.stringify(stateKey)} has already been given value - ${value}.`);
 
     stateKey.setState(value);
