@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import 'antd/dist/antd.css';
-import "../index.scss";
+import "../modules/canvas/component/style.scss";
 
 import commonStatesStorage from "../initialize/statesStorages/commonStatesStorage";
 import CanvasContent from "../modules/canvas/component/fragments/canvasContent";

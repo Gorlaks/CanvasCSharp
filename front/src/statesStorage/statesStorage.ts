@@ -5,7 +5,7 @@ type StatesStorageType = Record<string, { state: any, setState: SetStateType }>;
 
 interface IStatesStorageType {
   registState<T>(stateKeyName: string, value: { state: T, setState: SetStateType }): void;
-  getState<T>(stateKeyName: string): T;
+  getState<T>(stateKeyName: string): T | undefined;
   setState(stateKeyName: string, value: any): void;
   getStateStorage(): StatesStorageType;
 }
@@ -48,13 +48,13 @@ class StatesStorage implements IStatesStorageType {
   * @param stateKeyName - Name of the key with state and setState fields.
   * @returns Any type.
   */
-  getState<T>(stateKeyName: string): T {
+  getState<T>(stateKeyName: string): T | undefined {
     if (!stateKeyName) throw new Error(stateKeyNameError);
 
     try {
       return this.statesStorage[stateKeyName].state;
     } catch (e) {
-      throw new Error(e);
+      return undefined;
     };
   }
 

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
+import "./style.scss";
 
 import localStorageApi from "../../../initialize/api/localStorageApi";
 import canvasRepository from "../../../initialize/repositories/canvasRepository";
@@ -26,7 +27,7 @@ const Canvas = () => {
 	 * and put received information to redux store.
 	*/
 	useEffect(() => {
-		if (!canvasId || canvasId === "undefined") history.push(RoutePath.USER_PATH);
+		if (!canvasId) history.push(RoutePath.USER_PATH);
 		else {
 			canvasRepository.getCanvasById(userAuthData.id, canvasId)
 				.then((item: any) => {

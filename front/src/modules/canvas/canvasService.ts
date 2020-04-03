@@ -33,7 +33,7 @@ class CanvasService implements ICanvasService {
   /** @description Change data in redux store after delete canvas from canvas list of user. */
   async setCanvasListAfterRemoving(canvasId: string) {
     const canvasList = userStatesStorage.getState<Array<ICanvasData>>("canvasList")
-    .filter((item: ICanvasData) => item.id !== canvasId);
+    ?.filter((item: ICanvasData) => item.id !== canvasId);
     await userStatesStorage.setState("canvasList", canvasList);
   }
 

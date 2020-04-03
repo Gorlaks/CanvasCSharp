@@ -77,7 +77,8 @@ const en = {
 	"Canvas_templates": "Canvas templates",
 	"Name": "Name",
 	"Registration_date": "Registration date",
-	"Projects": "Projects"
+	"Projects": "Projects",
+	"Have_to_be_admin": "You have to be an admin"
 }
 
 export default en;

@@ -2,7 +2,7 @@
 import React from "react";
 
 import 'antd/dist/antd.css';
-import "../index.scss";
+import "../modules/header/component/style.scss";
 
 import Header from "../modules/header/component/header";
 

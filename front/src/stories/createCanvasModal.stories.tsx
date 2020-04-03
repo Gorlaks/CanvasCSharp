@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import 'antd/dist/antd.css';
-import "../index.scss";
+import "../modules/createCanvasModal/style.scss";
 
 import commonStatesStorage from "../initialize/statesStorages/commonStatesStorage";
 import CreateCanvasModal from "../modules/createCanvasModal/createCanvasModal";

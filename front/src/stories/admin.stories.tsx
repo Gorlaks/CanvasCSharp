@@ -2,10 +2,10 @@
 import React from "react";
 
 import 'antd/dist/antd.css';
-import "../index.scss";
+import "../modules/admin/component/style.scss";
 
 import commonStatesStorage from "../initialize/statesStorages/commonStatesStorage";
-import Admin from "../modules/admin/admin";
+import Admin from "../modules/admin/component/admin";
 
 /**
  * @description Admin component.

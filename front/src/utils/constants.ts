@@ -9,8 +9,15 @@ export const url: string = "https://canvas-back.herokuapp.com";
  * @type {string}
 */
 export enum RoutePath {
-	ROOT_PATH = "/",
-	AUTH_PATH = "/auth",
-	USER_PATH = "/user",
-	CANVAS_PATH = "/canvas"
+	AUTH_PATH 	= "/auth",
+	USER_PATH 	= "/user",
+	CANVAS_PATH = "/canvas",
+	ADMIN_PATH 	= "/admin"
 };
+
+/**
+ * @description All routes that can be in project.
+*/
+export const allExistingRoutes = Object.keys(RoutePath).map((item: string) => {
+	return (RoutePath as any)[item];
+});

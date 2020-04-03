@@ -1,3 +1,6 @@
+@import "../../../assets/styles/const.scss";
+@import "../../../assets/styles/mixin.scss";
+
 .canvas {
   @include boxSize(100%, auto);
   min-height: 600px;

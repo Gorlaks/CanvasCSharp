@@ -5,7 +5,8 @@ import { ILanguageRepository } from "./interfaces";
 class LanguageRepository implements ILanguageRepository {
 	getCurrentLanguage(): string {
 		const language = commonStatesStorage.getState<string>("language");
-		return language;
+		if(language) return language;
+		else return "";
 	}
 
 	/** @description Check for current language and take current word in current language. */

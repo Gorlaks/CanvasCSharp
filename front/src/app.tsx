@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import { message } from "antd";
 
 import commonStatesStorage from "./initialize/statesStorages/commonStatesStorage";
 import localStorageApi from "./initialize/api/localStorageApi";
-import { RoutePath } from "./utils/constants";
+import { RoutePath, allExistingRoutes } from "./utils/constants";
 
+import ProtectedRoute from "./hoc/protectedRoute";
 import Header from "./modules/header/component/header";
 const Auth = React.lazy(() => import("./modules/auth/component/auth"));
 const User = React.lazy(() => import("./modules/user/component/user"));
 const Canvas = React.lazy(() => import("./modules/canvas/component/canvas"));
-const Admin = React.lazy(() => import("./modules/admin/admin"));
+const Admin = React.lazy(() => import("./modules/admin/component/admin"));
 
 /** @description Config antd message component. */
 message.config({
@@ -19,9 +20,9 @@ message.config({
 
 const App = () => {
   const history = useHistory();
-  const userAuthData = localStorageApi.getLocalData("userAuthData", {});
+  const location = useLocation();
+  const isCorrectPath = allExistingRoutes.includes(location.pathname);
   const language = localStorageApi.getLocalData("language", "");
-  const isAuthorized = Boolean(userAuthData.id);
 
   const [languageState, setLanguageState] = useState(language);
 
@@ -37,7 +38,7 @@ const App = () => {
 	*/
   useEffect(() => {
     if (!language) localStorageApi.setLocalData("language", "en");
-    if (!isAuthorized) history.push("/auth");
+    if (!isCorrectPath) history.push(RoutePath.USER_PATH);
   }, [])
 
   return (
@@ -45,8 +46,9 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path={RoutePath.AUTH_PATH} component={Auth} />
-        <Route exact path={RoutePath.USER_PATH} component={User} />
-        <Route exact path={RoutePath.CANVAS_PATH} component={Canvas} />
+        <ProtectedRoute exact={true} path={RoutePath.USER_PATH} Component={User} />
+        <ProtectedRoute exact={true} path={RoutePath.CANVAS_PATH} Component={Canvas} />
+        <ProtectedRoute exact={true} path={RoutePath.ADMIN_PATH} Component={Admin} />
       </Switch>
     </>
   );

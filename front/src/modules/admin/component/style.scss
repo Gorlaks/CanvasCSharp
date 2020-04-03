@@ -1,3 +1,6 @@
+@import "../../../assets/styles/const.scss";
+@import "../../../assets/styles/mixin.scss";
+
 .admin {
   padding: 0 15%;
   header {
@@ -36,17 +39,34 @@
   }
 }
 
-.users-table {
-  .ant-table-cell {
-    text-align: center;
-
-    .user__table__actions {
-      @include flexCenter();
-
-      button {
-			  @include defaultActionButtonInTable();
+.users {
+  &__table {
+    .ant-table-cell {
+      text-align: center;
+  
+      .user__table__actions {
+        @include flexCenter();
+  
+        button {
+          @include defaultActionButtonInTable();
+        }
       }
     }
+  
+    &__actions {
+      @include flexCenter();
+      
+      &-separator {
+        display: block;
+        @include boxSize(1px, 22px);
+        background-color: $separator;
+        margin: 0 10px;
+        opacity: 0.5;
+      }
+      button {
+        @include defaultActionButtonInTable();
+      }
+    }  
   }
 }
 

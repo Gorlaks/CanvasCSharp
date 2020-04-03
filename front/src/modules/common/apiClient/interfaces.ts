@@ -1,4 +1,5 @@
-export interface IParams {
+export interface IBody {
+	id?: string | null;
 	ownerId?: string | null,
 	login?: string | null;
 	password?: string | null;
@@ -9,5 +10,5 @@ export interface IParams {
 }
 
 export interface IApiClient {
-	sendRequest(params: IParams, path: string): Promise<any>;
+	sendRequest(params: IBody, path: string): Promise<any>;
 }

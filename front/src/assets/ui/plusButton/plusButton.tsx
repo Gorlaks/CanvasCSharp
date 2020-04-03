@@ -1,5 +1,6 @@
 import React from "react";
 import { PlusOutlined } from "@ant-design/icons"
+import "./style.scss";
 
 const PlusButton = (props: {
 	text: string,
