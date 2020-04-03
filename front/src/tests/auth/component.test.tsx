@@ -16,7 +16,7 @@ describe("Tests: Auth page", () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <Router>
-        <Login language="en" />
+        <Login />
       </Router>,
       div
     );
@@ -27,7 +27,7 @@ describe("Tests: Auth page", () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <Router>
-        <Registration language="en" />
+        <Registration />
       </Router>,
       div
     );
