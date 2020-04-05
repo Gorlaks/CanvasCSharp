@@ -7,13 +7,16 @@ import Login from '../../modules/auth/component/fragments/login';
 import Registration from '../../modules/auth/component/fragments/registration';
 
 describe("Tests: Auth page", () => {
-  commonStatesStorage.registState<string>("language", {
-    state: "en",
-    setState: () => {}
+  let div: any = null;
+  beforeEach(() => {
+    div = document.createElement('div');
+    commonStatesStorage.registState<string>("language", {
+      state: "en",
+      setState: () => {}
+    });
   });
 
   it("Test: Login component", () => {
-    const div = document.createElement('div');
     ReactDOM.render(
       <Router>
         <Login />
@@ -24,7 +27,6 @@ describe("Tests: Auth page", () => {
   });
 
   it("Test: Registration component", () => {
-    const div = document.createElement('div');
     ReactDOM.render(
       <Router>
         <Registration />
