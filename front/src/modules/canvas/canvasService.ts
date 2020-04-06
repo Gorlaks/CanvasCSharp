@@ -35,6 +35,7 @@ class CanvasService implements ICanvasService {
     const canvasList = userStatesStorage.getState<Array<ICanvasData>>("canvasList")
     ?.filter((item: ICanvasData) => item.id !== canvasId);
     await userStatesStorage.setState("canvasList", canvasList);
+    await userStatesStorage.setState("filteredCanvasList", canvasList);
   }
 
   /** @description Send post request for update canvas in database. */
