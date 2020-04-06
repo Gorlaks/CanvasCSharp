@@ -42,7 +42,8 @@ namespace Canvas.Modules.Auth
                         return "{" +
                             $"\"id\": \"{data._id}\", " +
                             $"\"login\": \"{login}\", " +
-                            $"\"email\": \"{email}\"" +
+                            $"\"email\": \"{email}\", " +
+                            $"\"role\": \"user\"" +
                         "}";
                     }
                     catch

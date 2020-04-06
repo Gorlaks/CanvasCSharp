@@ -34,7 +34,8 @@ namespace Canvas.Modules.Auth
                     return $"{{" +
                          $"\"id\": \"{user._id}\"," +
                          $"\"login\": \"{user.login}\"," +
-                         $"\"email\": \"{user.email}\"" +
+                         $"\"email\": \"{user.email}\", " +
+                         $"\"role\": \"{user.role}\"" +
                      $"}}";
                 }
                 else
