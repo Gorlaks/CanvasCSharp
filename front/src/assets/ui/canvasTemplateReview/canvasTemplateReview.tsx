@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 
 import { ICreateCanvasTemplate, ICanvasBlocksData, } from "../../../modules/canvas/interfaces";
+import { LS } from "../../../utils/helpers";
 
 const CanvasTemplateReview = (props: {
   templateData: ICreateCanvasTemplate
@@ -10,8 +11,8 @@ const CanvasTemplateReview = (props: {
   const { columns, rows, data } = templateData;
 
   const canvasContentStyles = {
-    gridTemplateRows: `repeat(${columns}, 1fr)`,
-    gridTemplateColumns: `repeat(${rows}, 1fr)`
+    gridTemplateRows: `repeat(${rows}, 1fr)`,
+    gridTemplateColumns: `repeat(${columns}, 1fr)`
   }
 
   return (
@@ -24,7 +25,7 @@ const CanvasTemplateReview = (props: {
         return (
           data[index].position.length > 0 && <div key={index} style={canvasItemStyles}>
             <p>
-              <span>{++index}.</span> {title}
+              <span>{++index}.</span> {LS(title)}
             </p>
           </div>
         )

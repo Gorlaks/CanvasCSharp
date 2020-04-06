@@ -71,6 +71,8 @@
 }
 
 .canvas-templates-board {
+  @include boxSize(100%, auto);
+
   &__type-name {
     text-align: center;
     font-family: $mainFontMedium, $spareFonts;
@@ -78,7 +80,9 @@
     margin: 0 0 5px 0;
   }
   &__template-wrapper {
-    @include boxSize(200px, auto);
+    @include boxSize(auto, auto);
+    max-width: 600px;
+    margin: auto;
   }
 
   &__template {
@@ -94,11 +98,14 @@
   .canvas-template-review {
     @include boxSize(100%, 100%);
     z-index: 2;
-    grid-gap: 2px;
+    grid-gap: 1px;
     border: 2px solid $mainColor;
     div {
       border: none;
       background-color: #fff;
+      * {
+        font-family: $mainFontBold, $spareFonts;
+      }
     }
   }
 

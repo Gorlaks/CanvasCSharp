@@ -18,6 +18,12 @@ const User = () => {
 		state: canvasList,
 		setState: setCanvasList
 	});
+
+	userStatesStorage.registState<Array<ICanvasList>>("filteredCanvasList", {
+		state: filteredCanvasList,
+		setState: setFilteredCanvasList
+	});
+
 	/** @description State of modal for creating of canvas. */
 	const [createCanvasModalIsOpened, setCreateCanvasModalState] = useState(false);
 	const userAuthData = localStorageApi.getLocalData("userAuthData", {});

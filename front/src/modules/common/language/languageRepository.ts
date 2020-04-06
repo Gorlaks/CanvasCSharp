@@ -13,9 +13,9 @@ class LanguageRepository implements ILanguageRepository {
 	translate(sentense: string): string {
 		const currentLanguage: string = this.getCurrentLanguage();
 		const translatedWordList = (languages as any)[currentLanguage];
-
+		
 		try {
-			return translatedWordList[sentense];
+			return translatedWordList[sentense] || sentense;
 		} catch {
 			/** @description Return word from parament if it doesn't have current word in current language. */
 			return sentense;

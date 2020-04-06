@@ -9,9 +9,9 @@ const CanvasTemplatesBoard = (props: {
   const { data } = props;
   return (
     <div className="canvas-templates-board">
-      {Boolean(data.length) && data.map(item => {
+      {Boolean(data.length) && data.map((item, index) => {
         return (
-          <div className="canvas-templates-board__template-wrapper">
+          <div key={index} className="canvas-templates-board__template-wrapper">
             <p className="canvas-templates-board__type-name">{item.type}</p>
             <div className="canvas-templates-board__template">
               <div className="canvas-templates-board__carpet"></div>

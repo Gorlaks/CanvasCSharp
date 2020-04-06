@@ -73,10 +73,9 @@ namespace Canvas.Modules.CanvasTemplate
                     $"\"type\": \"{template.type}\", " +
                     $"\"rows\": \"{template.rows}\", " +
                     $"\"columns\": \"{template.columns}\", " +
-                    $"\"data\": \"{blocksInfo}\"" +
+                    $"\"data\": {blocksInfo}" +
                 $"}}{(lastIndex != index ? ',' : ' ')}";
                 index++;
-                blocksInfo = "[";
             }
 
             answer += "]";
