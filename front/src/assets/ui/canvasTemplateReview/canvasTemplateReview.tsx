@@ -16,7 +16,7 @@ const CanvasTemplateReview = (props: {
 
   return (
     <div className="canvas-template-review" style={canvasContentStyles}>
-      {data.length && data.map((item: ICanvasBlocksData, index: number) => {
+      {Boolean(data.length && data.map) && data.map((item: ICanvasBlocksData, index: number) => {
         const { position, title } = item;
         const canvasItemStyles = {
           gridArea: `${position[0]}/${position[1]}/${position[2]}/${position[3]}`

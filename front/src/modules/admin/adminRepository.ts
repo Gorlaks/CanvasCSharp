@@ -9,8 +9,11 @@ class AdminRepository implements IAdminRepository{
   }
 
   async getUsersList(id: string) {
-    const answer = await this.apiClient.sendRequest({ id }, "/admin/getUsers")
-    return answer;
+    return await this.apiClient.sendRequest({ id }, "/admin/getUsers")
+  }
+
+  async getCanvasTemplateList(id: string) {
+    return await this.apiClient.sendRequest({ id }, "/admin/getCanvasTemplates");
   }
 }
 

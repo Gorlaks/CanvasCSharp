@@ -6,7 +6,7 @@ import "./style.scss";
 import { LS } from "../../../utils/helpers";
 import Panel from "./fragments/panel";
 
-import CanvasTemplatesBoard from "./canvasTemplatesBoard/canvasTemplatesBoard";
+import CanvasTemplatesBoardContainer from "./canvasTemplatesBoard/canvasTemplatesBoardContainer";
 import UsersTableContainer from "./usersTable/usersTableContainer";
 
 const { TabPane } = Tabs;
@@ -29,7 +29,7 @@ const Admin = () => {
             <UsersTableContainer />
           </TabPane>
           <TabPane tab={LS("Canvas_templates")} key="canvasTemplatesBoard">
-            <CanvasTemplatesBoard />
+            <CanvasTemplatesBoardContainer />
           </TabPane>
         </Tabs>
       </div>
