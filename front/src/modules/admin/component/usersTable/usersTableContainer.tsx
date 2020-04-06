@@ -11,7 +11,6 @@ import { IUsers } from "../../interfaces";
 
 const UsersTableContainer = () => {
 	const [usersList, setUsersList] = useState([]);
-	// const [filteredUsersList, setFilteredUsersList] = useState([]);
 
 	adminStatesStorage.registState<Array<IUsers> | []>("usersList", {
 		state: usersList,

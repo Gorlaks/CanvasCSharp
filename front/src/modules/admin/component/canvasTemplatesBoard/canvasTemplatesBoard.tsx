@@ -2,14 +2,14 @@ import React from "react";
 
 import CanvasTemplateReview from "../../../../assets/ui/canvasTemplateReview/canvasTemplateReview";
 import { LS } from "../../../../utils/helpers";
-import { ICreateCanvasTemplate } from "../../../canvas/interfaces";
 
-const CanvasTemplatesBoard = () => {
-  const defaultDatas: Array<ICreateCanvasTemplate> = [];
-
+const CanvasTemplatesBoard = (props: {
+  data: Array<any>
+}) => {
+  const { data } = props;
   return (
     <div className="canvas-templates-board">
-      {Boolean(defaultDatas.length) && defaultDatas.map(item => {
+      {Boolean(data.length) && data.map(item => {
         return (
           <div className="canvas-templates-board__template-wrapper">
             <p className="canvas-templates-board__type-name">{item.type}</p>
