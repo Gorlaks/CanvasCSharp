@@ -48,19 +48,33 @@ namespace Canvas.Modules.CanvasTemplate
             if (canvasTemplates.Count < 1) return "\"templates\": \"There_is_no_templates\"";
 
             string answer = "[";
+            string blocksInfo = "[";
             int index = 0;
             int lastIndex = canvasTemplates.Count - 1;
 
             foreach (Models.Canvas template in canvasTemplates)
             {
+                foreach (Models.CanvasItemInData item in template.data)
+                {
+                    blocksInfo += "{" +
+                        $"\"position\": [{item.position[0]}, {item.position[1]}, {item.position[2]}, {item.position[3]}], " +
+                        $"\"title\": \"{item.title}\", " +
+                        $"\"content\": \"{item.content}\", " +
+                        $"\"description\": \"{item.description}\" " +
+                    $"}}{(countItems != index ? ',' : ' ')}";
+                    index++;
+                }
+                blocksInfo += "]";
+
                 answer += "{" +
                     $"\"id\": \"{template._id}\", " +
                     $"\"type\": \"{template.type}\", " +
                     $"\"rows\": \"{template.rows}\", " +
                     $"\"columns\": \"{template.columns}\", " +
-                    $"\"data\": \"{template.data}\"" +
+                    $"\"data\": \"{blocksInfo}\"" +
                 $"}}{(lastIndex != index ? ',' : ' ')}";
                 index++;
+                blocksInfo = "[";
             }
 
             answer += "]";
