@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -18,7 +18,7 @@ const Login = () => {
 	 * and put received information to redux store.
 	 * @event onClick.
 	*/
-	const sendLogin = useCallback(() => {
+	const sendLogin = () => {
 		if (!login || !password) {
 			message.error(LS("Empty_field_error"));
 			return;
@@ -35,7 +35,7 @@ const Login = () => {
 			})
 			.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
 			.finally(() => loading());
-	}, [login, password])
+	}
 
 	const handleKeyPressRegist = (e: any) => {
 		if (e.which === 13) sendLogin();
