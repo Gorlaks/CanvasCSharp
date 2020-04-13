@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -10,7 +10,6 @@ import { RoutePath } from "../../../../utils/constants";
 
 const Login = () => {
 	const history = useHistory();
-
 	const [login, setLogin] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -19,7 +18,7 @@ const Login = () => {
 	 * and put received information to redux store.
 	 * @event onClick.
 	*/
-	const sendLogin = () => {
+	const sendLogin = useCallback(() => {
 		if (!login || !password) {
 			message.error(LS("Empty_field_error"));
 			return;
@@ -36,7 +35,7 @@ const Login = () => {
 			})
 			.catch((e: ExceptionInformation) => message.error(LS(e.toString())))
 			.finally(() => loading());
-	}
+	}, [login, password])
 
 	const handleKeyPressRegist = (e: any) => {
 		if (e.which === 13) sendLogin();
@@ -54,7 +53,7 @@ const Login = () => {
 				<input type="password" placeholder={LS("Password")} onKeyPress={handleKeyPressRegist}
 					onChange={(e: any) => setPassword(e.target.value)} />
 			</div>
-			<button className="auth__btn" onClick={() => sendLogin()}>{LS("Login_button")}</button>
+			<button className="auth__btn" onClick={sendLogin}>{LS("Login_button")}</button>
 		</div>
 	);
 };
