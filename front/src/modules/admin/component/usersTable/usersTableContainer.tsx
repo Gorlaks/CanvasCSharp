@@ -56,22 +56,22 @@ const UsersTableContainer = () => {
 			title: LS("Email"),
 			dataIndex: "email",
 			key: "email"
-		},
-		{
-			title: LS("Role"),
-			dataIndex: "role",
-			key: "role"
-		},
-		{
-			title: LS("Actions"),
-			dataIndex: "actions",
-			key: "actions",
-			render: (text: any, record: any) => {
-				return (
-					<ActionCell />
-				)
-			}
 		}
+		// {
+		// 	title: LS("Role"),
+		// 	dataIndex: "role",
+		// 	key: "role"
+		// },
+		// {
+		// 	title: LS("Actions"),
+		// 	dataIndex: "actions",
+		// 	key: "actions",
+		// 	render: (text: any, record: any) => {
+		// 		return (
+		// 			<ActionCell />
+		// 		)
+		// 	}
+		// }
 	];
 
 	return (

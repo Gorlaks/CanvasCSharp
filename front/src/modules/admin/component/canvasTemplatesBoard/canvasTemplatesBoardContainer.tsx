@@ -25,10 +25,10 @@ const CanvasTemplatesBoardContainer = () => {
           message.error(LS(item.error));
           return;
         };
-        
+
         adminStatesStorage.setState("canvasTemplateList", item);
       })
-      .catch((e: string) => message.error(LS(e)))
+      .catch((e: string) => message.error(LS(e.toString())))
       .finally(() => loading());
   }, []);
 

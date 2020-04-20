@@ -6,8 +6,6 @@ import { LS } from "../../../../utils/helpers";
 const ActionCell = () => {
   return (
     <div className="users__table__actions">
-      <button >{LS("Projects")}</button>
-      <div className="users__table__actions-separator"></div>
       <button>
         {LS("Delete")}
       </button>

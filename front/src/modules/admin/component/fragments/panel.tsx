@@ -12,9 +12,9 @@ const Panel = () => {
 
       </div>
       <div className="admin__panel__creat-template-btn">
-        <div>
+        {/* <div>
           <PlusButton text={LS("Create_canvas")} handleClick={() => {}} />
-        </div>
+        </div> */}
         <div>
           <PlusButton text={LS("Create_template")} handleClick={() => setCreateCanvasTemplateModalState(true)} />
         </div>
