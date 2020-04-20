@@ -32,7 +32,7 @@ const CanvasTemplatesBoardContainer = () => {
       .finally(() => loading());
   }, []);
 
-  return <CanvasTemplatesBoard data={canvasTemplateList} />
+  return <CanvasTemplatesBoard data={canvasTemplateList} setCanvasTemplateList={setCanvasTemplateList} />
 }
 
 export default CanvasTemplatesBoardContainer;

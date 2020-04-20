@@ -8,9 +8,10 @@ import { LS } from "../../../../utils/helpers";
 import { message } from "antd";
 
 const CanvasTemplatesBoard = (props: {
-  data: Array<any>
+  data: Array<any>,
+  setCanvasTemplateList: any
 }) => {
-  const { data } = props;
+  const { data, setCanvasTemplateList } = props;
   const userAuthData: IUserAuthData = localStorageApi.getLocalData("userAuthData", {});
   return (
     <div className="canvas-templates-board">
@@ -24,7 +25,7 @@ const CanvasTemplatesBoard = (props: {
               <CanvasTemplateReview templateData={item} />
             </div>
             <div className="canvas-templates-board__actions">
-              <button onClick={() => handleDeleteTemplate(canvasId, userAuthData.id)}>{LS("Delete")}</button>
+              <button onClick={() => handleDeleteTemplate(canvasId, userAuthData.id, data, setCanvasTemplateList)}>{LS("Delete")}</button>
             </div>
           </div>
         )
@@ -33,7 +34,12 @@ const CanvasTemplatesBoard = (props: {
   )
 }
 
-const handleDeleteTemplate = (canvasId: string, ownerId: string) => {
+const handleDeleteTemplate = (
+  canvasId: string,
+  ownerId: string,
+  data: any,
+  setCanvasTemplateList: any
+) => {
   const loading = message.loading("Loading", 100)
   adminService.deleteCanvasTemplate({
     ownerId,
@@ -44,6 +50,8 @@ const handleDeleteTemplate = (canvasId: string, ownerId: string) => {
       return;
     }
     message.success(LS("Success"));
+    const filteredList = data.filter((item: any) => item.id !== canvasId)
+    setCanvasTemplateList(filteredList);
   })
   .catch(e => message.error(LS(e.toString())))
   .finally(() => loading())
