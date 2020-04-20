@@ -11,5 +11,6 @@ namespace Canvas.Modules.CanvasTemplate
     public interface ICanvasTemplateService
     {
         string CreateCanvasTemplate(CreateCanvasTemplateModel data);
+        string DeleteCanvasTemplate(DeleteCanvasTemplateModel data);
     }
 }

@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 using Canvas.Controllers.Admin;
+
+
 
 namespace Canvas.Modules.CanvasTemplate
 {
@@ -60,6 +63,28 @@ namespace Canvas.Modules.CanvasTemplate
             catch
             {
                 return "{\"error\": \"Something_went_wrong\"}";
+            }
+        }
+
+        public string DeleteCanvasTemplate(DeleteCanvasTemplateModel data) {
+            string ownerId = data.ownerId,
+                   canvasId = data.canvasId;
+
+            /// <summary>
+            ///     Try to delete a canvas template from database.
+            /// </summary>
+            try
+            {
+                var builder = Builders<Models.Canvas>.Filter;
+                // Filter to check canvas and owner id before removing.
+                var filter = builder.Eq("_id", new ObjectId(canvasId)) & builder.Eq("ownerId", ownerId);
+
+                Collection.DeleteOne(filter);
+
+                return $"{{\"id\": \"{canvasId}\"}}";
+            } catch
+            {
+                return $"{{\"error\": \"Something went wrong\"}}";
             }
         }
     }
