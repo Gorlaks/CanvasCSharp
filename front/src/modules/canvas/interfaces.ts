@@ -1,5 +1,8 @@
+import { ICanvasTemplate } from "../admin/interfaces";
+
 export interface ICanvasRepository {
 	getCanvasById(ownerId: string, id: string): Promise<ICanvasData>;
+	getCanvasTypes(id: string): Promise<Array<ICanvasTemplate> | Record<string, string>>;
 }
 
 export interface ICanvasService {

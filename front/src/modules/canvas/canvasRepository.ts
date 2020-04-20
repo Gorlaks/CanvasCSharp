@@ -17,6 +17,10 @@ class CanvasRepository implements ICanvasRepository {
 		
 		return answer;
 	}
+
+	async getCanvasTypes(id: string) {
+		return await this.apiClient.sendRequest({ id }, "/admin/getCanvasTemplates");
+	}
 	
 }
 

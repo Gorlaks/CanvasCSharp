@@ -20,7 +20,8 @@ export interface ICanvasTemplate {
   type: string;
   rows: number;
   columns: number;
-  data: Array<ICanvasBlocksData>
+  data: Array<ICanvasBlocksData>;
+  error?: string;
 }
 
 export interface IDeleteCanvasTemplate {

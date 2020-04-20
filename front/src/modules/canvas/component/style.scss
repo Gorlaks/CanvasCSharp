@@ -6,6 +6,7 @@
   min-height: 600px;
   position: relative;
   padding: 0 7% 0 7%;
+  margin: 0 0 50px 0;
 
   &__component-loading {
     @include boxSize(100%, 100%);
