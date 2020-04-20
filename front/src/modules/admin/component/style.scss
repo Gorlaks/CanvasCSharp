@@ -113,10 +113,14 @@
     @include boxSize(100%, 40px);
     background-color: transparent;
     color: red;
-    cursor: pointer;
     font-size: 15px;
     text-align: center;
     font-family: $mainFontRegular, $spareFonts;
     line-height: 40px;
+
+    button {
+      background-color: transparent;
+      cursor: pointer;
+    }
   }
 }
