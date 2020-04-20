@@ -1,4 +1,4 @@
-import { IAdminService } from "./interfaces";
+import { IAdminService, IDeleteCanvasTemplate } from "./interfaces";
 import { IApiClient } from "../common/apiClient/interfaces";
 
 class AdminService implements IAdminService {
@@ -8,7 +8,9 @@ class AdminService implements IAdminService {
     this.apiClient = apiClient;
   }
 
-  
+  async deleteCanvasTemplate(templateData: IDeleteCanvasTemplate) {
+    return await this.apiClient.sendRequest(templateData, "/admin/deleteCanvasTemplate");
+  }
 }
 
 export default AdminService;

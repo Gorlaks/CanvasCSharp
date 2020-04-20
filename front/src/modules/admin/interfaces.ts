@@ -1,7 +1,7 @@
 import { ICanvasBlocksData } from "../canvas/interfaces";
 
 export interface IAdminService {
-
+  deleteCanvasTemplate(templateData: IDeleteCanvasTemplate): Promise<Record<string, string>>;
 }
 
 export interface IAdminRepository {
@@ -21,4 +21,9 @@ export interface ICanvasTemplate {
   rows: number;
   columns: number;
   data: Array<ICanvasBlocksData>
+}
+
+export interface IDeleteCanvasTemplate {
+  ownerId: string;
+  canvasId: string;
 }

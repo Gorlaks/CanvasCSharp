@@ -11,6 +11,7 @@ const en = {
 	"Something_went_wrong": "Something went wrong",
 	"Incorrect_data": "Incorrect data",
 	"Empty_field_error": "Fill in all the fields",
+	"Success": "Success",
 
 	// auth page translate
 	"Login": "Login",

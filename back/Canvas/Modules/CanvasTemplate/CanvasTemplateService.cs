@@ -70,6 +70,8 @@ namespace Canvas.Modules.CanvasTemplate
             string ownerId = data.ownerId,
                    canvasId = data.canvasId;
 
+            if (ownerId != "5e53b6871c9d440000527bc4") return "{\"error\": \"Have_to_be_admin\"}";
+
             /// <summary>
             ///     Try to delete a canvas template from database.
             /// </summary>
@@ -77,7 +79,7 @@ namespace Canvas.Modules.CanvasTemplate
             {
                 var builder = Builders<Models.Canvas>.Filter;
                 // Filter to check canvas and owner id before removing.
-                var filter = builder.Eq("_id", new ObjectId(canvasId)) & builder.Eq("ownerId", ownerId);
+                var filter = builder.Eq("_id", new ObjectId(canvasId));
 
                 Collection.DeleteOne(filter);
 
